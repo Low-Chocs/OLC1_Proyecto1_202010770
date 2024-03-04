@@ -1,0 +1,50 @@
+digraph G { 
+ rankdir=LR 
+S0 -> S1
+[label = "e"];
+S1 -> S2
+[label = "hex" ];
+S0 -> S3
+[label = "e"];
+S3 -> S4
+[label = "dig" ];
+S2 -> S5
+[label = "e"];
+S4 -> S5
+[label = "e"];
+S5 -> S6
+[label = "e"];
+S6 -> S7
+[label = "e"];
+S7 -> S8
+[label = "hex" ];
+S6 -> S9
+[label = "e"];
+S9 -> S10
+[label = "dig" ];
+S8 -> S11
+[label = "e"];
+S10 -> S11
+[label = "e"];
+S11 -> S6
+[label = "e"];
+S11 -> S12
+[label = "e"];
+S5 -> S12
+[label = "e"];
+}
+digraph G { 
+ rankdir=LR 
+S0 -> S1
+[label = "dig" ];
+S1 -> S2
+[label = "e"];
+S2 -> S3
+[label = "dig" ];
+S3 -> S2
+[label = "e"];
+S3 -> S4
+[label = "e"];
+S1 -> S4
+[label = "e"];
+}

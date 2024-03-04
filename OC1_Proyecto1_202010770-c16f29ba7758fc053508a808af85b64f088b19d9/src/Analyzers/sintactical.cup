@@ -1,0 +1,103 @@
+package Analyzers ;
+import java_cup.runtime.*;
+import java.util.ArrayList;
+parser code
+
+{:
+    public ArrayList<Reviewer> tree = new ArrayList<>();
+    public int num_global = 0;
+    public void syntax_error(Symbol s){
+        System.out.println("Error Sintactico: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1)+"\n"  );
+    }
+
+    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{ 
+        System.out.println("Error de sintaxis no se pudo terminar de analizar: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1)+"\n"  );
+        }
+:}
+
+terminal String CONCATENATION, DISJUNCTION, 
+NO_OR_MORE, ONE_OR_MORE, NO_OR_ONE, SET, LOWER, UPPER, NUMBERS, COMMA, SEPARATOR, SLASH, MAYOR, 
+BEGIN, END,  PORCENTAGE, COLON, SEMI_COLON, TEXT, CHARACTER, SPECIAL, VARIABLE, PARENTESIS_CERRADO, PARENTESIS_ABIERTO;
+
+non terminal prueba, first_set, new_instruction, coma_notation, patron, simple, regex, second_set, comprobation;
+start with prueba;
+
+
+prueba::=  BEGIN  END;
+
+first_set::= first_set new_instruction|
+                    new_instruction;
+
+new_instruction::= SET COLON VARIABLE SLASH MAYOR patron SEMI_COLON|
+                    VARIABLE SLASH MAYOR regex:a SEMI_COLON{:
+                    num_global++;
+                    String pruebass = "Arbol"+num_global;
+                    tree.add(new Reviewer((node) a, pruebass));
+                :};
+
+coma_notation::= coma_notation COMMA simple|
+                simple;
+
+simple::= NUMBERS|
+        LOWER|
+        UPPER|
+        SPECIAL;
+
+patron::= NUMBERS SLASH NUMBERS |
+            LOWER SEPARATOR LOWER |
+            UPPER SEPARATOR UPPER |
+            SPECIAL SEPARATOR SPECIAL|
+            coma_notation;
+
+regex::= CONCATENATION:a regex:b regex:c{:
+        node parent_node = new node(a, "AND");
+        parent_node.left = (node)b;
+        parent_node.right = (node)c;
+        RESULT = parent_node;
+        :}|
+        DISJUNCTION:a regex:b regex:c{:
+        node parent_node = new node(a, "OR");
+        parent_node.left = (node)b;
+        parent_node.right  = (node)c;
+        RESULT = parent_node;
+        :}|
+        NO_OR_MORE:a regex:b{:
+        node parent_node = new node(a, "KLEENE");
+        parent_node.left = (node)b;
+        RESULT = parent_node;
+        :}|
+        ONE_OR_MORE:a regex:b{:
+        node parent_node = new node(a, "SUMA");
+        parent_node.left= (node)b;
+        RESULT = parent_node;
+        :}|
+        NO_OR_ONE:a regex:b{:
+        node parent_node = new node(a, "INTE");
+        parent_node.left = (node)b;
+        RESULT = parent_node;
+        :}|
+        CHARACTER:a{:
+        node leaf = new node(a.charAt(1) +" ", "HOJA");
+        System.out.println("HEEEEEEE RECONOCIDO: " +a.charAt(1));
+        leaf.leaf = true;
+        RESULT = leaf;
+        :}|
+        LOWER:a{:
+        node leaf = new node(a +"  ", "HOJA");
+        leaf.leaf = true;
+        RESULT = leaf;
+        :}|
+        UPPER:a{:
+        node leaf = new node(a, "HOJA");
+        leaf.leaf = true;
+        RESULT = leaf;
+        :}|
+        PARENTESIS_ABIERTO VARIABLE:a PARENTESIS_CERRADO {:
+        node leaf = new node(a, "HOJA");
+        leaf.leaf = true;
+        RESULT = leaf;
+        :};
+
+
+
+    

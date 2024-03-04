@@ -1,0 +1,34 @@
+digraph G {
+N1[style=filled, fillcolor=green, shape = circle, label = "."]
+N2[style=filled, fillcolor=green, shape = circle, label = "."]
+N1 -> N2;
+N3[style=filled, fillcolor=green, shape = circle, label = "|"]
+N2 -> N3;
+N4[style=filled, fillcolor=green, shape = circle, label = "hex"]
+N3 -> N4;
+N5[style=filled, fillcolor=green, shape = circle, label = "dig"]
+N3 -> N5;
+N6[style=filled, fillcolor=green, shape = circle, label = "*"]
+N2 -> N6;
+N7[style=filled, fillcolor=green, shape = circle, label = "|"]
+N6 -> N7;
+N8[style=filled, fillcolor=green, shape = circle, label = "hex"]
+N7 -> N8;
+N9[style=filled, fillcolor=green, shape = circle, label = "dig"]
+N7 -> N9;
+N10[style=filled, fillcolor=green, shape = circle, label = "#"]
+N1 -> N10;
+}
+digraph G {
+N1[style=filled, fillcolor=green, shape = circle, label = "."]
+N2[style=filled, fillcolor=green, shape = circle, label = "."]
+N1 -> N2;
+N3[style=filled, fillcolor=green, shape = circle, label = "dig"]
+N2 -> N3;
+N4[style=filled, fillcolor=green, shape = circle, label = "*"]
+N2 -> N4;
+N5[style=filled, fillcolor=green, shape = circle, label = "dig"]
+N4 -> N5;
+N6[style=filled, fillcolor=green, shape = circle, label = "#"]
+N1 -> N6;
+}
