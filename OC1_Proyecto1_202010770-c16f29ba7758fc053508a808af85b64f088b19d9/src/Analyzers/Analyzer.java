@@ -18,7 +18,6 @@ public class Analyzer {
             String opcFlex[] = {route+"lexical.flex","-d",route};
             jflex.Main.generate(opcFlex);
             String opcCUP[] = {"-destdir",route,"-parser", "sintactical", route + "sintactical.cup"};
-            System.out.println("HE PASADO");
             java_cup.Main.main(opcCUP);
         } catch (Exception e) {
             e.printStackTrace();

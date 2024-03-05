@@ -32,15 +32,7 @@ public class sintactical extends java_cup.runtime.lr_parser {
   /** Production table. */
   protected static final short _production_table[][] = 
     unpackFromStrings(new String[] {
-    "\000\032\000\002\002\004\000\002\002\004\000\002\003" +
-    "\004\000\002\003\003\000\002\004\011\000\002\004\007" +
-    "\000\002\005\005\000\002\005\003\000\002\007\003\000" +
-    "\002\007\003\000\002\007\003\000\002\007\003\000\002" +
-    "\006\005\000\002\006\005\000\002\006\005\000\002\006" +
-    "\005\000\002\006\003\000\002\010\005\000\002\010\005" +
-    "\000\002\010\004\000\002\010\004\000\002\010\004\000" +
-    "\002\010\003\000\002\010\003\000\002\010\003\000\002" +
-    "\010\005" });
+    "\000\002\000\002\002\004\000\002\002\003" });
 
   /** Access to production table. */
   public short[][] production_table() {return _production_table;}
@@ -48,9 +40,9 @@ public class sintactical extends java_cup.runtime.lr_parser {
   /** Parse-action table. */
   protected static final short[][] _action_table = 
     unpackFromStrings(new String[] {
-    "\000\005\000\004\021\005\001\002\000\004\002\007\001" +
-    "\002\000\004\022\006\001\002\000\004\002\000\001\002" +
-    "\000\004\002\001\001\002" });
+    "\000\004\000\004\004\004\001\002\000\004\002\000\001" +
+    "\002\000\004\002\006\001\002\000\004\002\001\001\002" +
+    "" });
 
   /** Access to parse-action table. */
   public short[][] action_table() {return _action_table;}
@@ -58,8 +50,8 @@ public class sintactical extends java_cup.runtime.lr_parser {
   /** <code>reduce_goto</code> table. */
   protected static final short[][] _reduce_table = 
     unpackFromStrings(new String[] {
-    "\000\005\000\004\002\003\001\001\000\002\001\001\000" +
-    "\002\001\001\000\002\001\001\000\002\001\001" });
+    "\000\004\000\004\002\004\001\001\000\002\001\001\000" +
+    "\002\001\001\000\002\001\001" });
 
   /** Access to <code>reduce_goto</code> table. */
   public short[][] reduce_table() {return _reduce_table;}
@@ -134,7 +126,7 @@ class CUP$sintactical$actions {
       switch (CUP$sintactical$act_num)
         {
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 0: // $START ::= prueba EOF 
+          case 0: // $START ::= inicio EOF 
             {
               Object RESULT =null;
 		int start_valleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).left;
@@ -148,321 +140,11 @@ class CUP$sintactical$actions {
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 1: // prueba ::= BEGIN END 
+          case 1: // inicio ::= VAR 
             {
               Object RESULT =null;
 
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("prueba",0, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 2: // first_set ::= first_set new_instruction 
-            {
-              Object RESULT =null;
-
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("first_set",1, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 3: // first_set ::= new_instruction 
-            {
-              Object RESULT =null;
-
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("first_set",1, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 4: // new_instruction ::= SET COLON VARIABLE SLASH MAYOR patron SEMI_COLON 
-            {
-              Object RESULT =null;
-
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("new_instruction",2, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-6)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 5: // new_instruction ::= VARIABLE SLASH MAYOR regex SEMI_COLON 
-            {
-              Object RESULT =null;
-		int aleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).left;
-		int aright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).right;
-		Object a = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).value;
-		
-                    num_global++;
-                    String pruebass = "Arbol"+num_global;
-                    tree.add(new Reviewer((node) a, pruebass));
-                
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("new_instruction",2, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-4)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 6: // coma_notation ::= coma_notation COMMA simple 
-            {
-              Object RESULT =null;
-
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("coma_notation",3, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 7: // coma_notation ::= simple 
-            {
-              Object RESULT =null;
-
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("coma_notation",3, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 8: // simple ::= NUMBERS 
-            {
-              Object RESULT =null;
-
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("simple",5, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 9: // simple ::= LOWER 
-            {
-              Object RESULT =null;
-
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("simple",5, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 10: // simple ::= UPPER 
-            {
-              Object RESULT =null;
-
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("simple",5, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 11: // simple ::= SPECIAL 
-            {
-              Object RESULT =null;
-
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("simple",5, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 12: // patron ::= NUMBERS SLASH NUMBERS 
-            {
-              Object RESULT =null;
-
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("patron",4, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 13: // patron ::= LOWER SEPARATOR LOWER 
-            {
-              Object RESULT =null;
-
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("patron",4, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 14: // patron ::= UPPER SEPARATOR UPPER 
-            {
-              Object RESULT =null;
-
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("patron",4, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 15: // patron ::= SPECIAL SEPARATOR SPECIAL 
-            {
-              Object RESULT =null;
-
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("patron",4, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 16: // patron ::= coma_notation 
-            {
-              Object RESULT =null;
-
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("patron",4, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 17: // regex ::= CONCATENATION regex regex 
-            {
-              Object RESULT =null;
-		int aleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)).left;
-		int aright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)).right;
-		String a = (String)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)).value;
-		int bleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).left;
-		int bright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).right;
-		Object b = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).value;
-		int cleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
-		int cright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
-		Object c = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-		
-        node parent_node = new node(a, "AND");
-        parent_node.left = (node)b;
-        parent_node.right = (node)c;
-        RESULT = parent_node;
-        
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("regex",6, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 18: // regex ::= DISJUNCTION regex regex 
-            {
-              Object RESULT =null;
-		int aleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)).left;
-		int aright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)).right;
-		String a = (String)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)).value;
-		int bleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).left;
-		int bright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).right;
-		Object b = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).value;
-		int cleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
-		int cright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
-		Object c = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-		
-        node parent_node = new node(a, "OR");
-        parent_node.left = (node)b;
-        parent_node.right  = (node)c;
-        RESULT = parent_node;
-        
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("regex",6, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 19: // regex ::= NO_OR_MORE regex 
-            {
-              Object RESULT =null;
-		int aleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).left;
-		int aright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).right;
-		String a = (String)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).value;
-		int bleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
-		int bright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
-		Object b = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-		
-        node parent_node = new node(a, "KLEENE");
-        parent_node.left = (node)b;
-        RESULT = parent_node;
-        
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("regex",6, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 20: // regex ::= ONE_OR_MORE regex 
-            {
-              Object RESULT =null;
-		int aleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).left;
-		int aright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).right;
-		String a = (String)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).value;
-		int bleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
-		int bright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
-		Object b = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-		
-        node parent_node = new node(a, "SUMA");
-        parent_node.left= (node)b;
-        RESULT = parent_node;
-        
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("regex",6, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 21: // regex ::= NO_OR_ONE regex 
-            {
-              Object RESULT =null;
-		int aleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).left;
-		int aright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).right;
-		String a = (String)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).value;
-		int bleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
-		int bright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
-		Object b = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-		
-        node parent_node = new node(a, "INTE");
-        parent_node.left = (node)b;
-        RESULT = parent_node;
-        
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("regex",6, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 22: // regex ::= CHARACTER 
-            {
-              Object RESULT =null;
-		int aleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
-		int aright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
-		String a = (String)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-		
-        node leaf = new node(a.charAt(1) +" ", "HOJA");
-        System.out.println("HEEEEEEE RECONOCIDO: " +a.charAt(1));
-        leaf.leaf = true;
-        RESULT = leaf;
-        
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("regex",6, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 23: // regex ::= LOWER 
-            {
-              Object RESULT =null;
-		int aleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
-		int aright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
-		String a = (String)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-		
-        node leaf = new node(a +"  ", "HOJA");
-        leaf.leaf = true;
-        RESULT = leaf;
-        
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("regex",6, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 24: // regex ::= UPPER 
-            {
-              Object RESULT =null;
-		int aleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
-		int aright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
-		String a = (String)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-		
-        node leaf = new node(a, "HOJA");
-        leaf.leaf = true;
-        RESULT = leaf;
-        
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("regex",6, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
-            }
-          return CUP$sintactical$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 25: // regex ::= PARENTESIS_ABIERTO VARIABLE PARENTESIS_CERRADO 
-            {
-              Object RESULT =null;
-		int aleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).left;
-		int aright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).right;
-		String a = (String)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).value;
-		
-        node leaf = new node(a, "HOJA");
-        leaf.leaf = true;
-        RESULT = leaf;
-        
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("regex",6, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
+              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("inicio",0, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
 

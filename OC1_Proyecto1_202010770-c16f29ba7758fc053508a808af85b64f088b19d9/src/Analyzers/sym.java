@@ -8,59 +8,97 @@ package Analyzers;
 /** CUP generated class containing symbol constants. */
 public class sym {
   /* terminals */
-  public static final int PARENTESIS_ABIERTO = 25;
-  public static final int CHARACTER = 21;
-  public static final int SLASH = 13;
-  public static final int END = 16;
-  public static final int VARIABLE = 23;
-  public static final int SEMI_COLON = 19;
-  public static final int UPPER = 9;
-  public static final int SEPARATOR = 12;
-  public static final int COLON = 18;
-  public static final int NO_OR_MORE = 4;
-  public static final int PORCENTAGE = 17;
-  public static final int BEGIN = 15;
-  public static final int PARENTESIS_CERRADO = 24;
-  public static final int COMMA = 11;
-  public static final int LOWER = 8;
-  public static final int ONE_OR_MORE = 5;
-  public static final int MAYOR = 14;
+  public static final int DIAGONAL = 11;
+  public static final int SLASH_MENOR = 9;
+  public static final int SLASH_MAYOR = 10;
+  public static final int CORCHETE_CERRADO = 16;
+  public static final int DOUBLE = 4;
+  public static final int RESTA = 18;
+  public static final int DOS_PUNTOS = 8;
+  public static final int PARENTESIS_ABIERTO = 13;
+  public static final int IGUAL = 30;
+  public static final int COLUMN = 31;
+  public static final int COMMA = 12;
+  public static final int ARROBA = 7;
+  public static final int TITULO = 38;
+  public static final int SUMA = 17;
+  public static final int MIN = 27;
+  public static final int MEDIANA = 23;
+  public static final int NUMERO_FLOTANTE = 35;
+  public static final int CORCHETE_ABIERTO = 15;
   public static final int EOF = 0;
-  public static final int DISJUNCTION = 3;
-  public static final int SET = 7;
-  public static final int CONCATENATION = 2;
+  public static final int ARREGLO = 6;
   public static final int error = 1;
-  public static final int SPECIAL = 22;
-  public static final int TEXT = 20;
-  public static final int NO_OR_ONE = 6;
-  public static final int NUMBERS = 10;
+  public static final int PROGRAM = 33;
+  public static final int CADENA = 5;
+  public static final int VALUES = 43;
+  public static final int EJE_Y = 40;
+  public static final int MODULO = 21;
+  public static final int EJE_X = 39;
+  public static final int MODA = 24;
+  public static final int VARIABLE = 3;
+  public static final int VARIANZA = 25;
+  public static final int END = 32;
+  public static final int STRING = 34;
+  public static final int PARENTESIS_CERRADO = 14;
+  public static final int MEDIA = 22;
+  public static final int EXEC = 37;
+  public static final int LABEL = 44;
+  public static final int DIVISION = 20;
+  public static final int MAX = 26;
+  public static final int TITULO_Y = 42;
+  public static final int NUMERO_ENTERO = 36;
+  public static final int TITULO_X = 41;
+  public static final int VAR = 2;
+  public static final int PRINT = 29;
+  public static final int CONSOLE = 28;
+  public static final int MULTIPLICACION = 19;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
-  "CONCATENATION",
-  "DISJUNCTION",
-  "NO_OR_MORE",
-  "ONE_OR_MORE",
-  "NO_OR_ONE",
-  "SET",
-  "LOWER",
-  "UPPER",
-  "NUMBERS",
-  "COMMA",
-  "SEPARATOR",
-  "SLASH",
-  "MAYOR",
-  "BEGIN",
-  "END",
-  "PORCENTAGE",
-  "COLON",
-  "SEMI_COLON",
-  "TEXT",
-  "CHARACTER",
-  "SPECIAL",
+  "VAR",
   "VARIABLE",
+  "DOUBLE",
+  "CADENA",
+  "ARREGLO",
+  "ARROBA",
+  "DOS_PUNTOS",
+  "SLASH_MENOR",
+  "SLASH_MAYOR",
+  "DIAGONAL",
+  "COMMA",
+  "PARENTESIS_ABIERTO",
   "PARENTESIS_CERRADO",
-  "PARENTESIS_ABIERTO"
+  "CORCHETE_ABIERTO",
+  "CORCHETE_CERRADO",
+  "SUMA",
+  "RESTA",
+  "MULTIPLICACION",
+  "DIVISION",
+  "MODULO",
+  "MEDIA",
+  "MEDIANA",
+  "MODA",
+  "VARIANZA",
+  "MAX",
+  "MIN",
+  "CONSOLE",
+  "PRINT",
+  "IGUAL",
+  "COLUMN",
+  "END",
+  "PROGRAM",
+  "STRING",
+  "NUMERO_FLOTANTE",
+  "NUMERO_ENTERO",
+  "EXEC",
+  "TITULO",
+  "EJE_X",
+  "EJE_Y",
+  "TITULO_X",
+  "TITULO_Y",
+  "VALUES",
+  "LABEL"
   };
 }
 
