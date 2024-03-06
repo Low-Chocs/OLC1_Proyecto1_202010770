@@ -24,15 +24,17 @@ public class main_window extends javax.swing.JFrame {
     /**
      * Creates new form main_window
      */
+    public String texto_de_consola = "";
     public main_window() {
         initComponents();
+        this.texto_de_consola = "";
     }
     
     public void new_tab(){
         main_window window = new main_window();
         window.setVisible(true) ;
     }
-
+   
     public static String path_proyecto = "";
     /**
      * This method is called from within the constructor to initialize the form.
@@ -84,8 +86,10 @@ public class main_window extends javax.swing.JFrame {
             }
         });
 
+        jTextArea2.setEditable(false);
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
+        jTextArea2.setText(texto_de_consola);
         jScrollPane2.setViewportView(jTextArea2);
 
         jLabel1.setText("Consola");

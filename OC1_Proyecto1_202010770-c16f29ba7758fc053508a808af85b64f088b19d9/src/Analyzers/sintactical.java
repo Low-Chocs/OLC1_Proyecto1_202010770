@@ -7,6 +7,7 @@ package Analyzers;
 
 import java_cup.runtime.*;
 import java.util.ArrayList;
+import proyecto1_oc1_202010770.tabla_de_simbolos;
 import java_cup.runtime.XMLElement;
 
 /** CUP v0.11b 20160615 (GIT 4ac7450) generated parser.
@@ -32,7 +33,10 @@ public class sintactical extends java_cup.runtime.lr_parser {
   /** Production table. */
   protected static final short _production_table[][] = 
     unpackFromStrings(new String[] {
-    "\000\002\000\002\002\004\000\002\002\003" });
+    "\000\013\000\002\002\004\000\002\002\006\000\002\003" +
+    "\004\000\002\003\003\000\002\004\003\000\002\005\015" +
+    "\000\002\006\003\000\002\006\003\000\002\007\003\000" +
+    "\002\007\003\000\002\007\003" });
 
   /** Access to production table. */
   public short[][] production_table() {return _production_table;}
@@ -40,9 +44,20 @@ public class sintactical extends java_cup.runtime.lr_parser {
   /** Parse-action table. */
   protected static final short[][] _action_table = 
     unpackFromStrings(new String[] {
-    "\000\004\000\004\004\004\001\002\000\004\002\000\001" +
-    "\002\000\004\002\006\001\002\000\004\002\001\001\002" +
-    "" });
+    "\000\032\000\004\043\005\001\002\000\004\002\034\001" +
+    "\002\000\004\004\006\001\002\000\004\012\015\001\002" +
+    "\000\004\042\013\001\002\000\006\004\006\042\ufffe\001" +
+    "\002\000\006\004\ufffd\042\ufffd\001\002\000\004\042\uffff" +
+    "\001\002\000\004\043\014\001\002\000\004\002\000\001" +
+    "\002\000\006\006\016\007\020\001\002\000\004\012\ufffb" +
+    "\001\002\000\004\012\021\001\002\000\004\012\ufffa\001" +
+    "\002\000\004\012\022\001\002\000\004\005\023\001\002" +
+    "\000\004\013\024\001\002\000\004\015\025\001\002\000" +
+    "\010\044\030\045\026\046\031\001\002\000\004\042\ufff8" +
+    "\001\002\000\004\042\032\001\002\000\004\042\ufff9\001" +
+    "\002\000\004\042\ufff7\001\002\000\004\047\033\001\002" +
+    "\000\006\004\ufffc\042\ufffc\001\002\000\004\002\001\001" +
+    "\002" });
 
   /** Access to parse-action table. */
   public short[][] action_table() {return _action_table;}
@@ -50,7 +65,15 @@ public class sintactical extends java_cup.runtime.lr_parser {
   /** <code>reduce_goto</code> table. */
   protected static final short[][] _reduce_table = 
     unpackFromStrings(new String[] {
-    "\000\004\000\004\002\004\001\001\000\002\001\001\000" +
+    "\000\032\000\004\002\003\001\001\000\002\001\001\000" +
+    "\010\003\006\004\007\005\010\001\001\000\002\001\001" +
+    "\000\002\001\001\000\010\003\011\004\007\005\010\001" +
+    "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
+    "\000\002\001\001\000\004\006\016\001\001\000\002\001" +
+    "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
+    "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
+    "\004\007\026\001\001\000\002\001\001\000\002\001\001" +
+    "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
     "\002\001\001\000\002\001\001" });
 
   /** Access to <code>reduce_goto</code> table. */
@@ -90,15 +113,16 @@ public class sintactical extends java_cup.runtime.lr_parser {
 
 
 
-    public ArrayList<Reviewer> tree = new ArrayList<>();
+    public ArrayList<proyecto1_oc1_202010770.tabla_de_simbolos> tabla_simbolos = new ArrayList<>();
     public int num_global = 0;
     public void syntax_error(Symbol s){
         System.out.println("Error Sintactico: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1)+"\n"  );
     }
 
     public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{ 
-        System.out.println("Error de sintaxis no se pudo terminar de analizar: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1)+"\n"  );
-        }
+        System.out.println("Error de sintaxis no se pudo terminar de analizar: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1)+"\n" );
+        
+}
 
 
 /** Cup generated class to encapsulate user supplied action code.*/
@@ -140,11 +164,116 @@ class CUP$sintactical$actions {
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 1: // inicio ::= VAR 
+          case 1: // inicio ::= PROGRAM instruccion END PROGRAM 
             {
               Object RESULT =null;
 
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("inicio",0, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
+              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("inicio",0, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-3)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
+            }
+          return CUP$sintactical$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 2: // instruccion ::= lista_de_instrucciones instruccion 
+            {
+              Object RESULT =null;
+
+              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("instruccion",1, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
+            }
+          return CUP$sintactical$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 3: // instruccion ::= lista_de_instrucciones 
+            {
+              Object RESULT =null;
+
+              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("instruccion",1, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
+            }
+          return CUP$sintactical$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 4: // lista_de_instrucciones ::= asignacion 
+            {
+              Object RESULT =null;
+
+              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("lista_de_instrucciones",2, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
+            }
+          return CUP$sintactical$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 5: // asignacion ::= VAR DOS_PUNTOS tipo_de_dato DOS_PUNTOS DOS_PUNTOS VARIABLE SLASH_MENOR DIAGONAL dato END PUNTO_Y_COMA 
+            {
+              Object RESULT =null;
+		int aleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-8)).left;
+		int aright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-8)).right;
+		Object a = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-8)).value;
+		int bleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-5)).left;
+		int bright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-5)).right;
+		String b = (String)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-5)).value;
+		int cleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)).left;
+		int cright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)).right;
+		Object c = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)).value;
+		
+            System.out.println(b+"jkldajkds");
+            tabla_simbolos.add(new proyecto1_oc1_202010770.tabla_de_simbolos(a.toString(),b.toString(),c.toString()));
+            for (proyecto1_oc1_202010770.tabla_de_simbolos simbolo : tabla_simbolos) {
+            System.out.println("Tipo: " + simbolo.tipo + ", Variable: " + simbolo.variable + ", Dato: " + simbolo.dato);
+        }
+    
+              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("asignacion",3, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-10)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
+            }
+          return CUP$sintactical$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 6: // tipo_de_dato ::= DOUBLE 
+            {
+              Object RESULT =null;
+		RESULT = "double"; 
+              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("tipo_de_dato",4, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
+            }
+          return CUP$sintactical$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 7: // tipo_de_dato ::= CADENA 
+            {
+              Object RESULT =null;
+		RESULT = "cadena"; 
+              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("tipo_de_dato",4, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
+            }
+          return CUP$sintactical$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 8: // dato ::= CADENAS 
+            {
+              Object RESULT =null;
+		int datosleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
+		int datosright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
+		String datos = (String)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
+		RESULT = datos.toString(); ; 
+              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("dato",5, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
+            }
+          return CUP$sintactical$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 9: // dato ::= NUMERO_FLOTANTE 
+            {
+              Object RESULT =null;
+		int datosleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
+		int datosright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
+		String datos = (String)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
+		RESULT = datos.toString(); 
+              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("dato",5, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
+            }
+          return CUP$sintactical$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 10: // dato ::= NUMERO_ENTERO 
+            {
+              Object RESULT =null;
+		int datosleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
+		int datosright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
+		String datos = (String)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
+		RESULT = datos.toString(); 
+              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("dato",5, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
 

@@ -11,16 +11,18 @@ public class sym {
   public static final int DIAGONAL = 11;
   public static final int SLASH_MENOR = 9;
   public static final int SLASH_MAYOR = 10;
+  public static final int PUNTO_Y_COMA = 37;
   public static final int CORCHETE_CERRADO = 16;
   public static final int DOUBLE = 4;
   public static final int RESTA = 18;
   public static final int DOS_PUNTOS = 8;
   public static final int PARENTESIS_ABIERTO = 13;
+  public static final int CADENAS = 34;
   public static final int IGUAL = 30;
   public static final int COLUMN = 31;
   public static final int COMMA = 12;
   public static final int ARROBA = 7;
-  public static final int TITULO = 38;
+  public static final int TITULO = 39;
   public static final int SUMA = 17;
   public static final int MIN = 27;
   public static final int MEDIANA = 23;
@@ -31,24 +33,23 @@ public class sym {
   public static final int error = 1;
   public static final int PROGRAM = 33;
   public static final int CADENA = 5;
-  public static final int VALUES = 43;
-  public static final int EJE_Y = 40;
+  public static final int VALUES = 44;
+  public static final int EJE_Y = 41;
   public static final int MODULO = 21;
-  public static final int EJE_X = 39;
+  public static final int EJE_X = 40;
   public static final int MODA = 24;
   public static final int VARIABLE = 3;
   public static final int VARIANZA = 25;
   public static final int END = 32;
-  public static final int STRING = 34;
   public static final int PARENTESIS_CERRADO = 14;
   public static final int MEDIA = 22;
-  public static final int EXEC = 37;
-  public static final int LABEL = 44;
+  public static final int EXEC = 38;
+  public static final int LABEL = 45;
   public static final int DIVISION = 20;
   public static final int MAX = 26;
-  public static final int TITULO_Y = 42;
+  public static final int TITULO_Y = 43;
   public static final int NUMERO_ENTERO = 36;
-  public static final int TITULO_X = 41;
+  public static final int TITULO_X = 42;
   public static final int VAR = 2;
   public static final int PRINT = 29;
   public static final int CONSOLE = 28;
@@ -88,9 +89,10 @@ public class sym {
   "COLUMN",
   "END",
   "PROGRAM",
-  "STRING",
+  "CADENAS",
   "NUMERO_FLOTANTE",
   "NUMERO_ENTERO",
+  "PUNTO_Y_COMA",
   "EXEC",
   "TITULO",
   "EJE_X",

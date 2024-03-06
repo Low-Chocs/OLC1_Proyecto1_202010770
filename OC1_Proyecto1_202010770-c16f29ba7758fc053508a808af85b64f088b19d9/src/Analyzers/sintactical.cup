@@ -1,31 +1,52 @@
 package Analyzers ;
 import java_cup.runtime.*;
 import java.util.ArrayList;
+import proyecto1_oc1_202010770.tabla_de_simbolos;
 parser code
 
 {:
-    public ArrayList<Reviewer> tree = new ArrayList<>();
+    public ArrayList<proyecto1_oc1_202010770.tabla_de_simbolos> tabla_simbolos = new ArrayList<>();
     public int num_global = 0;
     public void syntax_error(Symbol s){
         System.out.println("Error Sintactico: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1)+"\n"  );
     }
 
     public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{ 
-        System.out.println("Error de sintaxis no se pudo terminar de analizar: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1)+"\n"  );
-        }
+        System.out.println("Error de sintaxis no se pudo terminar de analizar: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1)+"\n" );
+        
+}
 :}
 
 terminal String VAR, VARIABLE, DOUBLE, CADENA, ARREGLO, ARROBA;
 terminal String DOS_PUNTOS, SLASH_MENOR, SLASH_MAYOR, DIAGONAL, COMMA, PARENTESIS_ABIERTO, PARENTESIS_CERRADO, CORCHETE_ABIERTO, CORCHETE_CERRADO;
 terminal String SUMA, RESTA, MULTIPLICACION, DIVISION, MODULO, MEDIA, MEDIANA, MODA, VARIANZA, MAX, MIN; 
-terminal string CONSOLE, PRINT, IGUAL, COLUMN, END, PROGRAM, STRING, NUMERO_FLOTANTE, NUMERO_ENTERO;
-terminal string EXEC, TITULO, EJE_X, EJE_Y, TITULO_X, TITULO_Y, VALUES, LABEL;
+terminal String CONSOLE, PRINT, IGUAL, COLUMN, END, PROGRAM, CADENAS, NUMERO_FLOTANTE, NUMERO_ENTERO, PUNTO_Y_COMA;
+terminal String EXEC, TITULO, EJE_X, EJE_Y, TITULO_X, TITULO_Y, VALUES, LABEL;
 
-non terminal inicio;
+non terminal inicio, instruccion, lista_de_instrucciones, asignacion, tipo_de_dato, dato;
+
 
 start with inicio;
 
-inicio ::= VAR;
+inicio ::= PROGRAM instruccion END PROGRAM;
 
+instruccion ::= lista_de_instrucciones instruccion
+                |lista_de_instrucciones;
 
-    
+lista_de_instrucciones ::= asignacion;
+
+asignacion ::= VAR DOS_PUNTOS tipo_de_dato:a DOS_PUNTOS DOS_PUNTOS VARIABLE:b SLASH_MENOR DIAGONAL dato:c END PUNTO_Y_COMA
+    {:
+            System.out.println(b+"jkldajkds");
+            tabla_simbolos.add(new proyecto1_oc1_202010770.tabla_de_simbolos(a.toString(),b.toString(),c.toString()));
+            for (proyecto1_oc1_202010770.tabla_de_simbolos simbolo : tabla_simbolos) {
+            System.out.println("Tipo: " + simbolo.tipo + ", Variable: " + simbolo.variable + ", Dato: " + simbolo.dato);
+        }
+    :};
+
+tipo_de_dato ::= DOUBLE{:RESULT = "double"; :}
+                | CADENA{:RESULT = "cadena"; :};
+
+dato ::= CADENAS:datos {:RESULT = datos.toString(); ; :}
+    | NUMERO_FLOTANTE:datos {:RESULT = datos.toString(); :}
+    | NUMERO_ENTERO:datos {:RESULT = datos.toString(); :};
