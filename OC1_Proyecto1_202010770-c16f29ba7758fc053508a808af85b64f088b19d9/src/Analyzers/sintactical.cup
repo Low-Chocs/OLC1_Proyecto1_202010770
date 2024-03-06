@@ -49,4 +49,13 @@ tipo_de_dato ::= DOUBLE{:RESULT = "double"; :}
 
 dato ::= CADENAS:datos {:RESULT = datos.toString(); ; :}
     | NUMERO_FLOTANTE:datos {:RESULT = datos.toString(); :}
-    | NUMERO_ENTERO:datos {:RESULT = datos.toString(); :};
+    | NUMERO_ENTERO:datos {:RESULT = datos.toString(); :}
+    | VARIABLE: datos {:
+        String variable_a_buscar = datos.toString();
+        for (proyecto1_oc1_202010770.tabla_de_simbolos simbolo : tabla_simbolos){
+            if(variable_a_buscar.equals(simbolo.variable)){
+            RESULT = simbolo.dato;
+            break;
+            }
+        }
+    :};

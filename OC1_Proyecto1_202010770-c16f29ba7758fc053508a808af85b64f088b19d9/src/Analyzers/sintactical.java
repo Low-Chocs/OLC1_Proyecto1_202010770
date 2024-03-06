@@ -33,10 +33,10 @@ public class sintactical extends java_cup.runtime.lr_parser {
   /** Production table. */
   protected static final short _production_table[][] = 
     unpackFromStrings(new String[] {
-    "\000\013\000\002\002\004\000\002\002\006\000\002\003" +
+    "\000\014\000\002\002\004\000\002\002\006\000\002\003" +
     "\004\000\002\003\003\000\002\004\003\000\002\005\015" +
     "\000\002\006\003\000\002\006\003\000\002\007\003\000" +
-    "\002\007\003\000\002\007\003" });
+    "\002\007\003\000\002\007\003\000\002\007\003" });
 
   /** Access to production table. */
   public short[][] production_table() {return _production_table;}
@@ -44,7 +44,7 @@ public class sintactical extends java_cup.runtime.lr_parser {
   /** Parse-action table. */
   protected static final short[][] _action_table = 
     unpackFromStrings(new String[] {
-    "\000\032\000\004\043\005\001\002\000\004\002\034\001" +
+    "\000\033\000\004\043\005\001\002\000\004\002\035\001" +
     "\002\000\004\004\006\001\002\000\004\012\015\001\002" +
     "\000\004\042\013\001\002\000\006\004\006\042\ufffe\001" +
     "\002\000\006\004\ufffd\042\ufffd\001\002\000\004\042\uffff" +
@@ -53,11 +53,11 @@ public class sintactical extends java_cup.runtime.lr_parser {
     "\001\002\000\004\012\021\001\002\000\004\012\ufffa\001" +
     "\002\000\004\012\022\001\002\000\004\005\023\001\002" +
     "\000\004\013\024\001\002\000\004\015\025\001\002\000" +
-    "\010\044\030\045\026\046\031\001\002\000\004\042\ufff8" +
-    "\001\002\000\004\042\032\001\002\000\004\042\ufff9\001" +
-    "\002\000\004\042\ufff7\001\002\000\004\047\033\001\002" +
-    "\000\006\004\ufffc\042\ufffc\001\002\000\004\002\001\001" +
-    "\002" });
+    "\012\005\032\044\030\045\026\046\031\001\002\000\004" +
+    "\042\ufff8\001\002\000\004\042\033\001\002\000\004\042" +
+    "\ufff9\001\002\000\004\042\ufff7\001\002\000\004\042\ufff6" +
+    "\001\002\000\004\047\034\001\002\000\006\004\ufffc\042" +
+    "\ufffc\001\002\000\004\002\001\001\002" });
 
   /** Access to parse-action table. */
   public short[][] action_table() {return _action_table;}
@@ -65,7 +65,7 @@ public class sintactical extends java_cup.runtime.lr_parser {
   /** <code>reduce_goto</code> table. */
   protected static final short[][] _reduce_table = 
     unpackFromStrings(new String[] {
-    "\000\032\000\004\002\003\001\001\000\002\001\001\000" +
+    "\000\033\000\004\002\003\001\001\000\002\001\001\000" +
     "\010\003\006\004\007\005\010\001\001\000\002\001\001" +
     "\000\002\001\001\000\010\003\011\004\007\005\010\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
@@ -74,7 +74,7 @@ public class sintactical extends java_cup.runtime.lr_parser {
     "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
     "\004\007\026\001\001\000\002\001\001\000\002\001\001" +
     "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
-    "\002\001\001\000\002\001\001" });
+    "\002\001\001\000\002\001\001\000\002\001\001" });
 
   /** Access to <code>reduce_goto</code> table. */
   public short[][] reduce_table() {return _reduce_table;}
@@ -273,6 +273,26 @@ class CUP$sintactical$actions {
 		int datosright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
 		String datos = (String)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
 		RESULT = datos.toString(); 
+              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("dato",5, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
+            }
+          return CUP$sintactical$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 11: // dato ::= VARIABLE 
+            {
+              Object RESULT =null;
+		int datosleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
+		int datosright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
+		String datos = (String)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
+		
+        String variable_a_buscar = datos.toString();
+        for (proyecto1_oc1_202010770.tabla_de_simbolos simbolo : tabla_simbolos){
+            if(variable_a_buscar.equals(simbolo.variable)){
+            RESULT = simbolo.dato;
+            break;
+            }
+        }
+    
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("dato",5, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
