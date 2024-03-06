@@ -9,6 +9,7 @@ import java_cup.runtime.*;
 import java.util.ArrayList;
 import proyecto1_oc1_202010770.tabla_de_simbolos;
 import proyecto1_oc1_202010770.operaciones_aritmeticas;
+import java.util.Scanner;
 import java_cup.runtime.XMLElement;
 
 /** CUP v0.11b 20160615 (GIT 4ac7450) generated parser.
@@ -181,6 +182,7 @@ public class sintactical extends java_cup.runtime.lr_parser {
 
     public ArrayList<proyecto1_oc1_202010770.tabla_de_simbolos> tabla_simbolos = new ArrayList<>();
     public proyecto1_oc1_202010770.operaciones_aritmeticas operaciones = new operaciones_aritmeticas();
+    public String datos_en_lista = "";
     public int num_global = 0;
     public void syntax_error(Symbol s){
         System.out.println("Error Sintactico: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1)+"\n"  );
@@ -303,6 +305,20 @@ class CUP$sintactical$actions {
           case 7: // lista ::= ARREGLO DOS_PUNTOS tipo_de_dato DOS_PUNTOS DOS_PUNTOS ARROBA VARIABLE SLASH_MENOR DIAGONAL CORCHETE_ABIERTO datos_de_lista CORCHETE_CERRADO END PUNTO_Y_COMA 
             {
               Object RESULT =null;
+		int varleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-7)).left;
+		int varright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-7)).right;
+		String var = (String)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-7)).value;
+		
+         Scanner scanner = new Scanner(datos_en_lista);
+        while (scanner.hasNext()) {
+            // Leer el próximo número como String
+            String numeroStr = scanner.next();
+            
+            // Convertir el String a Double y agregarlo al ArrayList
+            double numero = Double.parseDouble(numeroStr);
+            System.out.println(var +": "+numero);
+        }
+
 
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("lista",6, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-13)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
@@ -336,7 +352,7 @@ class CUP$sintactical$actions {
 		int bleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
 		int bright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
 		Object b = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-		 RESULT = b;System.out.println(a + " jdakjad " + b );
+		 datos_en_lista += " "+b.toString(); RESULT = b;System.out.println(datos_en_lista);
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("datos_de_lista",7, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
@@ -348,7 +364,7 @@ class CUP$sintactical$actions {
 		int aleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
 		int aright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
 		Object a = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-		System.out.println(a + "kko"); RESULT = a;
+		datos_en_lista += " "+a.toString();  RESULT = a;
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("datos_de_lista",7, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
