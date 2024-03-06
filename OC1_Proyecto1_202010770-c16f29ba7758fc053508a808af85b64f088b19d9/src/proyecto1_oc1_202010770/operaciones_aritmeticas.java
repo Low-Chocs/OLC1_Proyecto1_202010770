@@ -21,4 +21,36 @@ public class operaciones_aritmeticas {
         resultado = String.valueOf(izquierda + derecha);
         return resultado;
     }
+    
+    public String Multiplicacion(String operador_izquierdo, String operador_derecho){
+        String resultado = "";
+        double izquierda = Double.parseDouble(operador_izquierdo);
+        double derecha = Double.parseDouble(operador_derecho);
+        resultado = String.valueOf(izquierda * derecha);
+        return resultado;
+    }
+
+    public String Resta(String operador_izquierdo, String operador_derecho){
+        String resultado = "";
+        double izquierda = Double.parseDouble(operador_izquierdo);
+        double derecha = Double.parseDouble(operador_derecho);
+        resultado = String.valueOf(izquierda - derecha);
+        return resultado;
+    }
+    
+    public String Division(String operador_izquierdo, String operador_derecho){
+        String resultado = "";
+        double izquierda = Double.parseDouble(operador_izquierdo);
+        double derecha = Double.parseDouble(operador_derecho);
+        resultado = String.valueOf(izquierda / derecha);
+        return resultado;
+    }
+    
+    public String Modulo(String operador_izquierdo, String operador_derecho){
+        String resultado = "";
+        double izquierda = Double.parseDouble(operador_izquierdo);
+        double derecha = Double.parseDouble(operador_derecho);
+        resultado = String.valueOf(izquierda % derecha);
+        return resultado;
+    }
 }

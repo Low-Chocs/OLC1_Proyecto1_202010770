@@ -62,6 +62,27 @@ dato ::= CADENAS:datos {:RESULT = datos.toString(); ; :}
         }
     :}
     | SUMA PARENTESIS_ABIERTO dato:izq COMMA dato:der PARENTESIS_CERRADO {:
+    System.out.println("Suma"+izq.toString() +" "+der.toString() );
     System.out.println(operaciones.Suma(izq.toString(), der.toString()));
     RESULT = operaciones.Suma(izq.toString(), der.toString());
+    :}
+    | RESTA PARENTESIS_ABIERTO dato:izq COMMA dato:der PARENTESIS_CERRADO {:
+    System.out.println("Resta"+izq.toString() +" "+der.toString() );
+    System.out.println(operaciones.Rsta(izq.toString(), der.toString()));
+    RESULT = operaciones.Resta(izq.toString(), der.toString());
+    :}
+    | MULTIPLICACION PARENTESIS_ABIERTO dato:izq COMMA dato:der PARENTESIS_CERRADO {:
+    System.out.println("Multiplicacion"+izq.toString() +" "+der.toString() );
+    System.out.println(operaciones.Suma(izq.toString(), der.toString()));
+    RESULT = operaciones.Multiplicacion(izq.toString(), der.toString());
+    :}
+    | DIVISION PARENTESIS_ABIERTO dato:izq COMMA dato:der PARENTESIS_CERRADO {:
+    System.out.println("Division"+izq.toString() +" "+der.toString() );
+    System.out.println(operaciones.Suma(izq.toString(), der.toString()));
+    RESULT = operaciones.Division(izq.toString(), der.toString());
+    :}
+    | MODULO PARENTESIS_ABIERTO dato:izq COMMA dato:der PARENTESIS_CERRADO {:
+    System.out.println("Modulo"+izq.toString() +" "+der.toString() );
+    System.out.println(operaciones.Suma(izq.toString(), der.toString()));
+    RESULT = operaciones.Modulo(izq.toString(), der.toString());
     :};
