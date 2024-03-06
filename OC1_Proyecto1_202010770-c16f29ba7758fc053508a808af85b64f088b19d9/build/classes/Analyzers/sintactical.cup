@@ -2,10 +2,12 @@ package Analyzers ;
 import java_cup.runtime.*;
 import java.util.ArrayList;
 import proyecto1_oc1_202010770.tabla_de_simbolos;
+import proyecto1_oc1_202010770.operaciones_aritmeticas;
 parser code
 
 {:
     public ArrayList<proyecto1_oc1_202010770.tabla_de_simbolos> tabla_simbolos = new ArrayList<>();
+    public proyecto1_oc1_202010770.operaciones_aritmeticas operaciones = new operaciones_aritmeticas();
     public int num_global = 0;
     public void syntax_error(Symbol s){
         System.out.println("Error Sintactico: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1)+"\n"  );
@@ -58,4 +60,8 @@ dato ::= CADENAS:datos {:RESULT = datos.toString(); ; :}
             break;
             }
         }
+    :}
+    | SUMA PARENTESIS_ABIERTO dato:izq COMMA dato:der PARENTESIS_CERRADO {:
+    System.out.println(operaciones.Suma(izq.toString(), der.toString()));
+    RESULT = operaciones.Suma(izq.toString(), der.toString());
     :};
