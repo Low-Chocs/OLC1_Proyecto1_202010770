@@ -35,7 +35,7 @@ VAR = var
 VARIABLE = [a-zA-Z_]([a-zA-Z0-9_])*
 DOUBLE = double
 CADENA = char"[""]"
-ARREGLO = arr
+ARREGLO = "arr"
 ARROBA = "@"
 
 
@@ -56,7 +56,7 @@ CORCHETE_ABIERTO = "["
 CORCHETE_CERRADO = "]"
 
 SUMA = sum
-RESTA = rest
+RESTA = res
 MULTIPLICACION = mul
 DIVISION = div
 MODULO = MOD
@@ -107,12 +107,12 @@ LABEL = label
 
 <YYINITIAL> {ONE_LINE_COMMENT} {System.out.println(yytext() + 5); }
 <YYINITIAL> {MULTI_LINE_COMMENT} {System.out.println(yytext()+ 6); }
+<YYINITIAL> {ARREGLO} {System.out.println(yytext()+10); return new Symbol(sym.ARREGLO, yycolumn, yyline, yytext());}
+<YYINITIAL> {ARROBA} {System.out.println(yytext()+11); return new Symbol(sym.ARROBA, yycolumn, yyline, yytext());}
 
 <YYINITIAL> {VAR} {System.out.println(yytext()+ "SI 2ESTOY ACA"); return new Symbol(sym.VAR, yycolumn, yyline, yytext());  }
 <YYINITIAL> {DOUBLE} {System.out.println(yytext()+8); return new Symbol(sym.DOUBLE, yycolumn, yyline, yytext());}
 <YYINITIAL> {CADENA} {System.out.println(yytext()+9); return new Symbol(sym.CADENA, yycolumn, yyline, yytext());}
-<YYINITIAL> {ARREGLO} {System.out.println(yytext()+10); return new Symbol(sym.ARREGLO, yycolumn, yyline, yytext());}
-<YYINITIAL> {ARROBA} {System.out.println(yytext()+11); return new Symbol(sym.ARROBA, yycolumn, yyline, yytext());}
 
 <YYINITIAL> {EXEC} {System.out.println(yytext()+13); return new Symbol(sym.EXEC, yycolumn, yyline, yytext());}
 <YYINITIAL> {TITULO} {System.out.println(yytext()+14); return new Symbol(sym.TITULO, yycolumn, yyline, yytext());}

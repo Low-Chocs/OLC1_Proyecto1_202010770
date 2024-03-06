@@ -25,9 +25,9 @@ terminal String SUMA, RESTA, MULTIPLICACION, DIVISION, MODULO, MEDIA, MEDIANA, M
 terminal String CONSOLE, PRINT, IGUAL, COLUMN, END, PROGRAM, CADENAS, NUMERO_FLOTANTE, NUMERO_ENTERO, PUNTO_Y_COMA;
 terminal String EXEC, TITULO, EJE_X, EJE_Y, TITULO_X, TITULO_Y, VALUES, LABEL;
 
-non terminal inicio, instruccion, lista_de_instrucciones, asignacion, tipo_de_dato, dato;
+non terminal inicio, instruccion, lista_de_instrucciones, asignacion, tipo_de_dato, dato, lista, datos_de_lista;
 
-
+precedence left COMMA;
 start with inicio;
 
 inicio ::= PROGRAM instruccion END PROGRAM;
@@ -35,7 +35,8 @@ inicio ::= PROGRAM instruccion END PROGRAM;
 instruccion ::= lista_de_instrucciones instruccion
                 |lista_de_instrucciones;
 
-lista_de_instrucciones ::= asignacion;
+lista_de_instrucciones ::= asignacion
+                        |lista;
 
 asignacion ::= VAR DOS_PUNTOS tipo_de_dato:a DOS_PUNTOS DOS_PUNTOS VARIABLE:b SLASH_MENOR DIAGONAL dato:c END PUNTO_Y_COMA
     {:
@@ -46,8 +47,15 @@ asignacion ::= VAR DOS_PUNTOS tipo_de_dato:a DOS_PUNTOS DOS_PUNTOS VARIABLE:b SL
         }
     :};
 
+lista ::= ARREGLO DOS_PUNTOS tipo_de_dato DOS_PUNTOS DOS_PUNTOS ARROBA VARIABLE SLASH_MENOR DIAGONAL CORCHETE_ABIERTO datos_de_lista CORCHETE_CERRADO END PUNTO_Y_COMA;
+
 tipo_de_dato ::= DOUBLE{:RESULT = "double"; :}
                 | CADENA{:RESULT = "cadena"; :};
+
+
+
+datos_de_lista ::= datos_de_lista:a COMMA dato:b {: RESULT = b;System.out.println(a + " jdakjad " + b );:}
+                 | dato:a {:System.out.println(a + "kko"); RESULT = a;:};
 
 dato ::= CADENAS:datos {:RESULT = datos.toString(); ; :}
     | NUMERO_FLOTANTE:datos {:RESULT = datos.toString(); :}
@@ -68,7 +76,7 @@ dato ::= CADENAS:datos {:RESULT = datos.toString(); ; :}
     :}
     | RESTA PARENTESIS_ABIERTO dato:izq COMMA dato:der PARENTESIS_CERRADO {:
     System.out.println("Resta"+izq.toString() +" "+der.toString() );
-    System.out.println(operaciones.Rsta(izq.toString(), der.toString()));
+    System.out.println(operaciones.Resta(izq.toString(), der.toString()));
     RESULT = operaciones.Resta(izq.toString(), der.toString());
     :}
     | MULTIPLICACION PARENTESIS_ABIERTO dato:izq COMMA dato:der PARENTESIS_CERRADO {:
@@ -86,3 +94,6 @@ dato ::= CADENAS:datos {:RESULT = datos.toString(); ; :}
     System.out.println(operaciones.Suma(izq.toString(), der.toString()));
     RESULT = operaciones.Modulo(izq.toString(), der.toString());
     :};
+
+    
+
