@@ -12,12 +12,14 @@ package proyecto1_oc1_202010770;
 public class tabla_de_simbolos {
     public String tipo;
     public String variable;
-    public String dato;
+    public Object dato;
+
     
-   public tabla_de_simbolos(String tipo, String variable, String dato){
+   public tabla_de_simbolos(String tipo, String variable, Object dato){
        this.tipo = tipo;
        this.variable = variable;
        this.dato = dato;
+       
    } 
     
 }

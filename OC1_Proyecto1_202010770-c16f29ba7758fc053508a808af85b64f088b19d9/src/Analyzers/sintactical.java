@@ -9,6 +9,7 @@ import java_cup.runtime.*;
 import java.util.ArrayList;
 import proyecto1_oc1_202010770.tabla_de_simbolos;
 import proyecto1_oc1_202010770.operaciones_aritmeticas;
+import proyecto1_oc1_202010770.lista;
 import java.util.Scanner;
 import java_cup.runtime.XMLElement;
 
@@ -181,8 +182,10 @@ public class sintactical extends java_cup.runtime.lr_parser {
 
 
     public ArrayList<proyecto1_oc1_202010770.tabla_de_simbolos> tabla_simbolos = new ArrayList<>();
+    public ArrayList<proyecto1_oc1_202010770.lista> lista_de_elementos = new ArrayList<>();
     public proyecto1_oc1_202010770.operaciones_aritmeticas operaciones = new operaciones_aritmeticas();
     public String datos_en_lista = "";
+ 
     public int num_global = 0;
     public void syntax_error(Symbol s){
         System.out.println("Error Sintactico: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1)+"\n"  );
@@ -305,19 +308,33 @@ class CUP$sintactical$actions {
           case 7: // lista ::= ARREGLO DOS_PUNTOS tipo_de_dato DOS_PUNTOS DOS_PUNTOS ARROBA VARIABLE SLASH_MENOR DIAGONAL CORCHETE_ABIERTO datos_de_lista CORCHETE_CERRADO END PUNTO_Y_COMA 
             {
               Object RESULT =null;
+		int tipoleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-11)).left;
+		int tiporight = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-11)).right;
+		Object tipo = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-11)).value;
 		int varleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-7)).left;
 		int varright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-7)).right;
 		String var = (String)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-7)).value;
 		
-         Scanner scanner = new Scanner(datos_en_lista);
+        //Se agrega el nombre de la variable
+        String vals = var.toString();
+        lista_de_elementos.add(new proyecto1_oc1_202010770.lista(vals));
+        double numero = 0.0;
+        Scanner scanner = new Scanner(datos_en_lista);
         while (scanner.hasNext()) {
-            // Leer el próximo número como String
             String numeroStr = scanner.next();
-            
-            // Convertir el String a Double y agregarlo al ArrayList
-            double numero = Double.parseDouble(numeroStr);
-            System.out.println(var +": "+numero);
+            numero = Double.parseDouble(numeroStr);
+            System.out.println(var.toString() +": "+numero);
+            for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
+                System.out.println("Variable: " + elemento.variable);
+                if(elemento.variable.equals(vals)){
+                    elemento.agregarElemento(tipo.toString(),vals, numero);
+                }
+                elemento.mostrarElementos();
+            }
         }
+
+        //Se limpia la variable con los datos
+        datos_en_lista = "";
 
 
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("lista",6, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-13)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);

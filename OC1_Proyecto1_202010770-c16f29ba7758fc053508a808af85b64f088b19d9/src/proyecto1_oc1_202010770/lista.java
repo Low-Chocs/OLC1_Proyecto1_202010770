@@ -20,7 +20,7 @@ public class lista {
         this.lista = new ArrayList<>();
     }
     
-    public void agregarElemento(String tipo, String variable, String dato) {
+    public void agregarElemento(String tipo, String variable, Object dato) {
         this.lista.add(new tabla_de_simbolos(tipo, variable, dato));
     }
 
