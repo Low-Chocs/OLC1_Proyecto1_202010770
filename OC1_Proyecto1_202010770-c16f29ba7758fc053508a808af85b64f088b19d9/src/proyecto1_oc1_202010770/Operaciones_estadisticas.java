@@ -28,6 +28,32 @@ public class Operaciones_estadisticas {
         String devolver = String.valueOf(resultado);
         return devolver;
     }
+
+    public String mediana(ArrayList<tabla_de_simbolos> lista) {
+ 
+        ArrayList<Double> valores = new ArrayList<>();
+
+       
+        for (tabla_de_simbolos elemento : lista) {
+            valores.add((Double) elemento.dato);
+        }
+
+       
+        valores.sort(null);
+
+       
+        double mediana;
+        int size = valores.size();
+        if (size % 2 == 0) {
+       
+            mediana = (valores.get(size / 2 - 1) + valores.get(size / 2)) / 2.0;
+        } else {
+       
+            mediana = valores.get(size / 2);
+        }
+
+        return String.valueOf(mediana);
+    }
     
     public String moda(ArrayList<tabla_de_simbolos> lista) {
         
@@ -47,4 +73,45 @@ public class Operaciones_estadisticas {
         }
         return String.valueOf(moda);
         }
+    
+ 
+     public String varianza(ArrayList<tabla_de_simbolos> lista) {
+
+        double media = Double.parseDouble(media(lista));
+
+        double sumaCuadradosDiferencias = 0;
+        for (tabla_de_simbolos elemento : lista) {
+            double dato = (Double) elemento.dato;
+            sumaCuadradosDiferencias += Math.pow(dato - media, 2);
+        }
+
+        double varianza = sumaCuadradosDiferencias / lista.size();
+        
+        return String.valueOf(varianza);
+    }
+
+    
+    public String valor_maximo(ArrayList<tabla_de_simbolos> lista) {
+        double maximo = 0;
+        for (tabla_de_simbolos elemento : lista) {
+            double dato = (Double) elemento.dato;
+            if (dato > maximo) {
+                maximo = dato;
+            }
+        }
+        return String.valueOf(maximo);
+    }
+    
+
+    public String valor_minimo(ArrayList<tabla_de_simbolos> lista) {
+        double minimo = 0;
+        for (tabla_de_simbolos elemento : lista) {
+            double dato = (Double) elemento.dato;
+            if (dato < minimo) {
+                minimo = dato;
+            }
+        }
+        return String.valueOf(minimo);
+    }
+
 }
