@@ -30,7 +30,7 @@ terminal String SUMA, RESTA, MULTIPLICACION, DIVISION, MODULO, MEDIA, MEDIANA, M
 terminal String CONSOLE, PRINT, IGUAL, COLUMN, END, PROGRAM, CADENAS, NUMERO_FLOTANTE, NUMERO_ENTERO, PUNTO_Y_COMA;
 terminal String EXEC, TITULO, EJE_X, EJE_Y, TITULO_X, TITULO_Y, VALUES, LABEL;
 
-non terminal inicio, instruccion, lista_de_instrucciones, asignacion, tipo_de_dato, dato, lista, datos_de_lista;
+non terminal inicio, instruccion, lista_de_instrucciones, asignacion, tipo_de_dato, dato, lista, datos_de_lista, impresiones, datos_de_impresion;
 
 
 start with inicio;
@@ -44,6 +44,12 @@ instruccion ::= lista_de_instrucciones instruccion
 lista_de_instrucciones ::= asignacion
                         |lista
                         ;
+
+impresiones ::= CONSOLE DOS_PUNTOS DOS_PUNTOS PRINT;
+
+
+datos_de_impresion ::= datos_de_impresion COMMA dato
+                    | dato:dat {:System.out.println("Se va a imprimir: "+dat.toString());:};
 
 asignacion ::= VAR DOS_PUNTOS tipo_de_dato:a DOS_PUNTOS DOS_PUNTOS VARIABLE:b SLASH_MENOR DIAGONAL dato:c END PUNTO_Y_COMA
     {:
@@ -103,8 +109,8 @@ tipo_de_dato ::= DOUBLE{:RESULT = "double"; :}
 
 
 
-datos_de_lista ::= datos_de_lista:a COMMA dato:b {: datos_en_lista += " "+b.toString(); RESULT = b;System.out.println(datos_en_lista);:}
-                 | dato:a {:datos_en_lista += " "+a.toString();  RESULT = a;:}
+datos_de_lista ::= datos_de_lista:a COMMA dato:b {: datos_en_lista += " "+b.toString().replace(" ", "Ñ"); RESULT = b.toString().replace(" ", "Ñ");;System.out.println(datos_en_lista);:}
+                 | dato:a {:datos_en_lista += " "+a.toString().replace(" ", "Ñ");  RESULT = a.toString().replace(" ", "Ñ");;:}
                  ;
 
 dato ::= CADENAS:datos {:

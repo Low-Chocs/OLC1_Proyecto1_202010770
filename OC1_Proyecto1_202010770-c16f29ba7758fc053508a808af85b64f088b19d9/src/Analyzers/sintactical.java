@@ -36,13 +36,14 @@ public class sintactical extends java_cup.runtime.lr_parser {
   /** Production table. */
   protected static final short _production_table[][] = 
     unpackFromStrings(new String[] {
-    "\000\025\000\002\002\004\000\002\002\007\000\002\003" +
+    "\000\030\000\002\002\004\000\002\002\007\000\002\003" +
     "\004\000\002\003\003\000\002\004\003\000\002\004\003" +
-    "\000\002\005\015\000\002\010\020\000\002\006\003\000" +
-    "\002\006\003\000\002\011\005\000\002\011\003\000\002" +
-    "\007\003\000\002\007\003\000\002\007\003\000\002\007" +
-    "\003\000\002\007\010\000\002\007\010\000\002\007\010" +
-    "\000\002\007\010\000\002\007\010" });
+    "\000\002\012\006\000\002\013\005\000\002\013\003\000" +
+    "\002\005\015\000\002\010\020\000\002\006\003\000\002" +
+    "\006\003\000\002\011\005\000\002\011\003\000\002\007" +
+    "\003\000\002\007\003\000\002\007\003\000\002\007\003" +
+    "\000\002\007\010\000\002\007\010\000\002\007\010\000" +
+    "\002\007\010\000\002\007\010" });
 
   /** Access to production table. */
   public short[][] production_table() {return _production_table;}
@@ -56,58 +57,58 @@ public class sintactical extends java_cup.runtime.lr_parser {
     "\013\042\ufffe\001\002\000\010\004\ufffc\010\ufffc\042\ufffc" +
     "\001\002\000\010\004\ufffd\010\ufffd\042\ufffd\001\002\000" +
     "\004\012\014\001\002\000\006\006\015\007\017\001\002" +
-    "\000\004\012\ufff9\001\002\000\004\012\020\001\002\000" +
-    "\004\012\ufff8\001\002\000\004\012\021\001\002\000\004" +
+    "\000\004\012\ufff6\001\002\000\004\012\020\001\002\000" +
+    "\004\012\ufff5\001\002\000\004\012\021\001\002\000\004" +
     "\011\022\001\002\000\004\005\023\001\002\000\004\013" +
     "\024\001\002\000\004\015\025\001\002\000\004\021\026" +
     "\001\002\000\024\005\033\023\030\024\041\025\032\026" +
     "\036\027\035\044\027\045\034\046\031\001\002\000\012" +
-    "\016\ufff5\020\ufff5\022\ufff5\042\ufff5\001\002\000\004\017" +
-    "\073\001\002\000\012\016\ufff3\020\ufff3\022\ufff3\042\ufff3" +
-    "\001\002\000\004\017\066\001\002\000\012\016\ufff2\020" +
-    "\ufff2\022\ufff2\042\ufff2\001\002\000\012\016\ufff4\020\ufff4" +
-    "\022\ufff4\042\ufff4\001\002\000\004\017\061\001\002\000" +
+    "\016\ufff2\020\ufff2\022\ufff2\042\ufff2\001\002\000\004\017" +
+    "\073\001\002\000\012\016\ufff0\020\ufff0\022\ufff0\042\ufff0" +
+    "\001\002\000\004\017\066\001\002\000\012\016\uffef\020" +
+    "\uffef\022\uffef\042\uffef\001\002\000\012\016\ufff1\020\ufff1" +
+    "\022\ufff1\042\ufff1\001\002\000\004\017\061\001\002\000" +
     "\004\017\054\001\002\000\006\016\050\022\047\001\002" +
-    "\000\006\016\ufff6\022\ufff6\001\002\000\004\017\042\001" +
+    "\000\006\016\ufff3\022\ufff3\001\002\000\004\017\042\001" +
     "\002\000\024\005\033\023\030\024\041\025\032\026\036" +
     "\027\035\044\027\045\034\046\031\001\002\000\004\016" +
     "\044\001\002\000\024\005\033\023\030\024\041\025\032" +
     "\026\036\027\035\044\027\045\034\046\031\001\002\000" +
-    "\004\020\046\001\002\000\012\016\ufff0\020\ufff0\022\ufff0" +
-    "\042\ufff0\001\002\000\004\042\052\001\002\000\024\005" +
+    "\004\020\046\001\002\000\012\016\uffed\020\uffed\022\uffed" +
+    "\042\uffed\001\002\000\004\042\052\001\002\000\024\005" +
     "\033\023\030\024\041\025\032\026\036\027\035\044\027" +
-    "\045\034\046\031\001\002\000\006\016\ufff7\022\ufff7\001" +
-    "\002\000\004\047\053\001\002\000\010\004\ufffa\010\ufffa" +
-    "\042\ufffa\001\002\000\024\005\033\023\030\024\041\025" +
+    "\045\034\046\031\001\002\000\006\016\ufff4\022\ufff4\001" +
+    "\002\000\004\047\053\001\002\000\010\004\ufff7\010\ufff7" +
+    "\042\ufff7\001\002\000\024\005\033\023\030\024\041\025" +
     "\032\026\036\027\035\044\027\045\034\046\031\001\002" +
     "\000\004\016\056\001\002\000\024\005\033\023\030\024" +
     "\041\025\032\026\036\027\035\044\027\045\034\046\031" +
-    "\001\002\000\004\020\060\001\002\000\012\016\uffee\020" +
-    "\uffee\022\uffee\042\uffee\001\002\000\024\005\033\023\030" +
+    "\001\002\000\004\020\060\001\002\000\012\016\uffeb\020" +
+    "\uffeb\022\uffeb\042\uffeb\001\002\000\024\005\033\023\030" +
     "\024\041\025\032\026\036\027\035\044\027\045\034\046" +
     "\031\001\002\000\004\016\063\001\002\000\024\005\033" +
     "\023\030\024\041\025\032\026\036\027\035\044\027\045" +
     "\034\046\031\001\002\000\004\020\065\001\002\000\012" +
-    "\016\uffed\020\uffed\022\uffed\042\uffed\001\002\000\024\005" +
+    "\016\uffea\020\uffea\022\uffea\042\uffea\001\002\000\024\005" +
     "\033\023\030\024\041\025\032\026\036\027\035\044\027" +
     "\045\034\046\031\001\002\000\004\016\070\001\002\000" +
     "\024\005\033\023\030\024\041\025\032\026\036\027\035" +
     "\044\027\045\034\046\031\001\002\000\004\020\072\001" +
-    "\002\000\012\016\uffef\020\uffef\022\uffef\042\uffef\001\002" +
+    "\002\000\012\016\uffec\020\uffec\022\uffec\042\uffec\001\002" +
     "\000\024\005\033\023\030\024\041\025\032\026\036\027" +
     "\035\044\027\045\034\046\031\001\002\000\004\016\075" +
     "\001\002\000\024\005\033\023\030\024\041\025\032\026" +
     "\036\027\035\044\027\045\034\046\031\001\002\000\004" +
-    "\020\077\001\002\000\012\016\ufff1\020\ufff1\022\ufff1\042" +
-    "\ufff1\001\002\000\004\042\uffff\001\002\000\004\043\102" +
+    "\020\077\001\002\000\012\016\uffee\020\uffee\022\uffee\042" +
+    "\uffee\001\002\000\004\042\uffff\001\002\000\004\043\102" +
     "\001\002\000\004\003\103\001\002\000\004\002\000\001" +
     "\002\000\006\006\015\007\017\001\002\000\004\012\106" +
     "\001\002\000\004\012\107\001\002\000\004\005\110\001" +
     "\002\000\004\013\111\001\002\000\004\015\112\001\002" +
     "\000\024\005\033\023\030\024\041\025\032\026\036\027" +
     "\035\044\027\045\034\046\031\001\002\000\004\042\114" +
-    "\001\002\000\004\047\115\001\002\000\010\004\ufffb\010" +
-    "\ufffb\042\ufffb\001\002\000\004\002\001\001\002" });
+    "\001\002\000\004\047\115\001\002\000\010\004\ufff8\010" +
+    "\ufff8\042\ufff8\001\002\000\004\002\001\001\002" });
 
   /** Access to parse-action table. */
   public short[][] action_table() {return _action_table;}
@@ -281,7 +282,37 @@ class CUP$sintactical$actions {
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 6: // asignacion ::= VAR DOS_PUNTOS tipo_de_dato DOS_PUNTOS DOS_PUNTOS VARIABLE SLASH_MENOR DIAGONAL dato END PUNTO_Y_COMA 
+          case 6: // impresiones ::= CONSOLE DOS_PUNTOS DOS_PUNTOS PRINT 
+            {
+              Object RESULT =null;
+
+              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("impresiones",8, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-3)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
+            }
+          return CUP$sintactical$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 7: // datos_de_impresion ::= datos_de_impresion COMMA dato 
+            {
+              Object RESULT =null;
+
+              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("datos_de_impresion",9, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
+            }
+          return CUP$sintactical$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 8: // datos_de_impresion ::= dato 
+            {
+              Object RESULT =null;
+		int datleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
+		int datright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
+		Object dat = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
+		System.out.println("Se va a imprimir: "+dat.toString());
+              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("datos_de_impresion",9, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
+            }
+          return CUP$sintactical$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 9: // asignacion ::= VAR DOS_PUNTOS tipo_de_dato DOS_PUNTOS DOS_PUNTOS VARIABLE SLASH_MENOR DIAGONAL dato END PUNTO_Y_COMA 
             {
               Object RESULT =null;
 		int aleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-8)).left;
@@ -305,7 +336,7 @@ class CUP$sintactical$actions {
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 7: // lista ::= ARREGLO DOS_PUNTOS tipo_de_dato DOS_PUNTOS DOS_PUNTOS ARROBA VARIABLE SLASH_MENOR DIAGONAL CORCHETE_ABIERTO datos_de_lista CORCHETE_CERRADO END PUNTO_Y_COMA 
+          case 10: // lista ::= ARREGLO DOS_PUNTOS tipo_de_dato DOS_PUNTOS DOS_PUNTOS ARROBA VARIABLE SLASH_MENOR DIAGONAL CORCHETE_ABIERTO datos_de_lista CORCHETE_CERRADO END PUNTO_Y_COMA 
             {
               Object RESULT =null;
 		int tipoleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-11)).left;
@@ -360,7 +391,7 @@ class CUP$sintactical$actions {
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 8: // tipo_de_dato ::= DOUBLE 
+          case 11: // tipo_de_dato ::= DOUBLE 
             {
               Object RESULT =null;
 		RESULT = "double"; 
@@ -369,7 +400,7 @@ class CUP$sintactical$actions {
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 9: // tipo_de_dato ::= CADENA 
+          case 12: // tipo_de_dato ::= CADENA 
             {
               Object RESULT =null;
 		RESULT = "cadena"; 
@@ -378,7 +409,7 @@ class CUP$sintactical$actions {
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 10: // datos_de_lista ::= datos_de_lista COMMA dato 
+          case 13: // datos_de_lista ::= datos_de_lista COMMA dato 
             {
               Object RESULT =null;
 		int aleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)).left;
@@ -387,25 +418,25 @@ class CUP$sintactical$actions {
 		int bleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
 		int bright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
 		Object b = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-		 datos_en_lista += " "+b.toString(); RESULT = b;System.out.println(datos_en_lista);
+		 datos_en_lista += " "+b.toString().replace(" ", "Ñ"); RESULT = b.toString().replace(" ", "Ñ");;System.out.println(datos_en_lista);
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("datos_de_lista",7, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 11: // datos_de_lista ::= dato 
+          case 14: // datos_de_lista ::= dato 
             {
               Object RESULT =null;
 		int aleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
 		int aright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
 		Object a = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-		datos_en_lista += " "+a.toString();  RESULT = a;
+		datos_en_lista += " "+a.toString().replace(" ", "Ñ");  RESULT = a.toString().replace(" ", "Ñ");;
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("datos_de_lista",7, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 12: // dato ::= CADENAS 
+          case 15: // dato ::= CADENAS 
             {
               Object RESULT =null;
 		int datosleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
@@ -426,7 +457,7 @@ class CUP$sintactical$actions {
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 13: // dato ::= NUMERO_FLOTANTE 
+          case 16: // dato ::= NUMERO_FLOTANTE 
             {
               Object RESULT =null;
 		int datosleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
@@ -438,7 +469,7 @@ class CUP$sintactical$actions {
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 14: // dato ::= NUMERO_ENTERO 
+          case 17: // dato ::= NUMERO_ENTERO 
             {
               Object RESULT =null;
 		int datosleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
@@ -450,7 +481,7 @@ class CUP$sintactical$actions {
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 15: // dato ::= VARIABLE 
+          case 18: // dato ::= VARIABLE 
             {
               Object RESULT =null;
 		int datosleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
@@ -470,7 +501,7 @@ class CUP$sintactical$actions {
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 16: // dato ::= SUMA PARENTESIS_ABIERTO dato COMMA dato PARENTESIS_CERRADO 
+          case 19: // dato ::= SUMA PARENTESIS_ABIERTO dato COMMA dato PARENTESIS_CERRADO 
             {
               Object RESULT =null;
 		int izqleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-3)).left;
@@ -489,7 +520,7 @@ class CUP$sintactical$actions {
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 17: // dato ::= RESTA PARENTESIS_ABIERTO dato COMMA dato PARENTESIS_CERRADO 
+          case 20: // dato ::= RESTA PARENTESIS_ABIERTO dato COMMA dato PARENTESIS_CERRADO 
             {
               Object RESULT =null;
 		int izqleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-3)).left;
@@ -508,7 +539,7 @@ class CUP$sintactical$actions {
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 18: // dato ::= MULTIPLICACION PARENTESIS_ABIERTO dato COMMA dato PARENTESIS_CERRADO 
+          case 21: // dato ::= MULTIPLICACION PARENTESIS_ABIERTO dato COMMA dato PARENTESIS_CERRADO 
             {
               Object RESULT =null;
 		int izqleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-3)).left;
@@ -527,7 +558,7 @@ class CUP$sintactical$actions {
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 19: // dato ::= DIVISION PARENTESIS_ABIERTO dato COMMA dato PARENTESIS_CERRADO 
+          case 22: // dato ::= DIVISION PARENTESIS_ABIERTO dato COMMA dato PARENTESIS_CERRADO 
             {
               Object RESULT =null;
 		int izqleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-3)).left;
@@ -546,7 +577,7 @@ class CUP$sintactical$actions {
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 20: // dato ::= MODULO PARENTESIS_ABIERTO dato COMMA dato PARENTESIS_CERRADO 
+          case 23: // dato ::= MODULO PARENTESIS_ABIERTO dato COMMA dato PARENTESIS_CERRADO 
             {
               Object RESULT =null;
 		int izqleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-3)).left;
