@@ -31,12 +31,7 @@ TAB = \t
 SPACE = " "
 CAR_RETURN = \r
 
-VAR = var
-VARIABLE = [a-zA-Z_]([a-zA-Z0-9_])*
-DOUBLE = double
-CADENA = char"[""]"
-ARREGLO = "arr"
-ARROBA = "@"
+
 
 
 DOS_PUNTOS = ":"
@@ -60,7 +55,7 @@ RESTA = res
 MULTIPLICACION = mul
 DIVISION = div
 MODULO = MOD
-MEDIA = = media
+MEDIA =  media
 MEDIANA = mediana
 MODA = moda 
 VARIANZA = varianza
@@ -92,6 +87,13 @@ TITULO_X = titulox
 TITULO_Y = tituloy
 VALUES = values
 LABEL = label
+
+VAR = var
+VARIABLE = [a-zA-Z_]([a-zA-Z0-9_])*
+DOUBLE = double
+CADENA = char"[""]"
+ARREGLO = "arr"
+ARROBA = "@"
 
 
 

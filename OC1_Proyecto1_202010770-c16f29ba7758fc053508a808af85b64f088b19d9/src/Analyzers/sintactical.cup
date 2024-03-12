@@ -33,7 +33,7 @@ terminal String SUMA, RESTA, MULTIPLICACION, DIVISION, MODULO, MEDIA, MEDIANA, M
 terminal String CONSOLE, PRINT, IGUAL, COLUMN, END, PROGRAM, CADENAS, NUMERO_FLOTANTE, NUMERO_ENTERO, PUNTO_Y_COMA;
 terminal String EXEC, TITULO, EJE_X, EJE_Y, TITULO_X, TITULO_Y, VALUES, LABEL;
 
-non terminal inicio, instruccion, lista_de_instrucciones, asignacion, tipo_de_dato, dato, lista, datos_de_lista, impresiones, mas_listas, datos_de_impresion, impresion_lista ,impresion_de_la_lista;
+non terminal inicio, instruccion, lista_de_instrucciones, asignacion, listas_operacion, listas_operaciones, tipo_de_dato, dato, lista, datos_de_lista, impresiones, mas_listas, datos_de_impresion, impresion_lista ,impresion_de_la_lista;
 
 
 start with inicio;
@@ -164,7 +164,15 @@ dato ::= CADENAS:datos {:
     :}
     | MODULO PARENTESIS_ABIERTO dato:izq COMMA dato:der PARENTESIS_CERRADO {:
     RESULT = operaciones.Modulo(izq.toString(), der.toString());
-    :};
+    :}
+
+    |MEDIA PARENTESIS_ABIERTO listas_operaciones PARENTESIS_CERRADO {:RESULT = "HOLA";:};
+
+    listas_operaciones ::= ARROBA VARIABLE{:RESULT= "10";:}
+                        |CORCHETE_ABIERTO listas_operacion CORCHETE_CERRADO {:System.out.println(datos_en_lista); RESULT= "10";:};
+
+    listas_operacion ::= listas_operacion COMMA dato:dat {:datos_en_lista += " "+dat.toString(); System.out.println(dat);:}
+                        |dato:dat {:datos_en_lista += " "+dat.toString(); System.out.println(dat);:};
 
     
 

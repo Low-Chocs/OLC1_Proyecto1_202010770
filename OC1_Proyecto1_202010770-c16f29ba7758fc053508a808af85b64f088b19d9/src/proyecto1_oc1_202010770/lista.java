@@ -27,6 +27,9 @@ public class lista {
 
     public void mostrarElementos() {
         for (tabla_de_simbolos elemento : this.lista) {
+            if(elemento.variable.equals("Tremdo")){
+            continue;
+            }
             System.out.println(elemento.dato);
         }
     }
