@@ -6,6 +6,7 @@
 package proyecto1_oc1_202010770;
 import java.util.ArrayList;
 import proyecto1_oc1_202010770.tabla_de_simbolos;
+import proyecto1_oc1_202010770.Operaciones_estadisticas;
 /**
  *
  * @author Luisi
@@ -13,6 +14,7 @@ import proyecto1_oc1_202010770.tabla_de_simbolos;
 public class lista {
     public String variable = "";
     public ArrayList<tabla_de_simbolos> lista;
+    public Operaciones_estadisticas operacion = new Operaciones_estadisticas();
     
     
     public lista(String variable) {
@@ -27,10 +29,13 @@ public class lista {
 
     public void mostrarElementos() {
         for (tabla_de_simbolos elemento : this.lista) {
-            if(elemento.variable.equals("Tremdo")){
-            continue;
-            }
+
             System.out.println(elemento.dato);
         }
+    }
+    
+    public String la_media(){
+        
+        return operacion.media(this.lista) ;
     }
 }

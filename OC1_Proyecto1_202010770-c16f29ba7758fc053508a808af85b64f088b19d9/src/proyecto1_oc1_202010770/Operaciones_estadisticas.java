@@ -19,10 +19,14 @@ public class Operaciones_estadisticas {
     
     
     public String media(ArrayList<tabla_de_simbolos> lista){
+        
         int size = lista.size();
-        double suma = 0;
+        double suma = 0.0f;
         for (tabla_de_simbolos elemento : lista) {
-            suma += (Double) elemento.dato;
+            String dato = elemento.dato.toString();
+            suma += Double.parseDouble(dato);
+            
+         
         }
         double resultado = suma / size;
         String devolver = String.valueOf(resultado);

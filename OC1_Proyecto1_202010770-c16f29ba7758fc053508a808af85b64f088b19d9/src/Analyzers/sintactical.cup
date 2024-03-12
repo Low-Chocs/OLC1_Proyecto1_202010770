@@ -15,6 +15,7 @@ parser code
     public proyecto1_oc1_202010770.Impresion impresion = new Impresion();
     public String actual = "";
     public String datos_en_lista = "";
+    public String operacion_estadistica = "";
  
     public int num_global = 0;
     public void syntax_error(Symbol s){
@@ -62,7 +63,7 @@ datos_de_impresion ::= datos_de_impresion COMMA dato:dat {:impresion.imprimir(da
 
 impresion_de_la_lista ::= ARROBA VARIABLE:var {:
         for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
-            System.out.println("Variable: " + elemento.variable);
+            
             if(elemento.variable.equals(var)){
                 impresion.imprimir_lista(actual, elemento);
             }        
@@ -95,7 +96,7 @@ lista ::= ARREGLO DOS_PUNTOS tipo_de_dato:tipo DOS_PUNTOS DOS_PUNTOS ARROBA VARI
                 if(elemento.variable.equals(vals)){
                     elemento.agregarElemento(tipo.toString(),vals, numero);
                 }
-                elemento.mostrarElementos();
+                
             }
         }}else{
         while (scanner.hasNext()) {
@@ -107,7 +108,7 @@ lista ::= ARREGLO DOS_PUNTOS tipo_de_dato:tipo DOS_PUNTOS DOS_PUNTOS ARROBA VARI
                 if(elemento.variable.equals(vals)){
                     elemento.agregarElemento(tipo.toString(),vals, numeroStr);
                 }
-                elemento.mostrarElementos();
+                
             }
         }
         }
@@ -166,10 +167,67 @@ dato ::= CADENAS:datos {:
     RESULT = operaciones.Modulo(izq.toString(), der.toString());
     :}
 
-    |MEDIA PARENTESIS_ABIERTO listas_operaciones PARENTESIS_CERRADO {:RESULT = "HOLA";:};
+    |MEDIA {:operacion_estadistica = "media";:} PARENTESIS_ABIERTO listas_operaciones:resultado PARENTESIS_CERRADO {:RESULT = resultado;:};
 
-    listas_operaciones ::= ARROBA VARIABLE{:RESULT= "10";:}
-                        |CORCHETE_ABIERTO listas_operacion CORCHETE_CERRADO {:System.out.println(datos_en_lista); RESULT= "10";:};
+    listas_operaciones ::= ARROBA VARIABLE:var
+                        {:
+                        for (proyecto1_oc1_202010770.lista lista : lista_de_elementos) {
+                            if (lista.variable.equals(var.toString())) {
+                            
+                            if(operacion_estadistica.equals("media")){
+                                    RESULT = lista.la_media();
+                                    }
+                            break;
+                            }
+                        }
+                        :}
+                        |CORCHETE_ABIERTO listas_operacion CORCHETE_CERRADO {:System.out.println(datos_en_lista);
+                        
+                        boolean es_temporal = false;
+                        for (proyecto1_oc1_202010770.lista lista : lista_de_elementos) {
+                            if (lista.variable.equals("Tremdo")) {
+                            es_temporal = true;
+                            break; // Terminamos la búsqueda una vez que encontramos la variable
+                            }
+                        }
+                        if(!es_temporal){
+                        lista_de_elementos.add(new proyecto1_oc1_202010770.lista("Tremdo"));
+                        }else{
+
+                            for (proyecto1_oc1_202010770.lista lista : lista_de_elementos) {
+                                if (lista.variable.equals("Tremdo")) {
+                                lista.lista.clear();
+                                }
+                            }
+                        }
+                        
+                        double numero = 0.0;
+                        Scanner scanner = new Scanner(datos_en_lista);
+                        while (scanner.hasNext()) {
+                            String numeroStr = scanner.next();
+                            numero = Double.parseDouble(numeroStr);
+                            for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
+                                if(elemento.variable.equals("Tremdo")){
+                                    elemento.agregarElemento("double","Tremdo", numero);
+                            }
+                            //System.out.println("Gotica");
+                            //elemento.mostrarElementos();
+                            //System.out.println("Culona");
+                            
+                            }
+
+                        }
+                        for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
+                                if(elemento.variable.equals("Tremdo")){
+                                    if(operacion_estadistica.equals("media")){
+                                    RESULT = elemento.la_media();
+                                    }
+                                    
+                            }
+                        }
+
+                             
+:};
 
     listas_operacion ::= listas_operacion COMMA dato:dat {:datos_en_lista += " "+dat.toString(); System.out.println(dat);:}
                         |dato:dat {:datos_en_lista += " "+dat.toString(); System.out.println(dat);:};
