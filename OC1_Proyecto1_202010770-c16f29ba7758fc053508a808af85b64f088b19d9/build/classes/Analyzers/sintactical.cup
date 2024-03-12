@@ -13,6 +13,7 @@ parser code
     public ArrayList<proyecto1_oc1_202010770.lista> lista_de_elementos = new ArrayList<>();
     public proyecto1_oc1_202010770.operaciones_aritmeticas operaciones = new operaciones_aritmeticas();
     public proyecto1_oc1_202010770.Impresion impresion = new Impresion();
+    public String actual = "";
     public String datos_en_lista = "";
  
     public int num_global = 0;
@@ -32,7 +33,7 @@ terminal String SUMA, RESTA, MULTIPLICACION, DIVISION, MODULO, MEDIA, MEDIANA, M
 terminal String CONSOLE, PRINT, IGUAL, COLUMN, END, PROGRAM, CADENAS, NUMERO_FLOTANTE, NUMERO_ENTERO, PUNTO_Y_COMA;
 terminal String EXEC, TITULO, EJE_X, EJE_Y, TITULO_X, TITULO_Y, VALUES, LABEL;
 
-non terminal inicio, instruccion, lista_de_instrucciones, asignacion, tipo_de_dato, dato, lista, datos_de_lista, impresiones, datos_de_impresion;
+non terminal inicio, instruccion, lista_de_instrucciones, asignacion, tipo_de_dato, dato, lista, datos_de_lista, impresiones, mas_listas, datos_de_impresion, impresion_lista ,impresion_de_la_lista;
 
 
 start with inicio;
@@ -45,13 +46,31 @@ instruccion ::= lista_de_instrucciones instruccion
 
 lista_de_instrucciones ::= asignacion
                         |lista
+                        |impresiones
                         ;
 
-impresiones ::= CONSOLE DOS_PUNTOS DOS_PUNTOS PRINT;
+impresiones ::= CONSOLE DOS_PUNTOS DOS_PUNTOS PRINT IGUAL datos_de_impresion END PUNTO_Y_COMA  
+               |CONSOLE DOS_PUNTOS DOS_PUNTOS  COLUMN  IGUAL dato:act {:        
+        System.out.println("----------");
+        System.out.println(act);
+        System.out.println("----------");:} 
+        DIAGONAL SLASH_MAYOR impresion_de_la_lista END PUNTO_Y_COMA ;
 
 
 datos_de_impresion ::= datos_de_impresion COMMA dato:dat {:impresion.imprimir(dat.toString());:}
                     | dato:dat {:impresion.imprimir(dat.toString());:};
+
+impresion_de_la_lista ::= ARROBA VARIABLE:var {:
+        for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
+            System.out.println("Variable: " + elemento.variable);
+            if(elemento.variable.equals(var)){
+                impresion.imprimir_lista(actual, elemento);
+            }        
+        }:}
+        | CORCHETE_ABIERTO mas_listas CORCHETE_CERRADO;
+
+mas_listas ::= mas_listas COMMA dato:val {:System.out.println(val.toString());:}
+            | dato:val {:System.out.println(val.toString());:};
 
 asignacion ::= VAR DOS_PUNTOS tipo_de_dato:a DOS_PUNTOS DOS_PUNTOS VARIABLE:b SLASH_MENOR DIAGONAL dato:c END PUNTO_Y_COMA
     {:
@@ -113,9 +132,10 @@ dato ::= CADENAS:datos {:
         if (datos.toString().startsWith("\"") && datos.toString().endsWith("\"")) {
             // Quitar las comillas usando substring
             salida = datos.toString().substring(1, datos.length() - 1);
-            
+            actual = salida;
             RESULT = salida;
         }else{
+        actual = datos.toString();
         RESULT = datos.toString();
         } :}
     | NUMERO_FLOTANTE:datos {:RESULT = datos.toString(); :}
@@ -124,6 +144,7 @@ dato ::= CADENAS:datos {:
         String variable_a_buscar = datos.toString();
         for (proyecto1_oc1_202010770.tabla_de_simbolos simbolo : tabla_simbolos){
             if(variable_a_buscar.equals(simbolo.variable)){
+            actual = simbolo.dato.toString();
             RESULT = simbolo.dato;
             break;
             }

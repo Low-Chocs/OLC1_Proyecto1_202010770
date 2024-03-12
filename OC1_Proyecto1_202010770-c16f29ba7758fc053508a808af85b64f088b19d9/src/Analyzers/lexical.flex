@@ -149,9 +149,10 @@ LABEL = label
 
 
 <YYINITIAL> {CONSOLE} { return new Symbol(sym.CONSOLE, yycolumn, yyline, yytext()); }
+
+<YYINITIAL> {COLUMN} {return new Symbol(sym.COLUMN, yycolumn, yyline, yytext()); }
 <YYINITIAL> {PRINT} { return new Symbol(sym.PRINT, yycolumn, yyline, yytext()); }
 <YYINITIAL> {IGUAL} { return new Symbol(sym.IGUAL, yycolumn, yyline, yytext()); }
-<YYINITIAL> {COLUMN} { return new Symbol(sym.COLUMN, yycolumn, yyline, yytext()); }
 <YYINITIAL> {END} { return new Symbol(sym.END, yycolumn, yyline, yytext()); }
 <YYINITIAL> {PROGRAM} { return new Symbol(sym.PROGRAM, yycolumn, yyline, yytext()); }
 <YYINITIAL> {CADENAS} { return new Symbol(sym.CADENAS, yycolumn, yyline, yytext()); }
