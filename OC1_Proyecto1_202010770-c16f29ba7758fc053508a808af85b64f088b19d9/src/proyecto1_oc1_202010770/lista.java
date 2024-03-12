@@ -38,4 +38,7 @@ public class lista {
         
         return operacion.media(this.lista) ;
     }
+    public String la_mediana(){
+        return operacion.mediana(this.lista) ;
+    }
 }

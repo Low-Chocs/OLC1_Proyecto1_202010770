@@ -167,7 +167,8 @@ dato ::= CADENAS:datos {:
     RESULT = operaciones.Modulo(izq.toString(), der.toString());
     :}
 
-    |MEDIA {:operacion_estadistica = "media";:} PARENTESIS_ABIERTO listas_operaciones:resultado PARENTESIS_CERRADO {:RESULT = resultado;:};
+    |MEDIA {:operacion_estadistica = "media";:} PARENTESIS_ABIERTO listas_operaciones:resultado PARENTESIS_CERRADO {:RESULT = resultado;:}
+    |MEDIANA {:operacion_estadistica = "mediana";:} PARENTESIS_ABIERTO listas_operaciones:resultado PARENTESIS_CERRADO {:RESULT = resultado;:};
 
     listas_operaciones ::= ARROBA VARIABLE:var
                         {:
@@ -176,9 +177,16 @@ dato ::= CADENAS:datos {:
                             
                             if(operacion_estadistica.equals("media")){
                                     RESULT = lista.la_media();
+                                     break;
                                     }
-                            break;
+                            
                             }
+                            if(operacion_estadistica.equals("mediana")){
+                                    RESULT = lista.la_mediana();
+                                    break;
+                                    }
+                           
+                           
                         }
                         :}
                         |CORCHETE_ABIERTO listas_operacion CORCHETE_CERRADO {:System.out.println(datos_en_lista);
@@ -221,10 +229,17 @@ dato ::= CADENAS:datos {:
                                 if(elemento.variable.equals("Tremdo")){
                                     if(operacion_estadistica.equals("media")){
                                     RESULT = elemento.la_media();
+                                    break;
                                     }
+                                if(operacion_estadistica.equals("mediana")){
+                                    RESULT = elemento.la_mediana();
+                                break;    
+                                }
                                     
-                            }
-                        }
+                            
+                                    
+                            
+                        }}
 
                              
 :};

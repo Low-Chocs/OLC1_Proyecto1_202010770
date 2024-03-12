@@ -39,7 +39,8 @@ public class Operaciones_estadisticas {
 
        
         for (tabla_de_simbolos elemento : lista) {
-            valores.add((Double) elemento.dato);
+            String dato = elemento.dato.toString();
+            valores.add(Double.parseDouble(dato));
         }
 
        
