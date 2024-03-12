@@ -9,6 +9,7 @@ import java_cup.runtime.*;
 import java.util.ArrayList;
 import proyecto1_oc1_202010770.tabla_de_simbolos;
 import proyecto1_oc1_202010770.operaciones_aritmeticas;
+import proyecto1_oc1_202010770.Impresion;
 import proyecto1_oc1_202010770.lista;
 import java.util.Scanner;
 import java_cup.runtime.XMLElement;
@@ -185,6 +186,7 @@ public class sintactical extends java_cup.runtime.lr_parser {
     public ArrayList<proyecto1_oc1_202010770.tabla_de_simbolos> tabla_simbolos = new ArrayList<>();
     public ArrayList<proyecto1_oc1_202010770.lista> lista_de_elementos = new ArrayList<>();
     public proyecto1_oc1_202010770.operaciones_aritmeticas operaciones = new operaciones_aritmeticas();
+    public proyecto1_oc1_202010770.Impresion impresion = new Impresion();
     public String datos_en_lista = "";
  
     public int num_global = 0;
@@ -294,7 +296,10 @@ class CUP$sintactical$actions {
           case 7: // datos_de_impresion ::= datos_de_impresion COMMA dato 
             {
               Object RESULT =null;
-
+		int datleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
+		int datright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
+		Object dat = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
+		impresion.imprimir(dat.toString());
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("datos_de_impresion",9, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
@@ -306,7 +311,7 @@ class CUP$sintactical$actions {
 		int datleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
 		int datright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
 		Object dat = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-		System.out.println("Se va a imprimir: "+dat.toString());
+		impresion.imprimir(dat.toString());
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("datos_de_impresion",9, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
@@ -325,11 +330,8 @@ class CUP$sintactical$actions {
 		int cright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)).right;
 		Object c = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)).value;
 		
-            System.out.println(b+"jkldajkds");
+
             tabla_simbolos.add(new proyecto1_oc1_202010770.tabla_de_simbolos(a.toString(),b.toString(),c.toString()));
-            for (proyecto1_oc1_202010770.tabla_de_simbolos simbolo : tabla_simbolos) {
-            System.out.println("Tipo: " + simbolo.tipo + ", Variable: " + simbolo.variable + ", Dato: " + simbolo.dato);
-        }
     
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("asignacion",3, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-10)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
@@ -357,9 +359,7 @@ class CUP$sintactical$actions {
             
             String numeroStr = scanner.next();
             numero = Double.parseDouble(numeroStr);
-            System.out.println(var.toString() +": "+numero);
             for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
-                System.out.println("Variable: " + elemento.variable);
                 if(elemento.variable.equals(vals)){
                     elemento.agregarElemento(tipo.toString(),vals, numero);
                 }
@@ -370,10 +370,8 @@ class CUP$sintactical$actions {
             
             String numeroStr = scanner.next();
             
-            
-            System.out.println(var.toString() +": "+numero);
+           
             for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
-                System.out.println("Variable: " + elemento.variable);
                 if(elemento.variable.equals(vals)){
                     elemento.agregarElemento(tipo.toString(),vals, numeroStr);
                 }
@@ -418,7 +416,7 @@ class CUP$sintactical$actions {
 		int bleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
 		int bright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
 		Object b = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-		 datos_en_lista += " "+b.toString().replace(" ", "Ñ"); RESULT = b.toString().replace(" ", "Ñ");;System.out.println(datos_en_lista);
+		 datos_en_lista += " "+b.toString().replace(" ", "Ñ"); RESULT = b.toString().replace(" ", "Ñ");;
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("datos_de_lista",7, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
@@ -447,7 +445,7 @@ class CUP$sintactical$actions {
         if (datos.toString().startsWith("\"") && datos.toString().endsWith("\"")) {
             // Quitar las comillas usando substring
             salida = datos.toString().substring(1, datos.length() - 1);
-            System.out.println(salida +" ajkddjfksa");
+            
             RESULT = salida;
         }else{
         RESULT = datos.toString();
@@ -511,8 +509,6 @@ class CUP$sintactical$actions {
 		int derright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).right;
 		Object der = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).value;
 		
-    System.out.println("Suma"+izq.toString() +" "+der.toString() );
-    System.out.println(operaciones.Suma(izq.toString(), der.toString()));
     RESULT = operaciones.Suma(izq.toString(), der.toString());
     
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("dato",5, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-5)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
@@ -530,8 +526,6 @@ class CUP$sintactical$actions {
 		int derright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).right;
 		Object der = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).value;
 		
-    System.out.println("Resta"+izq.toString() +" "+der.toString() );
-    System.out.println(operaciones.Resta(izq.toString(), der.toString()));
     RESULT = operaciones.Resta(izq.toString(), der.toString());
     
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("dato",5, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-5)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
@@ -549,8 +543,6 @@ class CUP$sintactical$actions {
 		int derright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).right;
 		Object der = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).value;
 		
-    System.out.println("Multiplicacion"+izq.toString() +" "+der.toString() );
-    System.out.println(operaciones.Suma(izq.toString(), der.toString()));
     RESULT = operaciones.Multiplicacion(izq.toString(), der.toString());
     
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("dato",5, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-5)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
@@ -568,8 +560,6 @@ class CUP$sintactical$actions {
 		int derright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).right;
 		Object der = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).value;
 		
-    System.out.println("Division"+izq.toString() +" "+der.toString() );
-    System.out.println(operaciones.Suma(izq.toString(), der.toString()));
     RESULT = operaciones.Division(izq.toString(), der.toString());
     
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("dato",5, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-5)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
@@ -587,8 +577,6 @@ class CUP$sintactical$actions {
 		int derright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).right;
 		Object der = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)).value;
 		
-    System.out.println("Modulo"+izq.toString() +" "+der.toString() );
-    System.out.println(operaciones.Suma(izq.toString(), der.toString()));
     RESULT = operaciones.Modulo(izq.toString(), der.toString());
     
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("dato",5, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-5)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);

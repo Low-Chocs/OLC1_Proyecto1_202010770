@@ -3,6 +3,7 @@ import java_cup.runtime.*;
 import java.util.ArrayList;
 import proyecto1_oc1_202010770.tabla_de_simbolos;
 import proyecto1_oc1_202010770.operaciones_aritmeticas;
+import proyecto1_oc1_202010770.Impresion;
 import proyecto1_oc1_202010770.lista;
 import java.util.Scanner;
 parser code
@@ -11,6 +12,7 @@ parser code
     public ArrayList<proyecto1_oc1_202010770.tabla_de_simbolos> tabla_simbolos = new ArrayList<>();
     public ArrayList<proyecto1_oc1_202010770.lista> lista_de_elementos = new ArrayList<>();
     public proyecto1_oc1_202010770.operaciones_aritmeticas operaciones = new operaciones_aritmeticas();
+    public proyecto1_oc1_202010770.Impresion impresion = new Impresion();
     public String datos_en_lista = "";
  
     public int num_global = 0;
@@ -48,16 +50,13 @@ lista_de_instrucciones ::= asignacion
 impresiones ::= CONSOLE DOS_PUNTOS DOS_PUNTOS PRINT;
 
 
-datos_de_impresion ::= datos_de_impresion COMMA dato
-                    | dato:dat {:System.out.println("Se va a imprimir: "+dat.toString());:};
+datos_de_impresion ::= datos_de_impresion COMMA dato:dat {:impresion.imprimir(dat.toString());:}
+                    | dato:dat {:impresion.imprimir(dat.toString());:};
 
 asignacion ::= VAR DOS_PUNTOS tipo_de_dato:a DOS_PUNTOS DOS_PUNTOS VARIABLE:b SLASH_MENOR DIAGONAL dato:c END PUNTO_Y_COMA
     {:
-            System.out.println(b+"jkldajkds");
+
             tabla_simbolos.add(new proyecto1_oc1_202010770.tabla_de_simbolos(a.toString(),b.toString(),c.toString()));
-            for (proyecto1_oc1_202010770.tabla_de_simbolos simbolo : tabla_simbolos) {
-            System.out.println("Tipo: " + simbolo.tipo + ", Variable: " + simbolo.variable + ", Dato: " + simbolo.dato);
-        }
     :};
 
 lista ::= ARREGLO DOS_PUNTOS tipo_de_dato:tipo DOS_PUNTOS DOS_PUNTOS ARROBA VARIABLE:var SLASH_MENOR DIAGONAL CORCHETE_ABIERTO datos_de_lista CORCHETE_CERRADO END PUNTO_Y_COMA
@@ -73,9 +72,7 @@ lista ::= ARREGLO DOS_PUNTOS tipo_de_dato:tipo DOS_PUNTOS DOS_PUNTOS ARROBA VARI
             
             String numeroStr = scanner.next();
             numero = Double.parseDouble(numeroStr);
-            System.out.println(var.toString() +": "+numero);
             for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
-                System.out.println("Variable: " + elemento.variable);
                 if(elemento.variable.equals(vals)){
                     elemento.agregarElemento(tipo.toString(),vals, numero);
                 }
@@ -86,10 +83,8 @@ lista ::= ARREGLO DOS_PUNTOS tipo_de_dato:tipo DOS_PUNTOS DOS_PUNTOS ARROBA VARI
             
             String numeroStr = scanner.next();
             
-            
-            System.out.println(var.toString() +": "+numero);
+           
             for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
-                System.out.println("Variable: " + elemento.variable);
                 if(elemento.variable.equals(vals)){
                     elemento.agregarElemento(tipo.toString(),vals, numeroStr);
                 }
@@ -109,7 +104,7 @@ tipo_de_dato ::= DOUBLE{:RESULT = "double"; :}
 
 
 
-datos_de_lista ::= datos_de_lista:a COMMA dato:b {: datos_en_lista += " "+b.toString().replace(" ", "Ñ"); RESULT = b.toString().replace(" ", "Ñ");;System.out.println(datos_en_lista);:}
+datos_de_lista ::= datos_de_lista:a COMMA dato:b {: datos_en_lista += " "+b.toString().replace(" ", "Ñ"); RESULT = b.toString().replace(" ", "Ñ");;:}
                  | dato:a {:datos_en_lista += " "+a.toString().replace(" ", "Ñ");  RESULT = a.toString().replace(" ", "Ñ");;:}
                  ;
 
@@ -118,7 +113,7 @@ dato ::= CADENAS:datos {:
         if (datos.toString().startsWith("\"") && datos.toString().endsWith("\"")) {
             // Quitar las comillas usando substring
             salida = datos.toString().substring(1, datos.length() - 1);
-            System.out.println(salida +" ajkddjfksa");
+            
             RESULT = salida;
         }else{
         RESULT = datos.toString();
@@ -135,28 +130,18 @@ dato ::= CADENAS:datos {:
         }
     :}
     | SUMA PARENTESIS_ABIERTO dato:izq COMMA dato:der PARENTESIS_CERRADO {:
-    System.out.println("Suma"+izq.toString() +" "+der.toString() );
-    System.out.println(operaciones.Suma(izq.toString(), der.toString()));
     RESULT = operaciones.Suma(izq.toString(), der.toString());
     :}
     | RESTA PARENTESIS_ABIERTO dato:izq COMMA dato:der PARENTESIS_CERRADO {:
-    System.out.println("Resta"+izq.toString() +" "+der.toString() );
-    System.out.println(operaciones.Resta(izq.toString(), der.toString()));
     RESULT = operaciones.Resta(izq.toString(), der.toString());
     :}
     | MULTIPLICACION PARENTESIS_ABIERTO dato:izq COMMA dato:der PARENTESIS_CERRADO {:
-    System.out.println("Multiplicacion"+izq.toString() +" "+der.toString() );
-    System.out.println(operaciones.Suma(izq.toString(), der.toString()));
     RESULT = operaciones.Multiplicacion(izq.toString(), der.toString());
     :}
     | DIVISION PARENTESIS_ABIERTO dato:izq COMMA dato:der PARENTESIS_CERRADO {:
-    System.out.println("Division"+izq.toString() +" "+der.toString() );
-    System.out.println(operaciones.Suma(izq.toString(), der.toString()));
     RESULT = operaciones.Division(izq.toString(), der.toString());
     :}
     | MODULO PARENTESIS_ABIERTO dato:izq COMMA dato:der PARENTESIS_CERRADO {:
-    System.out.println("Modulo"+izq.toString() +" "+der.toString() );
-    System.out.println(operaciones.Suma(izq.toString(), der.toString()));
     RESULT = operaciones.Modulo(izq.toString(), der.toString());
     :};
 

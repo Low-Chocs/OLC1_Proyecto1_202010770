@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package proyecto1_oc1_202010770;
+import proyecto1_oc1_202010770.lista;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,6 +21,9 @@ public class Impresion {
         System.out.print(dato);
     }
     
+    public void imprimir_lista(lista lista_a_mostrar){
+        lista_a_mostrar.mostrarElementos();
+    }
     
     
 }

@@ -27,7 +27,7 @@ public class lista {
 
     public void mostrarElementos() {
         for (tabla_de_simbolos elemento : this.lista) {
-            System.out.println("Tipo: " + elemento.tipo + ", Variable: " + elemento.variable + ", Dato: " + elemento.dato);
+            System.out.println(elemento.dato);
         }
     }
 }
