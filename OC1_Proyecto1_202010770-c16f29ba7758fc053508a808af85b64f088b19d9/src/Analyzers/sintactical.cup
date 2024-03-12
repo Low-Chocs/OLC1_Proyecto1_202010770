@@ -15,11 +15,11 @@ parser code
  
     public int num_global = 0;
     public void syntax_error(Symbol s){
-        System.out.println("Error Sintactico: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1)+"\n"  );
+        System.out.println("Error Sintactico: "+ s.value +" Linea "+(s.right+1)+" columna "+(s.left+1)+"\n"  );
     }
 
     public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{ 
-        System.out.println("Error de sintaxis no se pudo terminar de analizar: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1)+"\n" );
+        System.out.println("Error de sintaxis no se pudo terminar de analizar: "+ s.value +" Linea "+(s.right+1)+" columna "+(s.left+1)+"\n" );
         
 }
 :}
@@ -35,13 +35,15 @@ non terminal inicio, instruccion, lista_de_instrucciones, asignacion, tipo_de_da
 
 start with inicio;
 
-inicio ::= PROGRAM instruccion END PROGRAM;
+inicio ::= PROGRAM instruccion END PROGRAM
+        error;
 
 instruccion ::= lista_de_instrucciones instruccion
                 |lista_de_instrucciones;
 
 lista_de_instrucciones ::= asignacion
-                        |lista;
+                        |lista
+                        ;
 
 asignacion ::= VAR DOS_PUNTOS tipo_de_dato:a DOS_PUNTOS DOS_PUNTOS VARIABLE:b SLASH_MENOR DIAGONAL dato:c END PUNTO_Y_COMA
     {:
@@ -59,7 +61,10 @@ lista ::= ARREGLO DOS_PUNTOS tipo_de_dato:tipo DOS_PUNTOS DOS_PUNTOS ARROBA VARI
         lista_de_elementos.add(new proyecto1_oc1_202010770.lista(vals));
         double numero = 0.0;
         Scanner scanner = new Scanner(datos_en_lista);
+        if(tipo.toString().equals("double")){
+        
         while (scanner.hasNext()) {
+            
             String numeroStr = scanner.next();
             numero = Double.parseDouble(numeroStr);
             System.out.println(var.toString() +": "+numero);
@@ -70,6 +75,21 @@ lista ::= ARREGLO DOS_PUNTOS tipo_de_dato:tipo DOS_PUNTOS DOS_PUNTOS ARROBA VARI
                 }
                 elemento.mostrarElementos();
             }
+        }}else{
+        while (scanner.hasNext()) {
+            
+            String numeroStr = scanner.next();
+            
+            
+            System.out.println(var.toString() +": "+numero);
+            for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
+                System.out.println("Variable: " + elemento.variable);
+                if(elemento.variable.equals(vals)){
+                    elemento.agregarElemento(tipo.toString(),vals, numeroStr);
+                }
+                elemento.mostrarElementos();
+            }
+        }
         }
 
         //Se limpia la variable con los datos
@@ -84,9 +104,19 @@ tipo_de_dato ::= DOUBLE{:RESULT = "double"; :}
 
 
 datos_de_lista ::= datos_de_lista:a COMMA dato:b {: datos_en_lista += " "+b.toString(); RESULT = b;System.out.println(datos_en_lista);:}
-                 | dato:a {:datos_en_lista += " "+a.toString();  RESULT = a;:};
+                 | dato:a {:datos_en_lista += " "+a.toString();  RESULT = a;:}
+                 ;
 
-dato ::= CADENAS:datos {:RESULT = datos.toString(); ; :}
+dato ::= CADENAS:datos {:
+        String salida = "";
+        if (datos.toString().startsWith("\"") && datos.toString().endsWith("\"")) {
+            // Quitar las comillas usando substring
+            salida = datos.toString().substring(1, datos.length() - 1);
+            System.out.println(salida +" ajkddjfksa");
+            RESULT = salida;
+        }else{
+        RESULT = datos.toString();
+        } :}
     | NUMERO_FLOTANTE:datos {:RESULT = datos.toString(); :}
     | NUMERO_ENTERO:datos {:RESULT = datos.toString(); :}
     | VARIABLE: datos {:

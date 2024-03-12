@@ -36,7 +36,7 @@ public class sintactical extends java_cup.runtime.lr_parser {
   /** Production table. */
   protected static final short _production_table[][] = 
     unpackFromStrings(new String[] {
-    "\000\025\000\002\002\004\000\002\002\006\000\002\003" +
+    "\000\025\000\002\002\004\000\002\002\007\000\002\003" +
     "\004\000\002\003\003\000\002\004\003\000\002\004\003" +
     "\000\002\005\015\000\002\010\020\000\002\006\003\000" +
     "\002\006\003\000\002\011\005\000\002\011\003\000\002" +
@@ -50,8 +50,8 @@ public class sintactical extends java_cup.runtime.lr_parser {
   /** Parse-action table. */
   protected static final short[][] _action_table = 
     unpackFromStrings(new String[] {
-    "\000\113\000\004\043\005\001\002\000\004\002\115\001" +
-    "\002\000\006\004\006\010\013\001\002\000\004\012\103" +
+    "\000\114\000\004\043\005\001\002\000\004\002\116\001" +
+    "\002\000\006\004\006\010\013\001\002\000\004\012\104" +
     "\001\002\000\004\042\101\001\002\000\010\004\006\010" +
     "\013\042\ufffe\001\002\000\010\004\ufffc\010\ufffc\042\ufffc" +
     "\001\002\000\010\004\ufffd\010\ufffd\042\ufffd\001\002\000" +
@@ -100,14 +100,14 @@ public class sintactical extends java_cup.runtime.lr_parser {
     "\036\027\035\044\027\045\034\046\031\001\002\000\004" +
     "\020\077\001\002\000\012\016\ufff1\020\ufff1\022\ufff1\042" +
     "\ufff1\001\002\000\004\042\uffff\001\002\000\004\043\102" +
-    "\001\002\000\004\002\000\001\002\000\006\006\015\007" +
-    "\017\001\002\000\004\012\105\001\002\000\004\012\106" +
-    "\001\002\000\004\005\107\001\002\000\004\013\110\001" +
-    "\002\000\004\015\111\001\002\000\024\005\033\023\030" +
-    "\024\041\025\032\026\036\027\035\044\027\045\034\046" +
-    "\031\001\002\000\004\042\113\001\002\000\004\047\114" +
-    "\001\002\000\010\004\ufffb\010\ufffb\042\ufffb\001\002\000" +
-    "\004\002\001\001\002" });
+    "\001\002\000\004\003\103\001\002\000\004\002\000\001" +
+    "\002\000\006\006\015\007\017\001\002\000\004\012\106" +
+    "\001\002\000\004\012\107\001\002\000\004\005\110\001" +
+    "\002\000\004\013\111\001\002\000\004\015\112\001\002" +
+    "\000\024\005\033\023\030\024\041\025\032\026\036\027" +
+    "\035\044\027\045\034\046\031\001\002\000\004\042\114" +
+    "\001\002\000\004\047\115\001\002\000\010\004\ufffb\010" +
+    "\ufffb\042\ufffb\001\002\000\004\002\001\001\002" });
 
   /** Access to parse-action table. */
   public short[][] action_table() {return _action_table;}
@@ -115,7 +115,7 @@ public class sintactical extends java_cup.runtime.lr_parser {
   /** <code>reduce_goto</code> table. */
   protected static final short[][] _reduce_table = 
     unpackFromStrings(new String[] {
-    "\000\113\000\004\002\003\001\001\000\002\001\001\000" +
+    "\000\114\000\004\002\003\001\001\000\002\001\001\000" +
     "\012\003\006\004\007\005\011\010\010\001\001\000\002" +
     "\001\001\000\002\001\001\000\012\003\077\004\007\005" +
     "\011\010\010\001\001\000\002\001\001\000\002\001\001" +
@@ -138,11 +138,11 @@ public class sintactical extends java_cup.runtime.lr_parser {
     "\000\002\001\001\000\002\001\001\000\004\007\073\001" +
     "\001\000\002\001\001\000\004\007\075\001\001\000\002" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
-    "\001\000\002\001\001\000\004\006\103\001\001\000\002" +
+    "\001\000\002\001\001\000\002\001\001\000\004\006\104" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
-    "\001\000\002\001\001\000\004\007\111\001\001\000\002" +
+    "\001\000\002\001\001\000\002\001\001\000\004\007\112" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
-    "\001" });
+    "\001\000\002\001\001" });
 
   /** Access to <code>reduce_goto</code> table. */
   public short[][] reduce_table() {return _reduce_table;}
@@ -188,11 +188,11 @@ public class sintactical extends java_cup.runtime.lr_parser {
  
     public int num_global = 0;
     public void syntax_error(Symbol s){
-        System.out.println("Error Sintactico: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1)+"\n"  );
+        System.out.println("Error Sintactico: "+ s.value +" Linea "+(s.right+1)+" columna "+(s.left+1)+"\n"  );
     }
 
     public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{ 
-        System.out.println("Error de sintaxis no se pudo terminar de analizar: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1)+"\n" );
+        System.out.println("Error de sintaxis no se pudo terminar de analizar: "+ s.value +" Linea "+(s.right+1)+" columna "+(s.left+1)+"\n" );
         
 }
 
@@ -236,11 +236,11 @@ class CUP$sintactical$actions {
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 1: // inicio ::= PROGRAM instruccion END PROGRAM 
+          case 1: // inicio ::= PROGRAM instruccion END PROGRAM error 
             {
               Object RESULT =null;
 
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("inicio",0, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-3)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
+              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("inicio",0, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-4)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
 
@@ -320,7 +320,10 @@ class CUP$sintactical$actions {
         lista_de_elementos.add(new proyecto1_oc1_202010770.lista(vals));
         double numero = 0.0;
         Scanner scanner = new Scanner(datos_en_lista);
+        if(tipo.toString().equals("double")){
+        
         while (scanner.hasNext()) {
+            
             String numeroStr = scanner.next();
             numero = Double.parseDouble(numeroStr);
             System.out.println(var.toString() +": "+numero);
@@ -331,6 +334,21 @@ class CUP$sintactical$actions {
                 }
                 elemento.mostrarElementos();
             }
+        }}else{
+        while (scanner.hasNext()) {
+            
+            String numeroStr = scanner.next();
+            
+            
+            System.out.println(var.toString() +": "+numero);
+            for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
+                System.out.println("Variable: " + elemento.variable);
+                if(elemento.variable.equals(vals)){
+                    elemento.agregarElemento(tipo.toString(),vals, numeroStr);
+                }
+                elemento.mostrarElementos();
+            }
+        }
         }
 
         //Se limpia la variable con los datos
@@ -393,7 +411,16 @@ class CUP$sintactical$actions {
 		int datosleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
 		int datosright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
 		String datos = (String)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-		RESULT = datos.toString(); ; 
+		
+        String salida = "";
+        if (datos.toString().startsWith("\"") && datos.toString().endsWith("\"")) {
+            // Quitar las comillas usando substring
+            salida = datos.toString().substring(1, datos.length() - 1);
+            System.out.println(salida +" ajkddjfksa");
+            RESULT = salida;
+        }else{
+        RESULT = datos.toString();
+        } 
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("dato",5, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
