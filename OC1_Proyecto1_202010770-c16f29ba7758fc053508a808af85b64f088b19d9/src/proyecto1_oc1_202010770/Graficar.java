@@ -17,6 +17,7 @@ import org.jfree.data.statistics.HistogramType;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
+import java.util.ArrayList;
 /**
  *
  * @author Luisi
@@ -26,16 +27,19 @@ import java.util.Random;
 public class Graficar extends JFrame {
 
     
- public static void barras(String Titulo, String TituloX, String TituloY, double valores[], String ejex [])
+ public static void barras(String Titulo, String TituloX, String TituloY, ArrayList<tabla_de_simbolos> lista_float,ArrayList<tabla_de_simbolos> lista_string)
     {
         //Ingreso de datos
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-    
-        dataset.addValue(2.0, "Valor", "EjeX");
         
-        for(int i = 0; i < 5; i++){
-            dataset.addValue(valores[i], "Valor", ejex[i]);
+        
+        System.out.println(lista_float.size());
+        for (int i = 0; i < lista_float.size(); i++) {
+            String hola = lista_string.get(i).dato.toString();
+            
+            dataset.addValue(Double.parseDouble(lista_string.get(i).dato.toString()), "Valor", lista_float.get(i).dato.toString());
         }
+        
         
         // Creación de gráfica
         JFreeChart grafica = 
@@ -77,13 +81,18 @@ public static void linea(String Titulo, String TituloX, String TituloY,double va
         frame.setVisible(true);
     }
 
- public static void Pie(String Titulo, String TituloX, String TituloY, double valores[], String ejex []){
+ public static void Pie(String Titulo, ArrayList<tabla_de_simbolos> lista_float,ArrayList<tabla_de_simbolos> lista_string){
         //Ingreso de datos
         DefaultPieDataset dataset = new DefaultPieDataset( );
-      
-        for(int i = 0; i < 5; i++){
-            dataset.setValue(ejex[i], valores[i]);
+        
+        
+        for (int i = 0; i < lista_float.size(); i++) {
+            String hola = lista_string.get(i).dato.toString();
+            
+            dataset.setValue(lista_string.get(i).dato.toString(),Double.parseDouble(lista_float.get(i).dato.toString()));
         }
+      
+
         // Creación de gráfica
         JFreeChart grafica = 
             ChartFactory.createPieChart(Titulo, dataset);
