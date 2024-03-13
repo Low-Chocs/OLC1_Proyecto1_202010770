@@ -65,8 +65,9 @@ public class Operaciones_estadisticas {
         Map<Double, Integer> frecuencia = new HashMap<>();
 
         for (tabla_de_simbolos elemento : lista) {
-            double dato = (Double) elemento.dato;
-            frecuencia.put(dato, frecuencia.getOrDefault(dato, 0) + 1);
+            String dato = elemento.dato.toString();
+            double dato_double = Double.parseDouble(dato);
+            frecuencia.put(dato_double, frecuencia.getOrDefault(dato_double, 0) + 1);
         }
         double moda = 0;
         int maxFrecuencia = 0;
@@ -81,37 +82,50 @@ public class Operaciones_estadisticas {
     
  
      public String varianza(ArrayList<tabla_de_simbolos> lista) {
+         
 
         double media = Double.parseDouble(media(lista));
 
         double sumaCuadradosDiferencias = 0;
         for (tabla_de_simbolos elemento : lista) {
-            double dato = (Double) elemento.dato;
+            
+            String dato_string = elemento.dato.toString();
+            double dato = Double.parseDouble(dato_string);
+            
             sumaCuadradosDiferencias += Math.pow(dato - media, 2);
         }
+         
 
         double varianza = sumaCuadradosDiferencias / lista.size();
         
-        return String.valueOf(varianza);
+         
+        String resultado = Double.toString(varianza);
+        
+        return resultado;
     }
 
     
     public String valor_maximo(ArrayList<tabla_de_simbolos> lista) {
         double maximo = 0;
         for (tabla_de_simbolos elemento : lista) {
-            double dato = (Double) elemento.dato;
+            String dato_string = elemento.dato.toString();
+            double dato = Double.parseDouble(dato_string);
+          
             if (dato > maximo) {
                 maximo = dato;
             }
         }
-        return String.valueOf(maximo);
+        String resultado = Double.toString(maximo);
+        
+        return resultado;
     }
     
 
     public String valor_minimo(ArrayList<tabla_de_simbolos> lista) {
         double minimo = 0;
         for (tabla_de_simbolos elemento : lista) {
-            double dato = (Double) elemento.dato;
+            String dato_string = elemento.dato.toString();
+            double dato = Double.parseDouble(dato_string);
             if (dato < minimo) {
                 minimo = dato;
             }

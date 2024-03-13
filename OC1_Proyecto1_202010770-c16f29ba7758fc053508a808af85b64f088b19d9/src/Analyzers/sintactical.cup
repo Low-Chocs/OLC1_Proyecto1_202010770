@@ -70,8 +70,8 @@ impresion_de_la_lista ::= ARROBA VARIABLE:var {:
         }:}
         | CORCHETE_ABIERTO mas_listas CORCHETE_CERRADO;
 
-mas_listas ::= mas_listas COMMA dato:val {:System.out.println(val.toString());:}
-            | dato:val {:System.out.println(val.toString());:};
+mas_listas ::= mas_listas COMMA dato:val {:;:}
+            | dato:val;
 
 asignacion ::= VAR DOS_PUNTOS tipo_de_dato:a DOS_PUNTOS DOS_PUNTOS VARIABLE:b SLASH_MENOR DIAGONAL dato:c END PUNTO_Y_COMA
     {:
@@ -168,7 +168,11 @@ dato ::= CADENAS:datos {:
     :}
 
     |MEDIA {:operacion_estadistica = "media";:} PARENTESIS_ABIERTO listas_operaciones:resultado PARENTESIS_CERRADO {:RESULT = resultado;:}
-    |MEDIANA {:operacion_estadistica = "mediana";:} PARENTESIS_ABIERTO listas_operaciones:resultado PARENTESIS_CERRADO {:RESULT = resultado;:};
+    |MEDIANA {:operacion_estadistica = "mediana";:} PARENTESIS_ABIERTO listas_operaciones:resultado PARENTESIS_CERRADO {:RESULT = resultado;:}
+    |MODA {:operacion_estadistica = "moda";:} PARENTESIS_ABIERTO listas_operaciones:resultado PARENTESIS_CERRADO {:RESULT = resultado;:}
+    |VARIANZA {:operacion_estadistica = "varianza";:} PARENTESIS_ABIERTO listas_operaciones:resultado PARENTESIS_CERRADO {:RESULT = resultado;:}
+    |MAX {:operacion_estadistica = "maximo";:} PARENTESIS_ABIERTO listas_operaciones:resultado PARENTESIS_CERRADO {:RESULT = resultado;:}
+    |MIN {:operacion_estadistica = "minimo";:} PARENTESIS_ABIERTO listas_operaciones:resultado PARENTESIS_CERRADO {:RESULT = resultado;:};
 
     listas_operaciones ::= ARROBA VARIABLE:var
                         {:
@@ -185,11 +189,26 @@ dato ::= CADENAS:datos {:
                                     RESULT = lista.la_mediana();
                                     break;
                                     }
-                           
+                            if(operacion_estadistica.equals("moda")){
+                                    RESULT = lista.la_moda();
+                                    break;
+                                    }
+                            if(operacion_estadistica.equals("varianza")){
+                                    RESULT = lista.la_varianza();
+                                    break;
+                                    }
+                            if(operacion_estadistica.equals("maximo")){
+                                    RESULT = lista.la_maxima();
+                                    break;
+                                    }
+                            if(operacion_estadistica.equals("minimo")){
+                                    RESULT = lista.la_minima();
+                                    break;
+                                    }
                            
                         }
                         :}
-                        |CORCHETE_ABIERTO listas_operacion CORCHETE_CERRADO {:System.out.println(datos_en_lista);
+                        |CORCHETE_ABIERTO listas_operacion CORCHETE_CERRADO {:
                         
                         boolean es_temporal = false;
                         for (proyecto1_oc1_202010770.lista lista : lista_de_elementos) {
@@ -235,6 +254,22 @@ dato ::= CADENAS:datos {:
                                     RESULT = elemento.la_mediana();
                                 break;    
                                 }
+                                if(operacion_estadistica.equals("moda")){
+                                    RESULT = elemento.la_moda();
+                                break;    
+                                }
+                                if(operacion_estadistica.equals("varianza")){
+                                    RESULT = elemento.la_varianza();
+                                    break;
+                                    }
+                                if(operacion_estadistica.equals("maximo")){
+                                    RESULT = elemento.la_maxima();
+                                    break;
+                                    }
+                                if(operacion_estadistica.equals("minimo")){
+                                    RESULT = elemento.la_minima();
+                                    break;
+                                    }
                                     
                             
                                     
@@ -244,8 +279,8 @@ dato ::= CADENAS:datos {:
                              
 :};
 
-    listas_operacion ::= listas_operacion COMMA dato:dat {:datos_en_lista += " "+dat.toString(); System.out.println(dat);:}
-                        |dato:dat {:datos_en_lista += " "+dat.toString(); System.out.println(dat);:};
+    listas_operacion ::= listas_operacion COMMA dato:dat {:datos_en_lista += " "+dat.toString();:}
+                        |dato:dat {:datos_en_lista += " "+dat.toString();:};
 
     
 

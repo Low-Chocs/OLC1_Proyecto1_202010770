@@ -41,4 +41,20 @@ public class lista {
     public String la_mediana(){
         return operacion.mediana(this.lista) ;
     }
+    public String la_moda(){
+        return operacion.moda(this.lista) ;
+    }
+    
+    public String la_varianza(){
+        
+        return operacion.varianza(this.lista);
+    }
+    
+    public String la_maxima(){
+        return operacion.valor_maximo(this.lista);
+    }
+    
+    public String la_minima(){
+        return operacion.valor_minimo(this.lista);
+    }
 }
