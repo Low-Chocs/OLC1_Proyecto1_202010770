@@ -61,6 +61,10 @@ MODA = moda
 VARIANZA = varianza
 MAX = max
 MIN = min
+BARRAS = graphbar
+PIE = graphpie
+LINEA = graphline
+HISTOGRAM = histogram
 
 CONSOLE = console 
 PRINT = print
@@ -123,6 +127,11 @@ ARROBA = "@"
 <YYINITIAL> {VALUES} { yytext(); return new Symbol(sym.VALUES, yycolumn, yyline, yytext()); }
 <YYINITIAL> {LABEL} { yytext(); return new Symbol(sym.LABEL, yycolumn, yyline, yytext()); }
 
+
+<YYINITIAL> {BARRAS} { yytext(); return new Symbol(sym.BARRAS, yycolumn, yyline, yytext()); }
+<YYINITIAL> {PIE} { yytext(); return new Symbol(sym.PIE, yycolumn, yyline, yytext()); }
+<YYINITIAL> {LINEA} { yytext(); return new Symbol(sym.LINEA, yycolumn, yyline, yytext()); }
+<YYINITIAL> {HISTOGRAM} { yytext(); return new Symbol(sym.HISTOGRAM, yycolumn, yyline, yytext()); }
 
 <YYINITIAL> {DOS_PUNTOS} { return new Symbol(sym.DOS_PUNTOS, yycolumn, yyline, yytext()); }
 <YYINITIAL> {PUNTO_Y_COMA} { return new Symbol(sym.PUNTO_Y_COMA, yycolumn, yyline, yytext()); }

@@ -22,6 +22,10 @@ public class lista {
         this.lista = new ArrayList<>();
     }
     
+    public void refresh_list(){
+        this.lista.clear();
+    }
+    
     public void agregarElemento(String tipo, String variable, Object dato) {
         dato = dato.toString().replace("Ñ", " ");
         this.lista.add(new tabla_de_simbolos(tipo, variable, dato));

@@ -15,10 +15,12 @@ public class sym {
   public static final int CORCHETE_CERRADO = 16;
   public static final int DOUBLE = 4;
   public static final int RESTA = 18;
+  public static final int PIE = 47;
   public static final int DOS_PUNTOS = 8;
   public static final int PARENTESIS_ABIERTO = 13;
   public static final int CADENAS = 34;
   public static final int IGUAL = 30;
+  public static final int BARRAS = 46;
   public static final int COLUMN = 31;
   public static final int COMMA = 12;
   public static final int ARROBA = 7;
@@ -46,9 +48,11 @@ public class sym {
   public static final int EXEC = 38;
   public static final int LABEL = 45;
   public static final int DIVISION = 20;
+  public static final int LINEA = 48;
   public static final int MAX = 26;
   public static final int TITULO_Y = 43;
   public static final int NUMERO_ENTERO = 36;
+  public static final int HISTOGRAM = 49;
   public static final int TITULO_X = 42;
   public static final int VAR = 2;
   public static final int PRINT = 29;
@@ -100,7 +104,11 @@ public class sym {
   "TITULO_X",
   "TITULO_Y",
   "VALUES",
-  "LABEL"
+  "LABEL",
+  "BARRAS",
+  "PIE",
+  "LINEA",
+  "HISTOGRAM"
   };
 }
 

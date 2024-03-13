@@ -19,6 +19,7 @@ public class Proyecto1_OC1_202010770 {
         // TODO code application logic here
         main_window window = new main_window();
         window.setVisible(true) ;
+        
     }
     
 }

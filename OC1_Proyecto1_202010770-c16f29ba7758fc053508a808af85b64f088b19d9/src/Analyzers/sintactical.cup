@@ -16,6 +16,7 @@ parser code
     public String actual = "";
     public String datos_en_lista = "";
     public String operacion_estadistica = "";
+    public String operacion_grafica ="";
  
     public int num_global = 0;
     public void syntax_error(Symbol s){
@@ -32,14 +33,15 @@ terminal String VAR, VARIABLE, DOUBLE, CADENA, ARREGLO, ARROBA;
 terminal String DOS_PUNTOS, SLASH_MENOR, SLASH_MAYOR, DIAGONAL, COMMA, PARENTESIS_ABIERTO, PARENTESIS_CERRADO, CORCHETE_ABIERTO, CORCHETE_CERRADO;
 terminal String SUMA, RESTA, MULTIPLICACION, DIVISION, MODULO, MEDIA, MEDIANA, MODA, VARIANZA, MAX, MIN; 
 terminal String CONSOLE, PRINT, IGUAL, COLUMN, END, PROGRAM, CADENAS, NUMERO_FLOTANTE, NUMERO_ENTERO, PUNTO_Y_COMA;
-terminal String EXEC, TITULO, EJE_X, EJE_Y, TITULO_X, TITULO_Y, VALUES, LABEL;
+terminal String EXEC, TITULO, EJE_X, EJE_Y, TITULO_X, TITULO_Y, VALUES, LABEL, BARRAS, PIE, LINEA, HISTOGRAM;
 
-non terminal inicio, instruccion, lista_de_instrucciones, asignacion, listas_operacion, listas_operaciones, tipo_de_dato, dato, lista, datos_de_lista, impresiones, mas_listas, datos_de_impresion, impresion_lista ,impresion_de_la_lista;
+non terminal inicio,grafica_histograma, valores_pie,grafica_pie, grafica_linea, label_pie, titulo_x,titulo_y, eje_x, eje_y, lista_grafica,ultima_asignacion, graficar, grafica_barras, asignacion_titulo, instruccion, lista_de_instrucciones, asignacion, listas_operacion, listas_operaciones, tipo_de_dato, dato, lista, datos_de_lista, impresiones, mas_listas, datos_de_impresion ,impresion_de_la_lista;
 
 
 start with inicio;
 
-inicio ::= PROGRAM instruccion END PROGRAM
+inicio ::= {:lista_de_elementos.add(new proyecto1_oc1_202010770.lista("char_temp"));lista_de_elementos.add(new proyecto1_oc1_202010770.lista("double_temp"));:} 
+        PROGRAM instruccion END PROGRAM
         error;
 
 instruccion ::= lista_de_instrucciones instruccion
@@ -48,7 +50,76 @@ instruccion ::= lista_de_instrucciones instruccion
 lista_de_instrucciones ::= asignacion
                         |lista
                         |impresiones
+                        |graficar
                         ;
+
+
+graficar ::= grafica_barras
+            | grafica_pie
+            | grafica_linea
+            | grafica_histograma
+            ;
+
+grafica_barras ::= BARRAS PARENTESIS_ABIERTO asignacion_titulo:titulo eje_x:variable_x eje_y:variable_y titulo_x:title_x titulo_y:title_y EXEC BARRAS PARENTESIS_CERRADO END PUNTO_Y_COMA{:RESULT= "AS"; System.out.println(titulo.toString()+" "+variable_x +" "+variable_y+" " +title_x +" "+title_y);:};
+
+asignacion_titulo ::= TITULO DOS_PUNTOS DOS_PUNTOS CADENA IGUAL dato:resultado END PUNTO_Y_COMA {:RESULT = resultado;:};
+eje_x ::= EJE_X DOS_PUNTOS DOS_PUNTOS CADENA {:operacion_grafica= "cadena";:} IGUAL lista_grafica:b END PUNTO_Y_COMA {:RESULT=b;:};
+eje_y ::= EJE_Y DOS_PUNTOS DOS_PUNTOS DOUBLE {:operacion_grafica= "double";:} IGUAL lista_grafica:b END PUNTO_Y_COMA {:RESULT=b;:};
+
+lista_grafica ::= ARROBA VARIABLE:var {:RESULT = var;:}
+               |CORCHETE_ABIERTO ultima_asignacion CORCHETE_CERRADO{:
+
+
+String vals = "char_temp";
+lista_de_elementos.add(new proyecto1_oc1_202010770.lista(vals));
+double numero = 0.0;
+Scanner scanner = new Scanner(datos_en_lista);
+for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
+                if(elemento.variable.equals("char_temp")){
+                    elemento.refresh_list();
+}
+}
+while (scanner.hasNext()) {
+            
+            String numeroStr = scanner.next();
+            
+           
+            for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
+                if(operacion_grafica.equals("cadena")){
+                    if(elemento.variable.equals("char_temp")){
+                        elemento.agregarElemento("char[]",vals, numeroStr.replace("Ñ", " "));
+                    }
+                }else{
+                    if(elemento.variable.equals("double_temp")){
+                        elemento.agregarElemento("double",vals, numeroStr.replace("Ñ", " "));
+                    }
+                }
+                
+                elemento.mostrarElementos();
+            }
+        }
+        if(operacion_grafica.equals("cadena")){
+            RESULT ="char_temp";
+        }else{
+        RESULT ="double_temp";
+        }
+:} ;
+ultima_asignacion ::= ultima_asignacion COMMA dato:data {:datos_en_lista += " "+data.toString().replace(" ", "Ñ");:}
+                    |dato:data {:datos_en_lista = data.toString().replace(" ", "Ñ");:};
+
+titulo_x ::= TITULO_X DOS_PUNTOS DOS_PUNTOS CADENA IGUAL dato:data END PUNTO_Y_COMA{:RESULT = data.toString();:};
+titulo_y ::= TITULO_Y DOS_PUNTOS DOS_PUNTOS CADENA IGUAL dato:data END PUNTO_Y_COMA{:RESULT = data.toString();:};
+
+grafica_pie ::= PIE PARENTESIS_ABIERTO label_pie:labeles valores_pie:valor_variable asignacion_titulo:titulo EXEC PIE PARENTESIS_CERRADO END PUNTO_Y_COMA{:RESULT= "AS"; System.out.println(labeles+ " " +valor_variable+" "+titulo);:};
+
+valores_pie ::= VALUES DOS_PUNTOS DOS_PUNTOS DOUBLE IGUAL lista_grafica:valor END PUNTO_Y_COMA {:RESULT = valor;:};
+label_pie ::= LABEL DOS_PUNTOS DOS_PUNTOS CADENA IGUAL lista_grafica:valor END PUNTO_Y_COMA {:RESULT = valor;:};
+
+
+grafica_linea ::= LINEA PARENTESIS_ABIERTO asignacion_titulo:titulo eje_x:variable_x eje_y:variable_y titulo_x:title_x titulo_y:title_y EXEC LINEA PARENTESIS_CERRADO END PUNTO_Y_COMA{:RESULT= "AS"; System.out.println(titulo.toString()+" "+variable_x +" "+variable_y+" " +title_x +" "+title_y);:};
+
+grafica_histograma ::= HISTOGRAM PARENTESIS_ABIERTO asignacion_titulo:titulo label_pie:labeles EXEC LINEA PARENTESIS_CERRADO END PUNTO_Y_COMA{:RESULT= "AS"; System.out.println(titulo.toString()+" "+labeles);:};
+
 
 impresiones ::= CONSOLE DOS_PUNTOS DOS_PUNTOS PRINT IGUAL datos_de_impresion END PUNTO_Y_COMA {:System.out.println("");:}  
                |CONSOLE DOS_PUNTOS DOS_PUNTOS  COLUMN  IGUAL dato:act {:        
@@ -125,7 +196,7 @@ tipo_de_dato ::= DOUBLE{:RESULT = "double"; :}
 
 
 datos_de_lista ::= datos_de_lista:a COMMA dato:b {: datos_en_lista += " "+b.toString().replace(" ", "Ñ"); RESULT = b.toString().replace(" ", "Ñ");;:}
-                 | dato:a {:datos_en_lista += " "+a.toString().replace(" ", "Ñ");  RESULT = a.toString().replace(" ", "Ñ");;:}
+                 | dato:a {:datos_en_lista = " "+a.toString().replace(" ", "Ñ");  RESULT = a.toString().replace(" ", "Ñ");;:}
                  ;
 
 dato ::= CADENAS:datos {:
@@ -244,6 +315,7 @@ dato ::= CADENAS:datos {:
                             }
 
                         }
+                        datos_en_lista = "";
                         for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
                                 if(elemento.variable.equals("Tremdo")){
                                     if(operacion_estadistica.equals("media")){
@@ -280,7 +352,7 @@ dato ::= CADENAS:datos {:
 :};
 
     listas_operacion ::= listas_operacion COMMA dato:dat {:datos_en_lista += " "+dat.toString();:}
-                        |dato:dat {:datos_en_lista += " "+dat.toString();:};
+                        |dato:dat {:datos_en_lista = " "+dat.toString();:};
 
     
 
