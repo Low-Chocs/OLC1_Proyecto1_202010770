@@ -18,7 +18,7 @@ public class Impresion {
     }
     
     public void imprimir(String dato){
-        System.out.print(dato+", ");
+        System.out.print(dato);
     }
     
     public void imprimir_lista(String actual, lista lista_a_mostrar){

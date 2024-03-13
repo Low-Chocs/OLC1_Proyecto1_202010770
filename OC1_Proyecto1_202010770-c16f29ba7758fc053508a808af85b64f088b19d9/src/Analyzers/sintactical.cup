@@ -50,7 +50,7 @@ lista_de_instrucciones ::= asignacion
                         |impresiones
                         ;
 
-impresiones ::= CONSOLE DOS_PUNTOS DOS_PUNTOS PRINT IGUAL datos_de_impresion END PUNTO_Y_COMA  
+impresiones ::= CONSOLE DOS_PUNTOS DOS_PUNTOS PRINT IGUAL datos_de_impresion END PUNTO_Y_COMA {:System.out.println("");:}  
                |CONSOLE DOS_PUNTOS DOS_PUNTOS  COLUMN  IGUAL dato:act {:        
         System.out.println("----------");
         System.out.println(act);
@@ -58,7 +58,7 @@ impresiones ::= CONSOLE DOS_PUNTOS DOS_PUNTOS PRINT IGUAL datos_de_impresion END
         DIAGONAL SLASH_MAYOR impresion_de_la_lista END PUNTO_Y_COMA ;
 
 
-datos_de_impresion ::= datos_de_impresion COMMA dato:dat {:impresion.imprimir(dat.toString());:}
+datos_de_impresion ::= datos_de_impresion COMMA dato:dat {:impresion.imprimir(", "+dat.toString());:}
                     | dato:dat {:impresion.imprimir(dat.toString());:};
 
 impresion_de_la_lista ::= ARROBA VARIABLE:var {:
@@ -70,8 +70,8 @@ impresion_de_la_lista ::= ARROBA VARIABLE:var {:
         }:}
         | CORCHETE_ABIERTO mas_listas CORCHETE_CERRADO;
 
-mas_listas ::= mas_listas COMMA dato:val {:;:}
-            | dato:val;
+mas_listas ::= mas_listas COMMA dato:val {:System.out.println(val);:}
+            | dato:val {:System.out.println(val);:};
 
 asignacion ::= VAR DOS_PUNTOS tipo_de_dato:a DOS_PUNTOS DOS_PUNTOS VARIABLE:b SLASH_MENOR DIAGONAL dato:c END PUNTO_Y_COMA
     {:

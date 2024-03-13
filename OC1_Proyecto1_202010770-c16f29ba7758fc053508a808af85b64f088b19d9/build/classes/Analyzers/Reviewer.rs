@@ -1,2 +1,0 @@
-Analyzers.Reviewer
-Analyzers.state

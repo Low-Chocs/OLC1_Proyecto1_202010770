@@ -398,7 +398,7 @@ class CUP$sintactical$actions {
           case 7: // impresiones ::= CONSOLE DOS_PUNTOS DOS_PUNTOS PRINT IGUAL datos_de_impresion END PUNTO_Y_COMA 
             {
               Object RESULT =null;
-
+		System.out.println("");
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("impresiones",10, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-7)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
@@ -439,7 +439,7 @@ class CUP$sintactical$actions {
 		int datleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
 		int datright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
 		Object dat = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-		impresion.imprimir(dat.toString());
+		impresion.imprimir(", "+dat.toString());
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("datos_de_impresion",12, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
@@ -490,7 +490,7 @@ class CUP$sintactical$actions {
 		int valleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
 		int valright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
 		Object val = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-		;
+		System.out.println(val);
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("mas_listas",11, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
@@ -502,7 +502,7 @@ class CUP$sintactical$actions {
 		int valleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
 		int valright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
 		Object val = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-
+		System.out.println(val);
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("mas_listas",11, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
