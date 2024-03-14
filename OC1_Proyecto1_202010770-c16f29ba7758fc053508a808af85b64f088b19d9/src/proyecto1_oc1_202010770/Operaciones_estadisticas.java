@@ -121,16 +121,16 @@ public class Operaciones_estadisticas {
     }
     
 
-    public String valor_minimo(ArrayList<tabla_de_simbolos> lista) {
-        double minimo = 0;
-        for (tabla_de_simbolos elemento : lista) {
-            String dato_string = elemento.dato.toString();
-            double dato = Double.parseDouble(dato_string);
-            if (dato < minimo) {
-                minimo = dato;
-            }
+public String valor_minimo(ArrayList<tabla_de_simbolos> lista) {
+    double minimo = Double.MAX_VALUE; // Inicializar con el valor máximo posible
+    for (tabla_de_simbolos elemento : lista) {
+        String dato_string = elemento.dato.toString();
+        double dato = Double.parseDouble(dato_string);
+        if (dato < minimo) {
+            minimo = dato;
         }
-        return String.valueOf(minimo);
     }
+    return String.valueOf(minimo);
+}
 
 }

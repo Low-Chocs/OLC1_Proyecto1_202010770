@@ -82,7 +82,7 @@ NUMERO_ENTERO = [0-9]+
 
 ONE_LINE_COMMENT = "!"[^\n]*
 COMMENT_TEXT = [^!]
-MULTI_LINE_COMMENT = "<!"({COMMENT_TEXT})*"*!>"
+MULTI_LINE_COMMENT = "<!"([^!]|!([^>]|(>[^!])))*"!>" 
 EXEC = exec
 TITULO = titulo
 EJE_X = ejex
@@ -170,6 +170,7 @@ ARROBA = "@"
 <YYINITIAL> {VARIABLE} { return new Symbol(sym.VARIABLE, yycolumn, yyline, yytext()); }
 <YYINITIAL> {NUMERO_FLOTANTE} { return new Symbol(sym.NUMERO_FLOTANTE, yycolumn, yyline, yytext()); }
 <YYINITIAL> {NUMERO_ENTERO} { return new Symbol(sym.NUMERO_ENTERO, yycolumn, yyline, yytext()); }
+.           	{ System.out.println("Error Lexico: " + yytext() + " | Fila:" + yyline + " | Columna: " + yycolumn); }
 
 
 

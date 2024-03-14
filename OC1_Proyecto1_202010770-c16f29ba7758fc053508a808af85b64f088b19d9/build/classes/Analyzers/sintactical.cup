@@ -19,6 +19,13 @@ parser code
     public String operacion_estadistica = "";
     public String operacion_grafica ="";
     proyecto1_oc1_202010770.Graficar graficals = new proyecto1_oc1_202010770.Graficar();
+    public String titulo_grafica = "";
+    public String titulo_x_grafica = "";
+    public String titulo_y_grafica = "";
+    public String variable_en_x = "";
+    public String variable_en_y = "";
+    public String titulo_label = "";
+    public String valor_de_pies = "";
  
     public int num_global = 0;
     public void syntax_error(Symbol s){
@@ -37,14 +44,15 @@ terminal String SUMA, RESTA, MULTIPLICACION, DIVISION, MODULO, MEDIA, MEDIANA, M
 terminal String CONSOLE, PRINT, IGUAL, COLUMN, END, PROGRAM, CADENAS, NUMERO_FLOTANTE, NUMERO_ENTERO, PUNTO_Y_COMA;
 terminal String EXEC, TITULO, EJE_X, EJE_Y, TITULO_X, TITULO_Y, VALUES, LABEL, BARRAS, PIE, LINEA, HISTOGRAM;
 
-non terminal inicio,grafica_histograma, valores_pie,grafica_pie, grafica_linea, label_pie, titulo_x,titulo_y, eje_x, eje_y, lista_grafica,ultima_asignacion, graficar, grafica_barras, asignacion_titulo, instruccion, lista_de_instrucciones, asignacion, listas_operacion, listas_operaciones, tipo_de_dato, dato, lista, datos_de_lista, impresiones, mas_listas, datos_de_impresion ,impresion_de_la_lista;
+non terminal inicio, nueva_lista_graficas, set_graficas, grafica_histograma, valores_pie,grafica_pie, grafica_linea, label_pie, titulo_x,titulo_y, eje_x, eje_y, lista_grafica,ultima_asignacion, graficar, grafica_barras, asignacion_titulo, instruccion, lista_de_instrucciones, asignacion, listas_operacion, listas_operaciones, tipo_de_dato, dato, lista, datos_de_lista, impresiones, mas_listas, datos_de_impresion ,impresion_de_la_lista;
 
 
 start with inicio;
 
 inicio ::= {:lista_de_elementos.add(new proyecto1_oc1_202010770.lista("char_temp"));lista_de_elementos.add(new proyecto1_oc1_202010770.lista("double_temp"));:} 
         PROGRAM instruccion END PROGRAM{:RESULT="Se pudo!";:}
-        error;
+
+        |error;
 
 instruccion ::= lista_de_instrucciones instruccion
                 |lista_de_instrucciones;
@@ -77,13 +85,13 @@ for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
 
 
 
-:} PARENTESIS_ABIERTO asignacion_titulo:titulo eje_x:variable_x  eje_y:variable_y titulo_x:title_x   titulo_y:title_y  EXEC BARRAS END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA{:
+:} PARENTESIS_ABIERTO set_graficas:var  EXEC BARRAS END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA{:
 
 proyecto1_oc1_202010770.lista lista_double = null;
 for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
                
-                    if(elemento.variable.equals(variable_x.toString())){
-                        
+                    if(elemento.variable.equals(variable_en_x)){
+                        System.out.println("vamos bien");
                         lista_double = elemento;
                         //lista_double.mostrarElementos();
                         break;
@@ -93,18 +101,32 @@ for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
 proyecto1_oc1_202010770.lista lista_string = null;
 for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
                
-                    if(elemento.variable.equals(variable_y.toString())){
-                       
+                    if(elemento.variable.equals(variable_en_y)){
+                       System.out.println("vamos bie2n");
                         lista_string = elemento;
                         //lista_string.mostrarElementos();
                        
                         break;
                     }
 }
+System.out.println("El valor es: "+ 1);
 
-graficals.barras(titulo.toString(), title_x.toString(), title_y.toString(),lista_double.lista, lista_string.lista);
+graficals.barras(titulo_grafica, titulo_x_grafica, titulo_x_grafica,lista_double.lista, lista_string.lista);
 RESULT= "Impresion";
 :};
+
+set_graficas ::= set_graficas nueva_lista_graficas {:RESULT ="O";:}
+                |nueva_lista_graficas {:RESULT ="O";:};
+
+nueva_lista_graficas ::= asignacion_titulo:titulo {:titulo_grafica = titulo.toString(); RESULT= "VOY";:} 
+                        |eje_x:variable_x  {: variable_en_x= variable_x.toString(); RESULT= "VOY";:}
+                        |eje_y:variable_y {:variable_en_y = variable_y.toString(); RESULT= "VOY";:}
+                        |titulo_x:title_x {:titulo_x_grafica = title_x.toString();RESULT= "VOY";:}  
+                        |titulo_y:title_y {:titulo_y_grafica = title_y.toString();RESULT= "VOY";:}
+                        |label_pie:labeles {:titulo_label = labeles.toString();:}
+                        |valores_pie:valor_variable {:valor_de_pies = valor_variable.toString();:};
+
+
 
 
 
@@ -125,13 +147,13 @@ for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
 
 
 
-:} PARENTESIS_ABIERTO label_pie:labeles    valores_pie:valor_variable  asignacion_titulo:titulo  EXEC PIE END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA{:
+:} PARENTESIS_ABIERTO set_graficas  EXEC PIE END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA{:
 
 proyecto1_oc1_202010770.lista lista_double = null;
 proyecto1_oc1_202010770.lista lista_string = null;
 for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
                
-                    if(elemento.variable.equals(labeles.toString())){
+                    if(elemento.variable.equals(titulo_label)){
            
                         lista_string = elemento;
                         
@@ -141,14 +163,14 @@ for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
 
 for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
                
-                    if(elemento.variable.equals(valor_variable.toString())){
+                    if(elemento.variable.equals(valor_de_pies)){
                         
                         lista_double = elemento;
                         
                         break;
                     }
 }  
-graficals.Pie(titulo.toString(), lista_double.lista, lista_string.lista);
+graficals.Pie(titulo_grafica, lista_double.lista, lista_string.lista);
 RESULT= "AS";
 :};
 
@@ -434,7 +456,7 @@ for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
                                      break;
                                     }
                             
-                            }
+                            
                             if(operacion_estadistica.equals("mediana")){
                                     RESULT = lista.la_mediana();
                                     break;
@@ -454,6 +476,7 @@ for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
                             if(operacion_estadistica.equals("minimo")){
                                     RESULT = lista.la_minima();
                                     break;
+                                    }
                                     }
                            
                         }
