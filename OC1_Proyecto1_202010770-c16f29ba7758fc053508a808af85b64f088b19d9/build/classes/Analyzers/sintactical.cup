@@ -182,6 +182,8 @@ eje_x ::= EJE_X DOS_PUNTOS DOS_PUNTOS CADENA {:operacion_grafica= "cadena";:} IG
 eje_y ::= EJE_Y DOS_PUNTOS DOS_PUNTOS DOUBLE {:operacion_grafica= "double";:} IGUAL lista_grafica:b END PUNTO_Y_COMA {:RESULT=b;:};
 
 
+
+
 lista_grafica ::= ARROBA VARIABLE:var {:RESULT = var;:}
                |CORCHETE_ABIERTO ultima_asignacion CORCHETE_CERRADO{:
 
@@ -286,7 +288,23 @@ for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
 
 
 
-:} PARENTESIS_ABIERTO asignacion_titulo:titulo label_pie:labeles EXEC LINEA END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA{:RESULT= "AS"; System.out.println(titulo.toString()+" "+labeles);:};
+:} PARENTESIS_ABIERTO  set_graficas EXEC HISTOGRAM END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA{:
+
+
+proyecto1_oc1_202010770.lista lista_double = null;
+
+for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
+               
+                    if(elemento.variable.equals(valor_de_pies)){
+                        
+                        lista_double = elemento;
+                        
+                        break;
+                    }
+}
+graficals.createHistogram(lista_double.lista ,titulo_grafica);
+RESULT= "AS";  
+:};
 
 
 impresiones ::= CONSOLE DOS_PUNTOS DOS_PUNTOS PRINT IGUAL datos_de_impresion END PUNTO_Y_COMA {:System.out.println("");:}  

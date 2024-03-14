@@ -107,7 +107,41 @@ public static void linea(String Titulo, String TituloX, String TituloY, ArrayLis
         frame.pack();
         frame.setVisible(true);
     }
- 
+
+
+    public static void createHistogram(ArrayList<tabla_de_simbolos> values, String title ) {
+        int bins = 5;
+        HistogramDataset dataset = new HistogramDataset();
+        String xAxisLabel = ""; 
+        String yAxisLabel = "";
+        
+        double[] data = new double[values.size()];
+        for (int i = 0; i < values.size(); i++) {
+            data[i] = Double.parseDouble(values.get(i).dato.toString());
+        }
+        dataset.addSeries("Histogram", data, bins);
+
+        JFreeChart chart = ChartFactory.createHistogram(
+        title, // chart title
+        xAxisLabel, // x axis label
+        yAxisLabel, // y axis label
+        dataset, // data
+        org.jfree.chart.plot.PlotOrientation.VERTICAL, // plot orientation
+        true, // include legend
+        true, // tooltips
+        false // urls
+);
+
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame(title);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.getContentPane().add(new ChartPanel(chart));
+            frame.pack();
+            frame.setVisible(true);
+        });
+}
+    
+    
  public static void Histogram(){
     double[] value = new double[100];
      JFreeChart chart = null;

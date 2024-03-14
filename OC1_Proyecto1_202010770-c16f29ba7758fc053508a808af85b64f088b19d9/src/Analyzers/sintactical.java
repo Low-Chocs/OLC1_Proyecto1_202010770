@@ -52,7 +52,7 @@ public class sintactical extends java_cup.runtime.lr_parser {
     "\002\015\013\000\002\016\004\000\002\016\005\000\002" +
     "\017\005\000\002\017\003\000\002\012\012\000\002\013" +
     "\012\000\002\047\002\000\002\010\015\000\002\050\002" +
-    "\000\002\005\016\000\002\034\012\000\002\051\002\000" +
+    "\000\002\005\015\000\002\034\012\000\002\051\002\000" +
     "\002\034\016\000\002\036\005\000\002\036\003\000\002" +
     "\037\004\000\002\037\005\000\002\035\005\000\002\035" +
     "\003\000\002\025\015\000\002\032\020\000\002\030\003" +
@@ -72,7 +72,7 @@ public class sintactical extends java_cup.runtime.lr_parser {
   /** Parse-action table. */
   protected static final short[][] _action_table = 
     unpackFromStrings(new String[] {
-    "\000\u010f\000\006\003\004\043\000\001\002\000\004\002" +
+    "\000\u010e\000\006\003\004\043\000\001\002\000\004\002" +
     "\ufffe\001\002\000\004\043\010\001\002\000\004\002\007" +
     "\001\002\000\004\002\001\001\002\000\020\004\021\010" +
     "\024\036\026\060\023\061\030\062\017\063\015\001\002" +
@@ -301,13 +301,14 @@ public class sintactical extends java_cup.runtime.lr_parser {
     "\042\u0103\001\002\000\004\047\u0104\001\002\000\022\004" +
     "\uffd6\010\uffd6\036\uffd6\042\uffd6\060\uffd6\061\uffd6\062\uffd6" +
     "\063\uffd6\001\002\000\004\043\u0106\001\002\000\004\002" +
-    "\uffff\001\002\000\004\017\u0108\001\002\000\004\051\034" +
-    "\001\002\000\004\057\046\001\002\000\004\050\u010b\001" +
-    "\002\000\004\062\u010c\001\002\000\004\042\u010d\001\002" +
-    "\000\004\047\u010e\001\002\000\004\020\u010f\001\002\000" +
-    "\004\042\u0110\001\002\000\004\047\u0111\001\002\000\022" +
-    "\004\uffd4\010\uffd4\036\uffd4\042\uffd4\060\uffd4\061\uffd4\062" +
-    "\uffd4\063\uffd4\001\002" });
+    "\uffff\001\002\000\004\017\u0108\001\002\000\020\051\034" +
+    "\052\052\053\051\054\044\055\040\056\053\057\046\001" +
+    "\002\000\022\050\u010a\051\034\052\052\053\051\054\044" +
+    "\055\040\056\053\057\046\001\002\000\004\063\u010b\001" +
+    "\002\000\004\042\u010c\001\002\000\004\047\u010d\001\002" +
+    "\000\004\020\u010e\001\002\000\004\042\u010f\001\002\000" +
+    "\004\047\u0110\001\002\000\022\004\uffd4\010\uffd4\036\uffd4" +
+    "\042\uffd4\060\uffd4\061\uffd4\062\uffd4\063\uffd4\001\002" });
 
   /** Access to parse-action table. */
   public short[][] action_table() {return _action_table;}
@@ -315,7 +316,7 @@ public class sintactical extends java_cup.runtime.lr_parser {
   /** <code>reduce_goto</code> table. */
   protected static final short[][] _reduce_table = 
     unpackFromStrings(new String[] {
-    "\000\u010f\000\006\002\005\040\004\001\001\000\002\001" +
+    "\000\u010e\000\006\002\005\040\004\001\001\000\002\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
     "\000\026\005\013\007\011\010\012\020\024\021\010\023" +
     "\015\024\026\025\017\032\021\034\030\001\001\000\002" +
@@ -415,8 +416,10 @@ public class sintactical extends java_cup.runtime.lr_parser {
     "\036\015\034\022\035\001\001\000\002\001\001\000\002" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
-    "\000\002\001\001\000\002\001\001\000\004\022\u0108\001" +
-    "\001\000\004\011\u0109\001\001\000\002\001\001\000\002" +
+    "\000\002\001\001\000\002\001\001\000\024\003\044\004" +
+    "\u0108\006\042\011\046\012\041\013\040\014\036\015\034" +
+    "\022\035\001\001\000\022\003\224\006\042\011\046\012" +
+    "\041\013\040\014\036\015\034\022\035\001\001\000\002" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
     "" });
@@ -1166,19 +1169,29 @@ for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 45: // grafica_histograma ::= HISTOGRAM NT$8 PARENTESIS_ABIERTO asignacion_titulo label_pie EXEC LINEA END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA 
+          case 45: // grafica_histograma ::= HISTOGRAM NT$8 PARENTESIS_ABIERTO set_graficas EXEC HISTOGRAM END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA 
             {
               Object RESULT =null;
               // propagate RESULT from NT$8
-                RESULT = (Object) ((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-10)).value;
-		int tituloleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-8)).left;
-		int tituloright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-8)).right;
-		Object titulo = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-8)).value;
-		int labelesleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-7)).left;
-		int labelesright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-7)).right;
-		Object labeles = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-7)).value;
-		RESULT= "AS"; System.out.println(titulo.toString()+" "+labeles);
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("grafica_histograma",3, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-11)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
+                RESULT = (Object) ((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-9)).value;
+		
+
+
+proyecto1_oc1_202010770.lista lista_double = null;
+
+for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
+               
+                    if(elemento.variable.equals(valor_de_pies)){
+                        
+                        lista_double = elemento;
+                        
+                        break;
+                    }
+}
+graficals.createHistogram(lista_double.lista ,titulo_grafica);
+RESULT= "AS";  
+
+              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("grafica_histograma",3, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-10)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
 
