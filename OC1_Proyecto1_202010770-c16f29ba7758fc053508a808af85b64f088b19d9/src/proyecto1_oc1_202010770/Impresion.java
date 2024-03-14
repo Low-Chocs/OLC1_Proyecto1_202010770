@@ -21,9 +21,9 @@ public class Impresion {
         System.out.print(dato);
     }
     
-    public void imprimir_lista(String actual, lista lista_a_mostrar){
+    public String imprimir_lista(int actual, lista lista_a_mostrar){
 
-        lista_a_mostrar.mostrarElementos();
+        return lista_a_mostrar.obtenerElemento(actual);
     }
     
     

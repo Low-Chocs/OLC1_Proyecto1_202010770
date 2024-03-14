@@ -1,0 +1,100 @@
+<inicio> ::= PROGRAM <instruccion> END PROGRAM | error;
+
+<instruccion> ::= <lista_de_instrucciones> <instruccion>
+                | <lista_de_instrucciones>
+
+<lista_de_instrucciones> ::= <asignacion>
+                            | <lista>
+                            | <impresiones>
+                            | <graficar>
+
+
+
+<graficar> ::= <grafica_barras>
+            | <grafica_pie>
+            | <grafica_linea>
+            | <grafica_histograma>
+
+<set_graficas> ::= <set_graficas> <nueva_lista_graficas>
+                  | <nueva_lista_graficas>;
+
+<nueva_lista_graficas> ::= <asignacion_titulo> 
+                            | <eje_x>
+                            | <eje_y>
+                            | <titulo_x>
+                            | <titulo_y>
+                            | <label_pie>
+                            | <valores_pie> 
+
+
+<grafica_barras> ::= BARRAS PARENTESIS_ABIERTO <set_graficas> EXEC BARRAS END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA;
+
+<grafica_pie> ::= PIE PARENTESIS_ABIERTO <set_graficas> EXEC PIE END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA;
+
+<valores_pie> ::= VALUES DOS_PUNTOS DOS_PUNTOS DOUBLE IGUAL <lista_grafica> END PUNTO_Y_COMA;
+
+<label_pie> ::= LABEL DOS_PUNTOS DOS_PUNTOS CADENA IGUAL <lista_grafica> END PUNTO_Y_COMA;
+
+<asignacion_titulo> ::= TITULO DOS_PUNTOS DOS_PUNTOS CADENA IGUAL dato END PUNTO_Y_COMA;
+
+<eje_x> ::= EJE_X DOS_PUNTOS DOS_PUNTOS CADENA IGUAL <lista_grafica> END PUNTO_Y_COMA;
+
+<eje_y> ::= EJE_Y DOS_PUNTOS DOS_PUNTOS DOUBLE IGUAL <lista_grafica> END PUNTO_Y_COMA;
+
+<lista_grafica> ::= ARROBA VARIABLE | CORCHETE_ABIERTO <ultima_asignacion> CORCHETE_CERRADO;
+
+<ultima_asignacion> ::= <ultima_asignacion> COMMA dato | dato;
+
+<titulo_x> ::= TITULO_X DOS_PUNTOS DOS_PUNTOS CADENA IGUAL dato END PUNTO_Y_COMA;
+
+<titulo_y> ::= TITULO_Y DOS_PUNTOS DOS_PUNTOS CADENA IGUAL dato END PUNTO_Y_COMA;
+
+<grafica_linea> ::= LINEA PARENTESIS_ABIERTO <set_graficas>EXEC LINEA END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA;
+
+<grafica_histograma> ::= HISTOGRAM PARENTESIS_ABIERTO <set_graficas> EXEC LINEA END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA;
+
+<impresiones> ::= CONSOLE DOS_PUNTOS DOS_PUNTOS PRINT IGUAL datos_de_impresion END PUNTO_Y_COMA  
+               | CONSOLE DOS_PUNTOS DOS_PUNTOS  COLUMN  IGUAL dato        
+                 DIAGONAL SLASH_MAYOR impresion_de_la_lista END PUNTO_Y_COMA ;
+<datos_de_impresion> ::= <datos_de_impresion> COMMA dato
+                        | dato;
+
+<impresion_de_la_lista> ::= ARROBA VARIABLE
+                            | CORCHETE_ABIERTO <mas_listas> CORCHETE_CERRADO;
+
+<mas_listas> ::= <mas_listas> COMMA dato
+                | dato;
+
+<asignacion> ::= VAR DOS_PUNTOS tipo_de_dato DOS_PUNTOS DOS_PUNTOS VARIABLE SLASH_MENOR DIAGONAL dato END PUNTO_Y_COMA;
+
+<lista> ::= ARREGLO DOS_PUNTOS tipo_de_dato DOS_PUNTOS DOS_PUNTOS ARROBA VARIABLE SLASH_MENOR DIAGONAL CORCHETE_ABIERTO datos_de_lista CORCHETE_CERRADO;
+
+<tipo_de_dato> ::= DOUBLE
+                    | CADENA;
+
+<datos_de_lista> ::= <datos_de_lista> COMMA dato
+                    | dato;
+
+<dato> ::= CADENAS
+          | NUMERO_FLOTANTE
+          | NUMERO_ENTERO
+          | VARIABLE
+          | SUMA PARENTESIS_ABIERTO <dato> COMMA <dato> PARENTESIS_CERRADO
+          | RESTA PARENTESIS_ABIERTO <dato> COMMA <dato> PARENTESIS_CERRADO
+          | MULTIPLICACION PARENTESIS_ABIERTO <dato> COMMA <dato> PARENTESIS_CERRADO
+          | DIVISION PARENTESIS_ABIERTO <dato> COMMA <dato> PARENTESIS_CERRADO
+          | MODULO PARENTESIS_ABIERTO <dato> COMMA <dato> PARENTESIS_CERRADO
+          | MEDIA PARENTESIS_ABIERTO <listas_operaciones> PARENTESIS_CERRADO
+          | MEDIANA PARENTESIS_ABIERTO <listas_operaciones> PARENTESIS_CERRADO
+          | MODA PARENTESIS_ABIERTO <listas_operaciones> PARENTESIS_CERRADO
+          | VARIANZA PARENTESIS_ABIERTO <listas_operaciones> PARENTESIS_CERRADO
+          | MAX PARENTESIS_ABIERTO <listas_operaciones> PARENTESIS_CERRADO
+          | MIN PARENTESIS_ABIERTO <listas_operaciones> PARENTESIS_CERRADO;
+
+<listas_operaciones> ::= ARROBA VARIABLE
+                          | CORCHETE_ABIERTO <listas_operacion> CORCHETE_CERRADO;
+
+<listas_operacion> ::= <listas_operacion> COMMA <dato>
+                        | <dato>;
+
+

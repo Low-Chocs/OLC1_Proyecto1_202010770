@@ -15,7 +15,7 @@ parser code
     public proyecto1_oc1_202010770.operaciones_aritmeticas operaciones = new operaciones_aritmeticas();
     public proyecto1_oc1_202010770.Impresion impresion = new Impresion();
     public proyecto1_oc1_202010770.tabla_de_simbolos reporte_simbolos = new proyecto1_oc1_202010770.tabla_de_simbolos("hola", "hola", "hola");
-     public proyecto1_oc1_202010770.lista reporte_listas = new proyecto1_oc1_202010770.lista("hola");
+    public proyecto1_oc1_202010770.lista reporte_listas = new proyecto1_oc1_202010770.lista("hola");
     public String actual = "";
     public String datos_en_lista = "";
     public String operacion_estadistica = "";
@@ -28,6 +28,8 @@ parser code
     public String variable_en_y = "";
     public String titulo_label = "";
     public String valor_de_pies = "";
+    
+    public String consola_texto = ""; 
  
     public int num_global = 0;
     public void syntax_error(Symbol s){
@@ -52,7 +54,7 @@ non terminal inicio, nueva_lista_graficas, set_graficas, grafica_histograma, val
 start with inicio;
 
 inicio ::= {:lista_de_elementos.add(new proyecto1_oc1_202010770.lista("char_temp"));lista_de_elementos.add(new proyecto1_oc1_202010770.lista("double_temp"));:} 
-        PROGRAM instruccion END PROGRAM{:reporte_simbolos.generarReporteTablaSimbolos(tabla_simbolos); reporte_listas.generarReporteListaElementos(lista_de_elementos);:}
+        PROGRAM instruccion END PROGRAM{:reporte_simbolos.generarReporteTablaSimbolos(tabla_simbolos); reporte_listas.generarReporteListaElementos(lista_de_elementos); System.out.println(consola_texto);:}
 
         |error;
 
@@ -309,22 +311,27 @@ RESULT= "AS";
 :};
 
 
-impresiones ::= CONSOLE DOS_PUNTOS DOS_PUNTOS PRINT IGUAL datos_de_impresion END PUNTO_Y_COMA {:System.out.println("");:}  
-               |CONSOLE DOS_PUNTOS DOS_PUNTOS  COLUMN  IGUAL dato:act {:        
+impresiones ::= CONSOLE DOS_PUNTOS DOS_PUNTOS PRINT IGUAL datos_de_impresion END PUNTO_Y_COMA {:consola_texto += "\n"; System.out.println("");:}  
+               |CONSOLE DOS_PUNTOS DOS_PUNTOS  COLUMN  IGUAL dato:act {: 
+        consola_texto += "----------\n";
         System.out.println("----------");
-        System.out.println(act);
-        System.out.println("----------");:} 
+        consola_texto += act+"\n";
+        System.out.println("----------");
+        consola_texto += "----------\n";:} 
         DIAGONAL SLASH_MAYOR impresion_de_la_lista END PUNTO_Y_COMA ;
 
 
-datos_de_impresion ::= datos_de_impresion COMMA dato:dat {:impresion.imprimir(", "+dat.toString());:}
-                    | dato:dat {:impresion.imprimir(dat.toString());:};
+datos_de_impresion ::= datos_de_impresion COMMA dato:dat {:consola_texto +=", "+ dat.toString(); impresion.imprimir(", "+dat.toString());:}
+                    | dato:dat {:impresion.imprimir(dat.toString()); consola_texto += dat.toString();:};
 
 impresion_de_la_lista ::= ARROBA VARIABLE:var {:
         for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
             
             if(elemento.variable.equals(var)){
-                impresion.imprimir_lista(actual, elemento);
+                for (int i = 0; i < elemento.lista.size(); i++) {
+                consola_texto += impresion.imprimir_lista(i, elemento);
+                consola_texto += "\n";
+                }
             }        
         }:}
         | CORCHETE_ABIERTO mas_listas CORCHETE_CERRADO;

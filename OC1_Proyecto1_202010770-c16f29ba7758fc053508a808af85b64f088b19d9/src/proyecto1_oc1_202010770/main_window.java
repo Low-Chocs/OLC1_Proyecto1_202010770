@@ -40,14 +40,9 @@ public class main_window extends javax.swing.JFrame {
     }
     
     public void new_tab(){
-        //main_window window = new main_window();
-        //window.setVisible(true) ;
-        proyecto1_oc1_202010770.Graficar hola = new proyecto1_oc1_202010770.Graficar();
-        double[] datos1 = {5.4, 2.3, 1.2, 2.2,3.3};
-        String[] datos2 = {"21.0", "2.2","29", "20","21"};
-        //hola.barras("Hola", "Hola2", "kd", datos1, datos2);
-        //hola.barras("Hola", "Hola2", "kd", datos1, datos2);
-        hola.Histogram();
+        main_window window = new main_window();
+        window.setVisible(true) ;
+       
     }
    
     public static String path_proyecto = "";

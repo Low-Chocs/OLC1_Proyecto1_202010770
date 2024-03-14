@@ -35,12 +35,25 @@ public class lista {
         this.lista.add(new tabla_de_simbolos(tipo, variable, dato));
     }
 
-    public void mostrarElementos() {
+    public void mostrarElementos(String dato) {
         for (tabla_de_simbolos elemento : this.lista) {
-
+            dato += elemento.dato + "\n";
             System.out.println(elemento.dato);
         }
     }
+ public String obtenerElemento(int indice) {
+    if (indice >= 0 && indice < this.lista.size()) {
+        int contador = 0;
+        for (tabla_de_simbolos elemento : this.lista) {
+            if (contador == indice) {
+                return elemento.dato.toString();
+            }
+            contador++;
+        }
+    }
+    return ""; // o lanzar una excepción si lo prefieres
+}
+
     
      public static void generarReporteListaElementos(ArrayList<lista> listaElementos) {
         // Crear el contenido HTML del reporte

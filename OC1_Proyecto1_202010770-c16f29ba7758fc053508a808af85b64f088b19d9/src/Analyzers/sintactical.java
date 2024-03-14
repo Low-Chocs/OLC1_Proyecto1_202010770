@@ -466,7 +466,7 @@ public class sintactical extends java_cup.runtime.lr_parser {
     public proyecto1_oc1_202010770.operaciones_aritmeticas operaciones = new operaciones_aritmeticas();
     public proyecto1_oc1_202010770.Impresion impresion = new Impresion();
     public proyecto1_oc1_202010770.tabla_de_simbolos reporte_simbolos = new proyecto1_oc1_202010770.tabla_de_simbolos("hola", "hola", "hola");
-     public proyecto1_oc1_202010770.lista reporte_listas = new proyecto1_oc1_202010770.lista("hola");
+    public proyecto1_oc1_202010770.lista reporte_listas = new proyecto1_oc1_202010770.lista("hola");
     public String actual = "";
     public String datos_en_lista = "";
     public String operacion_estadistica = "";
@@ -479,6 +479,8 @@ public class sintactical extends java_cup.runtime.lr_parser {
     public String variable_en_y = "";
     public String titulo_label = "";
     public String valor_de_pies = "";
+    
+    public String consola_texto = ""; 
  
     public int num_global = 0;
     public void syntax_error(Symbol s){
@@ -544,7 +546,7 @@ lista_de_elementos.add(new proyecto1_oc1_202010770.lista("char_temp"));lista_de_
               Object RESULT =null;
               // propagate RESULT from NT$0
                 RESULT = (Object) ((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-4)).value;
-		reporte_simbolos.generarReporteTablaSimbolos(tabla_simbolos); reporte_listas.generarReporteListaElementos(lista_de_elementos);
+		reporte_simbolos.generarReporteTablaSimbolos(tabla_simbolos); reporte_listas.generarReporteListaElementos(lista_de_elementos); System.out.println(consola_texto);
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("inicio",0, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-4)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
@@ -1201,7 +1203,7 @@ RESULT= "AS";
           case 46: // impresiones ::= CONSOLE DOS_PUNTOS DOS_PUNTOS PRINT IGUAL datos_de_impresion END PUNTO_Y_COMA 
             {
               Object RESULT =null;
-		System.out.println("");
+		consola_texto += "\n"; System.out.println("");
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("impresiones",26, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-7)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
@@ -1213,10 +1215,12 @@ RESULT= "AS";
 		int actleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
 		int actright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
 		Object act = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-        
+ 
+        consola_texto += "----------\n";
         System.out.println("----------");
-        System.out.println(act);
+        consola_texto += act+"\n";
         System.out.println("----------");
+        consola_texto += "----------\n";
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("NT$9",39, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
@@ -1242,7 +1246,7 @@ RESULT= "AS";
 		int datleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
 		int datright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
 		Object dat = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-		impresion.imprimir(", "+dat.toString());
+		consola_texto +=", "+ dat.toString(); impresion.imprimir(", "+dat.toString());
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("datos_de_impresion",28, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-2)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
@@ -1254,7 +1258,7 @@ RESULT= "AS";
 		int datleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).left;
 		int datright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()).right;
 		Object dat = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.peek()).value;
-		impresion.imprimir(dat.toString());
+		impresion.imprimir(dat.toString()); consola_texto += dat.toString();
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("datos_de_impresion",28, ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
@@ -1270,7 +1274,10 @@ RESULT= "AS";
         for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
             
             if(elemento.variable.equals(var)){
-                impresion.imprimir_lista(actual, elemento);
+                for (int i = 0; i < elemento.lista.size(); i++) {
+                consola_texto += impresion.imprimir_lista(i, elemento);
+                consola_texto += "\n";
+                }
             }        
         }
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("impresion_de_la_lista",29, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-1)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
