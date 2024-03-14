@@ -813,67 +813,80 @@ public class lexical implements java_cup.runtime.Scanner {
             // fall through
           case 56: break;
           case 3: 
-            { return new Symbol(sym.DOS_PUNTOS, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.DOS_PUNTOS, yycolumn, yyline, yytext());
             } 
             // fall through
           case 57: break;
           case 4: 
-            { return new Symbol(sym.SLASH_MENOR, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.SLASH_MENOR, yycolumn, yyline, yytext());
             } 
             // fall through
           case 58: break;
           case 5: 
-            { return new Symbol(sym.SLASH_MAYOR, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.SLASH_MAYOR, yycolumn, yyline, yytext());
             } 
             // fall through
           case 59: break;
           case 6: 
-            { return new Symbol(sym.DIAGONAL, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.DIAGONAL, yycolumn, yyline, yytext());
             } 
             // fall through
           case 60: break;
           case 7: 
-            { return new Symbol(sym.PUNTO_Y_COMA, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.PUNTO_Y_COMA, yycolumn, yyline, yytext());
             } 
             // fall through
           case 61: break;
           case 8: 
-            { return new Symbol(sym.COMMA, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.COMMA, yycolumn, yyline, yytext());
             } 
             // fall through
           case 62: break;
           case 9: 
-            { return new Symbol(sym.PARENTESIS_ABIERTO, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.PARENTESIS_ABIERTO, yycolumn, yyline, yytext());
             } 
             // fall through
           case 63: break;
           case 10: 
-            { return new Symbol(sym.PARENTESIS_CERRADO, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.PARENTESIS_CERRADO, yycolumn, yyline, yytext());
             } 
             // fall through
           case 64: break;
           case 11: 
-            { return new Symbol(sym.CORCHETE_ABIERTO, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.CORCHETE_ABIERTO, yycolumn, yyline, yytext());
             } 
             // fall through
           case 65: break;
           case 12: 
-            { return new Symbol(sym.CORCHETE_CERRADO, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.CORCHETE_CERRADO, yycolumn, yyline, yytext());
             } 
             // fall through
           case 66: break;
           case 13: 
-            { return new Symbol(sym.VARIABLE, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.VARIABLE, yycolumn, yyline, yytext());
             } 
             // fall through
           case 67: break;
           case 14: 
-            { return new Symbol(sym.IGUAL, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.IGUAL, yycolumn, yyline, yytext());
             } 
             // fall through
           case 68: break;
           case 15: 
-            { return new Symbol(sym.NUMERO_ENTERO, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.NUMERO_ENTERO, yycolumn, yyline, yytext());
             } 
             // fall through
           case 69: break;
@@ -883,192 +896,229 @@ public class lexical implements java_cup.runtime.Scanner {
             // fall through
           case 70: break;
           case 17: 
-            { yytext(); return new Symbol(sym.ARROBA, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.ARROBA, yycolumn, yyline, yytext());
             } 
             // fall through
           case 71: break;
           case 18: 
-            { return new Symbol(sym.SUMA, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.SUMA, yycolumn, yyline, yytext());
             } 
             // fall through
           case 72: break;
           case 19: 
-            { return new Symbol(sym.MULTIPLICACION, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.MULTIPLICACION, yycolumn, yyline, yytext());
             } 
             // fall through
           case 73: break;
           case 20: 
-            { return new Symbol(sym.MIN, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.MIN, yycolumn, yyline, yytext());
             } 
             // fall through
           case 74: break;
           case 21: 
-            { return new Symbol(sym.MODULO, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.MODULO, yycolumn, yyline, yytext());
             } 
             // fall through
           case 75: break;
           case 22: 
-            { return new Symbol(sym.MAX, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.MAX, yycolumn, yyline, yytext());
             } 
             // fall through
           case 76: break;
           case 23: 
-            { return new Symbol(sym.RESTA, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.RESTA, yycolumn, yyline, yytext());
             } 
             // fall through
           case 77: break;
           case 24: 
-            { return new Symbol(sym.END, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.END, yycolumn, yyline, yytext());
             } 
             // fall through
           case 78: break;
           case 25: 
-            { return new Symbol(sym.DIVISION, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.DIVISION, yycolumn, yyline, yytext());
             } 
             // fall through
           case 79: break;
           case 26: 
-            { yytext(); return new Symbol(sym.VAR, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.VAR, yycolumn, yyline, yytext());
             } 
             // fall through
           case 80: break;
           case 27: 
-            { yytext(); return new Symbol(sym.ARREGLO, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext()); yytext(); return new Symbol(sym.ARREGLO, yycolumn, yyline, yytext());
             } 
             // fall through
           case 81: break;
           case 28: 
-            { return new Symbol(sym.CADENAS, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.CADENAS, yycolumn, yyline, yytext());
             } 
             // fall through
           case 82: break;
           case 29: 
-            { return new Symbol(sym.NUMERO_FLOTANTE, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.NUMERO_FLOTANTE, yycolumn, yyline, yytext());
             } 
             // fall through
           case 83: break;
           case 30: 
-            { return new Symbol(sym.MODA, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.MODA, yycolumn, yyline, yytext());
             } 
             // fall through
           case 84: break;
           case 31: 
-            { yytext(); return new Symbol(sym.EXEC, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.EXEC, yycolumn, yyline, yytext());
             } 
             // fall through
           case 85: break;
           case 32: 
-            { yytext(); return new Symbol(sym.EJE_X, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.EJE_X, yycolumn, yyline, yytext());
             } 
             // fall through
           case 86: break;
           case 33: 
-            { yytext(); return new Symbol(sym.EJE_Y, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.EJE_Y, yycolumn, yyline, yytext());
             } 
             // fall through
           case 87: break;
           case 34: 
-            { return new Symbol(sym.MEDIA, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.MEDIA, yycolumn, yyline, yytext());
             } 
             // fall through
           case 88: break;
           case 35: 
-            { yytext(); return new Symbol(sym.LABEL, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.LABEL, yycolumn, yyline, yytext());
             } 
             // fall through
           case 89: break;
           case 36: 
-            { return new Symbol(sym.PRINT, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.PRINT, yycolumn, yyline, yytext());
             } 
             // fall through
           case 90: break;
           case 37: 
-            { yytext(); return new Symbol(sym.DOUBLE, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.DOUBLE, yycolumn, yyline, yytext());
             } 
             // fall through
           case 91: break;
           case 38: 
-            { yytext(); return new Symbol(sym.VALUES, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.VALUES, yycolumn, yyline, yytext());
             } 
             // fall through
           case 92: break;
           case 39: 
-            { yytext(); return new Symbol(sym.TITULO, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.TITULO, yycolumn, yyline, yytext());
             } 
             // fall through
           case 93: break;
           case 40: 
-            { return new Symbol(sym.COLUMN, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.COLUMN, yycolumn, yyline, yytext());
             } 
             // fall through
           case 94: break;
           case 41: 
-            { yytext(); return new Symbol(sym.CADENA, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.CADENA, yycolumn, yyline, yytext());
             } 
             // fall through
           case 95: break;
           case 42: 
-            { return new Symbol(sym.MEDIANA, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.MEDIANA, yycolumn, yyline, yytext());
             } 
             // fall through
           case 96: break;
           case 43: 
-            { yytext(); return new Symbol(sym.PIE_2, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.PIE_2, yycolumn, yyline, yytext());
             } 
             // fall through
           case 97: break;
           case 44: 
-            { yytext(); return new Symbol(sym.BARRAS_2, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.BARRAS_2, yycolumn, yyline, yytext());
             } 
             // fall through
           case 98: break;
           case 45: 
-            { return new Symbol(sym.PROGRAM, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.PROGRAM, yycolumn, yyline, yytext());
             } 
             // fall through
           case 99: break;
           case 46: 
-            { yytext(); return new Symbol(sym.TITULO_X, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.TITULO_X, yycolumn, yyline, yytext());
             } 
             // fall through
           case 100: break;
           case 47: 
-            { yytext(); return new Symbol(sym.TITULO_Y, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.TITULO_Y, yycolumn, yyline, yytext());
             } 
             // fall through
           case 101: break;
           case 48: 
-            { return new Symbol(sym.CONSOLE, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.CONSOLE, yycolumn, yyline, yytext());
             } 
             // fall through
           case 102: break;
           case 49: 
-            { return new Symbol(sym.VARIANZA, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.VARIANZA, yycolumn, yyline, yytext());
             } 
             // fall through
           case 103: break;
           case 50: 
-            { yytext(); return new Symbol(sym.LINEA_2, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.LINEA_2, yycolumn, yyline, yytext());
             } 
             // fall through
           case 104: break;
           case 51: 
-            { yytext(); return new Symbol(sym.PIE, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.PIE, yycolumn, yyline, yytext());
             } 
             // fall through
           case 105: break;
           case 52: 
-            { yytext(); return new Symbol(sym.BARRAS, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.BARRAS, yycolumn, yyline, yytext());
             } 
             // fall through
           case 106: break;
           case 53: 
-            { yytext(); return new Symbol(sym.LINEA, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.LINEA, yycolumn, yyline, yytext());
             } 
             // fall through
           case 107: break;
           case 54: 
-            { yytext(); return new Symbol(sym.HISTOGRAM, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext());
+    return new Symbol(sym.HISTOGRAM, yycolumn, yyline, yytext());
             } 
             // fall through
           case 108: break;

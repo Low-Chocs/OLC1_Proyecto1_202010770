@@ -11,10 +11,12 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import proyecto1_oc1_202010770.Graficar;
+import Analyzers.Token;
 
 
 /**
@@ -26,9 +28,11 @@ public class main_window extends javax.swing.JFrame {
     /**
      * Creates new form main_window
      */
+    
     public String texto_de_consola = "";
     public main_window() {
         initComponents();
+        
         this.texto_de_consola = "";
         
         

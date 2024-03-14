@@ -465,6 +465,8 @@ public class sintactical extends java_cup.runtime.lr_parser {
     public ArrayList<proyecto1_oc1_202010770.lista> lista_de_elementos = new ArrayList<>();
     public proyecto1_oc1_202010770.operaciones_aritmeticas operaciones = new operaciones_aritmeticas();
     public proyecto1_oc1_202010770.Impresion impresion = new Impresion();
+    public proyecto1_oc1_202010770.tabla_de_simbolos reporte_simbolos = new proyecto1_oc1_202010770.tabla_de_simbolos("hola", "hola", "hola");
+     public proyecto1_oc1_202010770.lista reporte_listas = new proyecto1_oc1_202010770.lista("hola");
     public String actual = "";
     public String datos_en_lista = "";
     public String operacion_estadistica = "";
@@ -542,7 +544,7 @@ lista_de_elementos.add(new proyecto1_oc1_202010770.lista("char_temp"));lista_de_
               Object RESULT =null;
               // propagate RESULT from NT$0
                 RESULT = (Object) ((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-4)).value;
-		RESULT="Se pudo!";
+		reporte_simbolos.generarReporteTablaSimbolos(tabla_simbolos); reporte_listas.generarReporteListaElementos(lista_de_elementos);
               CUP$sintactical$result = parser.getSymbolFactory().newSymbol("inicio",0, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-4)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;

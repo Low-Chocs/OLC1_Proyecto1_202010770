@@ -933,7 +933,7 @@ public class lexical implements java_cup.runtime.Scanner {
             // fall through
           case 80: break;
           case 27: 
-            { yytext(); return new Symbol(sym.ARREGLO, yycolumn, yyline, yytext());
+            { System.out.println("Número de línea: " + yyline + ", Número de columna: " + yycolumn + ", Lexema: " + yytext()); yytext(); return new Symbol(sym.ARREGLO, yycolumn, yyline, yytext());
             } 
             // fall through
           case 81: break;

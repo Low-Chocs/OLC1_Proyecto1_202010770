@@ -11,7 +11,7 @@ import proyecto1_oc1_202010770.main_window;
  * @author Luisi
  */
 public class Proyecto1_OC1_202010770 {
-    
+    public String texto ="";
     /**
      * @param args the command line arguments
      */
