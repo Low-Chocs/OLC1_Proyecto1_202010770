@@ -57,13 +57,17 @@ public class Graficar extends JFrame {
         frame.setVisible(true);
     }
 
-public static void linea(String Titulo, String TituloX, String TituloY,double valores[],String ejex []){
+public static void linea(String Titulo, String TituloX, String TituloY, ArrayList<tabla_de_simbolos> lista_float,ArrayList<tabla_de_simbolos> lista_string){
         //Ingreso de datos
+    //String Titulo, String TituloX, String TituloY, ArrayList<tabla_de_simbolos> lista_float,ArrayList<tabla_de_simbolos> lista_string
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
     
         
-        for(int i = 0; i < 5; i++){
-            dataset.addValue(valores[i], "Valor", ejex[i]);
+     
+        for (int i = 0; i < lista_float.size(); i++) {
+            
+            
+            dataset.addValue(Double.parseDouble(lista_string.get(i).dato.toString()), "Valor", lista_float.get(i).dato.toString());
         }
         
         // Creación de gráfica

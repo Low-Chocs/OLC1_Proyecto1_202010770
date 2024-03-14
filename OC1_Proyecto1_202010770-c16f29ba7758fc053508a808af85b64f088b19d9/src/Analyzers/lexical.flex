@@ -65,6 +65,11 @@ BARRAS = graphbar
 PIE = graphpie
 LINEA = graphline
 HISTOGRAM = histogram
+BARRAS_2 = grapbar
+PIE_2 = grappie
+LINEA_2 = grapline
+
+
 
 CONSOLE = console 
 PRINT = print
@@ -131,6 +136,9 @@ ARROBA = "@"
 <YYINITIAL> {BARRAS} { yytext(); return new Symbol(sym.BARRAS, yycolumn, yyline, yytext()); }
 <YYINITIAL> {PIE} { yytext(); return new Symbol(sym.PIE, yycolumn, yyline, yytext()); }
 <YYINITIAL> {LINEA} { yytext(); return new Symbol(sym.LINEA, yycolumn, yyline, yytext()); }
+<YYINITIAL> {BARRAS_2} { yytext(); return new Symbol(sym.BARRAS_2, yycolumn, yyline, yytext()); }
+<YYINITIAL> {PIE_2} { yytext(); return new Symbol(sym.PIE_2, yycolumn, yyline, yytext()); }
+<YYINITIAL> {LINEA_2} { yytext(); return new Symbol(sym.LINEA_2, yycolumn, yyline, yytext()); }
 <YYINITIAL> {HISTOGRAM} { yytext(); return new Symbol(sym.HISTOGRAM, yycolumn, yyline, yytext()); }
 
 <YYINITIAL> {DOS_PUNTOS} { return new Symbol(sym.DOS_PUNTOS, yycolumn, yyline, yytext()); }

@@ -34,6 +34,7 @@ public class sym {
   public static final int ARREGLO = 6;
   public static final int error = 1;
   public static final int PROGRAM = 33;
+  public static final int PIE_2 = 52;
   public static final int CADENA = 5;
   public static final int VALUES = 44;
   public static final int EJE_Y = 41;
@@ -41,6 +42,8 @@ public class sym {
   public static final int EJE_X = 40;
   public static final int MODA = 24;
   public static final int VARIABLE = 3;
+  public static final int BARRAS_2 = 50;
+  public static final int LINEA_2 = 51;
   public static final int VARIANZA = 25;
   public static final int END = 32;
   public static final int PARENTESIS_CERRADO = 14;
@@ -108,7 +111,10 @@ public class sym {
   "BARRAS",
   "PIE",
   "LINEA",
-  "HISTOGRAM"
+  "HISTOGRAM",
+  "BARRAS_2",
+  "LINEA_2",
+  "PIE_2"
   };
 }
 

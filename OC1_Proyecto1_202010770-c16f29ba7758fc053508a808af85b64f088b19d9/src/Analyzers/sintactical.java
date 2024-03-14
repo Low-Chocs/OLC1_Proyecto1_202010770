@@ -51,7 +51,7 @@ public class sintactical extends java_cup.runtime.lr_parser {
     "\000\002\045\002\000\002\014\013\000\002\046\002\000" +
     "\002\015\013\000\002\016\004\000\002\016\005\000\002" +
     "\017\005\000\002\017\003\000\002\012\012\000\002\013" +
-    "\012\000\002\047\002\000\002\010\021\000\002\050\002" +
+    "\012\000\002\047\002\000\002\010\015\000\002\050\002" +
     "\000\002\005\016\000\002\034\012\000\002\051\002\000" +
     "\002\034\016\000\002\036\005\000\002\036\003\000\002" +
     "\037\004\000\002\037\005\000\002\035\005\000\002\035" +
@@ -72,7 +72,7 @@ public class sintactical extends java_cup.runtime.lr_parser {
   /** Parse-action table. */
   protected static final short[][] _action_table = 
     unpackFromStrings(new String[] {
-    "\000\u0113\000\006\003\004\043\000\001\002\000\004\002" +
+    "\000\u010f\000\006\003\004\043\000\001\002\000\004\002" +
     "\ufffe\001\002\000\004\043\010\001\002\000\004\002\007" +
     "\001\002\000\004\002\001\001\002\000\020\004\021\010" +
     "\024\036\026\060\023\061\030\062\017\063\015\001\002" +
@@ -82,7 +82,7 @@ public class sintactical extends java_cup.runtime.lr_parser {
     "\002\000\022\004\ufff5\010\ufff5\036\ufff5\042\ufff5\060\ufff5" +
     "\061\ufff5\062\ufff5\063\ufff5\001\002\000\022\004\ufff4\010" +
     "\ufff4\036\ufff4\042\ufff4\060\ufff4\061\ufff4\062\ufff4\063\ufff4" +
-    "\001\002\000\004\017\uffd5\001\002\000\004\042\u0109\001" +
+    "\001\002\000\004\017\uffd5\001\002\000\004\042\u0105\001" +
     "\002\000\004\017\uffd7\001\002\000\022\004\ufffb\010\ufffb" +
     "\036\ufffb\042\ufffb\060\ufffb\061\ufffb\062\ufffb\063\ufffb\001" +
     "\002\000\004\012\361\001\002\000\022\004\ufffa\010\ufffa" +
@@ -205,7 +205,7 @@ public class sintactical extends java_cup.runtime.lr_parser {
     "\040\220\001\002\000\006\011\062\021\061\001\002\000" +
     "\004\042\222\001\002\000\004\047\223\001\002\000\022" +
     "\050\uffde\051\uffde\052\uffde\053\uffde\054\uffde\055\uffde\056" +
-    "\uffde\057\uffde\001\002\000\004\061\226\001\002\000\022" +
+    "\uffde\057\uffde\001\002\000\004\066\226\001\002\000\022" +
     "\050\ufff1\051\ufff1\052\ufff1\053\ufff1\054\ufff1\055\ufff1\056" +
     "\ufff1\057\ufff1\001\002\000\004\042\227\001\002\000\004" +
     "\047\230\001\002\000\004\020\231\001\002\000\004\042" +
@@ -280,7 +280,7 @@ public class sintactical extends java_cup.runtime.lr_parser {
     "\004\017\350\001\002\000\020\051\034\052\052\053\051" +
     "\054\044\055\040\056\053\057\046\001\002\000\022\050" +
     "\352\051\034\052\052\053\051\054\044\055\040\056\053" +
-    "\057\046\001\002\000\004\060\353\001\002\000\004\042" +
+    "\057\046\001\002\000\004\064\353\001\002\000\004\042" +
     "\354\001\002\000\004\047\355\001\002\000\004\020\356" +
     "\001\002\000\004\042\357\001\002\000\004\047\360\001" +
     "\002\000\022\004\ufff2\010\ufff2\036\ufff2\042\ufff2\060\ufff2" +
@@ -293,21 +293,21 @@ public class sintactical extends java_cup.runtime.lr_parser {
     "\001\002\000\004\042\371\001\002\000\004\047\372\001" +
     "\002\000\022\004\uffca\010\uffca\036\uffca\042\uffca\060\uffca" +
     "\061\uffca\062\uffca\063\uffca\001\002\000\004\017\374\001" +
-    "\002\000\004\051\034\001\002\000\004\052\052\001\002" +
-    "\000\004\053\051\001\002\000\004\054\044\001\002\000" +
-    "\004\055\040\001\002\000\004\050\u0102\001\002\000\004" +
-    "\062\u0103\001\002\000\004\042\u0104\001\002\000\004\047" +
-    "\u0105\001\002\000\004\020\u0106\001\002\000\004\042\u0107" +
-    "\001\002\000\004\047\u0108\001\002\000\022\004\uffd6\010" +
-    "\uffd6\036\uffd6\042\uffd6\060\uffd6\061\uffd6\062\uffd6\063\uffd6" +
-    "\001\002\000\004\043\u010a\001\002\000\004\002\uffff\001" +
-    "\002\000\004\017\u010c\001\002\000\004\051\034\001\002" +
-    "\000\004\057\046\001\002\000\004\050\u010f\001\002\000" +
-    "\004\062\u0110\001\002\000\004\042\u0111\001\002\000\004" +
-    "\047\u0112\001\002\000\004\020\u0113\001\002\000\004\042" +
-    "\u0114\001\002\000\004\047\u0115\001\002\000\022\004\uffd4" +
-    "\010\uffd4\036\uffd4\042\uffd4\060\uffd4\061\uffd4\062\uffd4\063" +
-    "\uffd4\001\002" });
+    "\002\000\020\051\034\052\052\053\051\054\044\055\040" +
+    "\056\053\057\046\001\002\000\022\050\376\051\034\052" +
+    "\052\053\051\054\044\055\040\056\053\057\046\001\002" +
+    "\000\004\065\377\001\002\000\004\042\u0100\001\002\000" +
+    "\004\047\u0101\001\002\000\004\020\u0102\001\002\000\004" +
+    "\042\u0103\001\002\000\004\047\u0104\001\002\000\022\004" +
+    "\uffd6\010\uffd6\036\uffd6\042\uffd6\060\uffd6\061\uffd6\062\uffd6" +
+    "\063\uffd6\001\002\000\004\043\u0106\001\002\000\004\002" +
+    "\uffff\001\002\000\004\017\u0108\001\002\000\004\051\034" +
+    "\001\002\000\004\057\046\001\002\000\004\050\u010b\001" +
+    "\002\000\004\062\u010c\001\002\000\004\042\u010d\001\002" +
+    "\000\004\047\u010e\001\002\000\004\020\u010f\001\002\000" +
+    "\004\042\u0110\001\002\000\004\047\u0111\001\002\000\022" +
+    "\004\uffd4\010\uffd4\036\uffd4\042\uffd4\060\uffd4\061\uffd4\062" +
+    "\uffd4\063\uffd4\001\002" });
 
   /** Access to parse-action table. */
   public short[][] action_table() {return _action_table;}
@@ -315,12 +315,12 @@ public class sintactical extends java_cup.runtime.lr_parser {
   /** <code>reduce_goto</code> table. */
   protected static final short[][] _reduce_table = 
     unpackFromStrings(new String[] {
-    "\000\u0113\000\006\002\005\040\004\001\001\000\002\001" +
+    "\000\u010f\000\006\002\005\040\004\001\001\000\002\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
     "\000\026\005\013\007\011\010\012\020\024\021\010\023" +
     "\015\024\026\025\017\032\021\034\030\001\001\000\002" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
-    "\001\000\004\050\u010a\001\001\000\002\001\001\000\004" +
+    "\001\000\004\050\u0106\001\001\000\002\001\001\000\004" +
     "\047\372\001\001\000\002\001\001\000\002\001\001\000" +
     "\002\001\001\000\004\041\346\001\001\000\002\001\001" +
     "\000\002\001\001\000\002\001\001\000\026\005\013\007" +
@@ -409,16 +409,17 @@ public class sintactical extends java_cup.runtime.lr_parser {
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
     "\000\002\001\001\000\002\001\001\000\004\031\367\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
-    "\000\002\001\001\000\004\022\374\001\001\000\004\014" +
-    "\375\001\001\000\004\015\376\001\001\000\004\012\377" +
-    "\001\001\000\004\013\u0100\001\001\000\002\001\001\000" +
-    "\002\001\001\000\002\001\001\000\002\001\001\000\002" +
+    "\000\002\001\001\000\024\003\044\004\374\006\042\011" +
+    "\046\012\041\013\040\014\036\015\034\022\035\001\001" +
+    "\000\022\003\224\006\042\011\046\012\041\013\040\014" +
+    "\036\015\034\022\035\001\001\000\002\001\001\000\002" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
-    "\000\004\022\u010c\001\001\000\004\011\u010d\001\001\000" +
-    "\002\001\001\000\002\001\001\000\002\001\001\000\002" +
+    "\000\002\001\001\000\002\001\001\000\004\022\u0108\001" +
+    "\001\000\004\011\u0109\001\001\000\002\001\001\000\002" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
-    "\001\000\002\001\001" });
+    "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
+    "" });
 
   /** Access to <code>reduce_goto</code> table. */
   public short[][] reduce_table() {return _reduce_table;}
@@ -667,7 +668,7 @@ for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 15: // grafica_barras ::= BARRAS NT$1 PARENTESIS_ABIERTO set_graficas EXEC BARRAS END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA 
+          case 15: // grafica_barras ::= BARRAS NT$1 PARENTESIS_ABIERTO set_graficas EXEC BARRAS_2 END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA 
             {
               Object RESULT =null;
               // propagate RESULT from NT$1
@@ -836,7 +837,7 @@ for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 26: // grafica_pie ::= PIE NT$2 PARENTESIS_ABIERTO set_graficas EXEC PIE END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA 
+          case 26: // grafica_pie ::= PIE NT$2 PARENTESIS_ABIERTO set_graficas EXEC PIE_2 END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA 
             {
               Object RESULT =null;
               // propagate RESULT from NT$2
@@ -1105,28 +1106,38 @@ for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
           return CUP$sintactical$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 43: // grafica_linea ::= LINEA NT$7 PARENTESIS_ABIERTO asignacion_titulo eje_x eje_y titulo_x titulo_y EXEC LINEA END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA 
+          case 43: // grafica_linea ::= LINEA NT$7 PARENTESIS_ABIERTO set_graficas EXEC LINEA_2 END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA 
             {
               Object RESULT =null;
               // propagate RESULT from NT$7
-                RESULT = (Object) ((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-13)).value;
-		int tituloleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-11)).left;
-		int tituloright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-11)).right;
-		Object titulo = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-11)).value;
-		int variable_xleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-10)).left;
-		int variable_xright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-10)).right;
-		Object variable_x = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-10)).value;
-		int variable_yleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-9)).left;
-		int variable_yright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-9)).right;
-		Object variable_y = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-9)).value;
-		int title_xleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-8)).left;
-		int title_xright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-8)).right;
-		Object title_x = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-8)).value;
-		int title_yleft = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-7)).left;
-		int title_yright = ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-7)).right;
-		Object title_y = (Object)((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-7)).value;
-		RESULT= "AS"; System.out.println(titulo.toString()+" "+variable_x +" "+variable_y+" " +title_x +" "+title_y);
-              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("grafica_linea",6, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-14)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
+                RESULT = (Object) ((java_cup.runtime.Symbol) CUP$sintactical$stack.elementAt(CUP$sintactical$top-9)).value;
+		
+
+proyecto1_oc1_202010770.lista lista_double = null;
+proyecto1_oc1_202010770.lista lista_string = null;
+for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
+               
+                    if(elemento.variable.equals(variable_en_y)){
+           
+                        lista_string = elemento;
+                        
+                        break;
+                    }
+}  
+
+for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
+               
+                    if(elemento.variable.equals(variable_en_x)){
+                        
+                        lista_double = elemento;
+                        
+                        break;
+                    }
+}  
+graficals.linea(titulo_grafica,titulo_x_grafica, titulo_y_grafica, lista_double.lista, lista_string.lista);
+RESULT= "AS";
+
+              CUP$sintactical$result = parser.getSymbolFactory().newSymbol("grafica_linea",6, ((java_cup.runtime.Symbol)CUP$sintactical$stack.elementAt(CUP$sintactical$top-10)), ((java_cup.runtime.Symbol)CUP$sintactical$stack.peek()), RESULT);
             }
           return CUP$sintactical$result;
 

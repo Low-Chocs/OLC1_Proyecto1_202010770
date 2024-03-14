@@ -42,7 +42,7 @@ terminal String VAR, VARIABLE, DOUBLE, CADENA, ARREGLO, ARROBA;
 terminal String DOS_PUNTOS, SLASH_MENOR, SLASH_MAYOR, DIAGONAL, COMMA, PARENTESIS_ABIERTO, PARENTESIS_CERRADO, CORCHETE_ABIERTO, CORCHETE_CERRADO;
 terminal String SUMA, RESTA, MULTIPLICACION, DIVISION, MODULO, MEDIA, MEDIANA, MODA, VARIANZA, MAX, MIN; 
 terminal String CONSOLE, PRINT, IGUAL, COLUMN, END, PROGRAM, CADENAS, NUMERO_FLOTANTE, NUMERO_ENTERO, PUNTO_Y_COMA;
-terminal String EXEC, TITULO, EJE_X, EJE_Y, TITULO_X, TITULO_Y, VALUES, LABEL, BARRAS, PIE, LINEA, HISTOGRAM;
+terminal String EXEC, TITULO, EJE_X, EJE_Y, TITULO_X, TITULO_Y, VALUES, LABEL, BARRAS, PIE, LINEA, HISTOGRAM, BARRAS_2, LINEA_2, PIE_2;
 
 non terminal inicio, nueva_lista_graficas, set_graficas, grafica_histograma, valores_pie,grafica_pie, grafica_linea, label_pie, titulo_x,titulo_y, eje_x, eje_y, lista_grafica,ultima_asignacion, graficar, grafica_barras, asignacion_titulo, instruccion, lista_de_instrucciones, asignacion, listas_operacion, listas_operaciones, tipo_de_dato, dato, lista, datos_de_lista, impresiones, mas_listas, datos_de_impresion ,impresion_de_la_lista;
 
@@ -85,7 +85,7 @@ for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
 
 
 
-:} PARENTESIS_ABIERTO set_graficas:var  EXEC BARRAS END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA{:
+:} PARENTESIS_ABIERTO set_graficas:var  EXEC BARRAS_2 END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA{:
 
 proyecto1_oc1_202010770.lista lista_double = null;
 for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
@@ -147,7 +147,7 @@ for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
 
 
 
-:} PARENTESIS_ABIERTO set_graficas  EXEC PIE END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA{:
+:} PARENTESIS_ABIERTO set_graficas  EXEC PIE_2 END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA{:
 
 proyecto1_oc1_202010770.lista lista_double = null;
 proyecto1_oc1_202010770.lista lista_string = null;
@@ -242,7 +242,32 @@ for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
 
 
 
-:} PARENTESIS_ABIERTO asignacion_titulo:titulo eje_x:variable_x eje_y:variable_y titulo_x:title_x titulo_y:title_y EXEC LINEA END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA{:RESULT= "AS"; System.out.println(titulo.toString()+" "+variable_x +" "+variable_y+" " +title_x +" "+title_y);:};
+:} PARENTESIS_ABIERTO set_graficas EXEC LINEA_2 END PUNTO_Y_COMA PARENTESIS_CERRADO END PUNTO_Y_COMA{:
+
+proyecto1_oc1_202010770.lista lista_double = null;
+proyecto1_oc1_202010770.lista lista_string = null;
+for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
+               
+                    if(elemento.variable.equals(variable_en_y)){
+           
+                        lista_string = elemento;
+                        
+                        break;
+                    }
+}  
+
+for (proyecto1_oc1_202010770.lista elemento : lista_de_elementos) {
+               
+                    if(elemento.variable.equals(variable_en_x)){
+                        
+                        lista_double = elemento;
+                        
+                        break;
+                    }
+}  
+graficals.linea(titulo_grafica,titulo_x_grafica, titulo_y_grafica, lista_double.lista, lista_string.lista);
+RESULT= "AS";
+:};
 
 
 
